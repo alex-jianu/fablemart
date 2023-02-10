@@ -17,8 +17,9 @@ const PostsController = {
   Create: (req, res) => {
     const post = new Post(req.body);
     post.author = req.session.user.username;
+    post.message = post.message.trim();
 
-    if (post.message.trim() === "") {
+    if (post.message === "") {
       res.redirect("/posts/new");
     } else {
       post.save((err) => {
