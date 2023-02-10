@@ -1,3 +1,5 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable quotes */
 const User = require("../models/user");
 
@@ -6,8 +8,12 @@ const UsersController = {
     res.render("users/new", {});
   },
 
-  Create: (req, res) => {
+  Create: async (req, res) => {
     const user = new User(req.body);
+
+    // const allUsersArray = await User.find({});
+
+    // console.log(allUsersArray);
 
     User.findOne({ email: user.email }).then((userByEmail) => {
       if (!userByEmail) {
