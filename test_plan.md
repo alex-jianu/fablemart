@@ -16,6 +16,7 @@ We will only be testing the following functionality;
 8. Add and edit friends to list
 9. User’s name and little photo next to post
 10. Upload a photo in the form of a post
+
 ## Test Environments
 Tests will be performed using:
 * Chromium engine 109
@@ -24,6 +25,7 @@ Tests will be performed using:
 * Automated testing performed with Playwright 1.28
 * IntelliJ CE 2022.3.1
 * JUnit 5.8.1
+
 ## Features To Be Tested
 For each of the popular frameworks, we want to verify the following features:
 1. Sign Up
@@ -76,6 +78,74 @@ page for the project. The tester should assign one of the following priorities:
 * **3 - Low:** Can be addressed post-deployment
 The list of defects will be reviewed on submission by the Development Team.
 Product Owner will receive a daily update of outstanding and resolved number of defects.
+
+## Automated testing workflow
+We implemented a github actions workflow to automatically run the end to end cypress tests and unit tests on every push.
+We initially had some issues due to setting the wait-on function to port 3000 when our test server was running on port 3030. Following this issue the next error was for a missing cypress configuration file which we resolved by generating a simple file which defined the javascript framework the project is using. Finally the configuration file didn't define a base URL which meant the cy.visit function was looking through the directory for files rather than the routes on the localhost server. This was resolved by setting the baseURL for the end to end tests in the config file.
+
+## Exploratory testing - initial phase
+High character limit
+Password, username, email field validators not working
+Only works on test server - test server has access to database, normal does not
+
+  * Routes in files aren't clear what pages exist
+    - in the cypress integration files the routes are displayed
+  * Can create a new user using existing login information but it doesnt overide the previous details and the new login doesnt work.
+    - There should be an error message when siging up with existing information and it keeps you on the same page.
+  * User new and sessions new look identical and the only way to distinguish whether youre on the right page is by checking the URL.
+  * Account can be created with a blank username and password, there is now a acc user “ “ and password “ “
+    - There should be an error message when siging up with existing information and it keeps you on the same page. There should be validator checks for each of the forms i.e. unique username and email with a password of a sufficient length (maybe with a character limit as well).
+  * Home route page has a log out button implying youre logged in which might not be right (maybe remove the button from that page entirely).
+    - Should have links to both log in page (sessions new) and sign up page (users new)
+  * Sometimes creating new user on users new automatically logs in when submitting
+    - unsure how to replicate
+  * Email validation allows " " but if you use characters then it allowed "a@a" minimum character before and after.
+  * Password can be a small as 1 character " " or "abc" no validation checks yet.
+  * You can make a post with no content, there should be some validation for post creation.
+
+### Security and accessibility testing
+ ## ZAP test
+  --- 
+  * Absence of Anti-CSRF Tokens
+    - Tokens are used to validate their requests and the users
+    - Attackers can fake request without validation from the Anti-CSRF Tokens
+  * Content Security Policy (CSP) Header Not Set
+    - CSP adds security to detect and prevent attacks such as cross site scripting and data injection which could be used to trick sites to deliver malicous content
+  * Missing Anti-clickjacking Header
+    - It can replicate a false page mimicing your site
+  * Cookie without SameSite Attribute
+    - Cookies can be sent and request cookie information
+  * Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s)
+    - X-Powered-by headers = Shares information of how website runs and users with malicious intent can find vulnerabilities (because your techstack is visible)
+  * X-Content-Type-Options Header Missing
+    - Mime Sniffing (Ask Paul)
+    Vulnerable to XXS (Cross site scripting attack)
+  * Loosely Scoped Cookie
+    - Cookies haven't been configured properly
+## Lighthouse tests
+---
+  - Main two issues shown in the lighthouse report for all the pages
+    * Accessibility - HTML does not contain a default language for the page (screen readers need this to read the page correctly for people with vision impairment)
+    * Accessibility - HTML does not have a title for the page
+
+## Tests with new site
+---
+- ( + ) Validation in place doesn’t let user, email, pw be empty (minimum char)
+- ( - ) Same username can’t be created on sign up, however if same username has 1 capital letter it can be created (still a dupe)
+- ( - ) Email validation exists however doesn’t support capital letters, won’t let you sign up
+- ( - ) Password validation only takes min 8 char (doesn’t take into acc numbers, capital letter or special char
+- ( + ) Password validation specifies how many char you’ve entered i.e. “5 char entered”
+- ( - ) When existing user/email exists or unable to create new user, it just refreshes the page > should have a prompt msg pop up stating “existing user/email already in use” rather than reload same users/new page
+- ( - ) Empty posts can still be posted
+- ( - ) No char limit on posts, was able to post 50,773 char / 9,158 words
+- ( + ) Special char supported
+- ( + ) Emoji’s supported
+- ( - ) White bar appears on right hand side of /posts page 
+- ( - ) Picture next to username is distorted 
+
+## Accessibility (Lighthouse)
+- ( - ) Make sure to specify language for accessibility on all pages
+- ( - ) Accessibility colour on login page was the only one that’s got a contrast issue
 
 ## Entry Criteria
 Testing will commence when:

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Optima", sans-serif;
+}
+body {
+  background-color: #edf2f4;
+  color: #2b2d42;
+}
+
+header {
+  display: flex;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 50px;
+  background-color: #2b2d42;
+  color: #edf2f4;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 2%;
+  background-color: #2b2d42;
+  color: #edf2f4;
+  text-align: center;
+}
+
+#leftbox {
+  background: #edf2f4;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#rightbox {
+  background: #8d99ae;
+  width: 40%;
+  align-self: right;
+  padding: 10px;
+  border-radius: 10px;
+}
+h1 {
+  color: #2b2d42;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 300%;
+}
+p {
+  color: #2b2d42;
+  text-align: center;
+  padding: 0;
+  font-style: italic;
+}
+
+div.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+
+/* style inputs buttons */
+input,
+.btn {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+/* style the submit button */
+input[type="submit"] {
+  background-color: #edf2f4;
+  color: #8d99ae;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #2b2d42;
+  color: #edf2f4;
+}
+
+.col {
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+  padding-left: 50%;
+  padding-right: 50%;
+}
+
+span {
+  align-self: center;
+  display: flex;
+}
+
+span.site_logo {
+  padding: 0%;
+  color: #edf2f4;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
