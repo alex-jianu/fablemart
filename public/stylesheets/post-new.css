@@ -24,6 +24,8 @@ header {
   color: #edf2f4;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 footer {
@@ -55,12 +57,9 @@ div.new-post {
   padding: 3%;
   background-color: #8d99ae;
   width: 400px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  transform: translate(-50%, -50%);
   text-align: center;
 }
 

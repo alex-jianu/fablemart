@@ -17,13 +17,18 @@ const PostsController = {
   Create: (req, res) => {
     const post = new Post(req.body);
     post.author = req.session.user.username;
-    post.save((err) => {
-      if (err) {
-        throw err;
-      }
 
-      res.status(201).redirect("/posts");
-    });
+    if (post.message.trim() === "") {
+      res.redirect("/posts/new");
+    } else {
+      post.save((err) => {
+        if (err) {
+          throw err;
+        }
+
+        res.status(201).redirect("/posts");
+      });
+    }
   },
 };
 
