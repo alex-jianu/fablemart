@@ -64,9 +64,9 @@
                                 <span>
                                     <form action="/posts/{{this._id}}/like?_method=PATCH" method="POST">
                                         {{#if this.isLiked}}
-                                            <input type="submit" value="Unlike">
+                                            <input class="logout" type="submit" value="Unlike">
                                         {{else}}
-                                            <input type="submit" value="Like">
+                                            <input class="logout" type="submit" value="Like">
                                         {{/if}}
                                     </form>
                                     <i class="material-icons" style="font-size:36px;color:rgb(115, 115,

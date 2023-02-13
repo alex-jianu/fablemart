@@ -3,26 +3,30 @@ const Post = require("../models/post");
 
 const PostsController = {
   Index: async (req, res) => {
-    let username = req.session.user.username;
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
 
-    await Post.find((err, posts) => {
-      if (err) {
-        throw err;
-      }
-
-      posts.forEach((post) => {
-        if (post.likedBy.includes(username)) {
-          post.isLiked = true;
-        } else {
-          post.isLiked = false;
+      await Post.find((err, posts) => {
+        if (err) {
+          throw err;
         }
-      });
 
-      res.render("posts/index", {
-        posts: posts.reverse(),
-        user: req.session.user,
+        posts.forEach((post) => {
+          if (post.likedBy.includes(username)) {
+            post.isLiked = true;
+          } else {
+            post.isLiked = false;
+          }
+        });
+
+        res.render("posts/index", {
+          posts: posts.reverse(),
+          user: req.session.user,
+        });
       });
-    });
+    }
   },
 
   New: (req, res) => {
