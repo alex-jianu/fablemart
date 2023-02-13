@@ -7,12 +7,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const Handlebars = require("handlebars");
 
 const homeRouter = require("./routes/home");
 const postsRouter = require("./routes/posts");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
-
 const app = express();
 
 // view engine setup
@@ -80,4 +80,10 @@ app.use((err, req, res) => {
   res.render("error");
 });
 
+Handlebars.registerHelper("ifCond", function (v1, v2, options) {
+  if (v1.includes(v2)) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 module.exports = app;
