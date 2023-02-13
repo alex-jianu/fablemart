@@ -128,7 +128,7 @@ Only works on test server - test server has access to database, normal does not
     * Accessibility - HTML does not contain a default language for the page (screen readers need this to read the page correctly for people with vision impairment)
     * Accessibility - HTML does not have a title for the page
 
-## Tests with new site
+## Tests with new site v2
 ---
 - ( + ) Validation in place doesn’t let user, email, pw be empty (minimum char)
 - ( - ) Same username can’t be created on sign up, however if same username has 1 capital letter it can be created (still a dupe)
@@ -146,6 +146,40 @@ Only works on test server - test server has access to database, normal does not
 ## Accessibility (Lighthouse)
 - ( - ) Make sure to specify language for accessibility on all pages
 - ( - ) Accessibility colour on login page was the only one that’s got a contrast issue
+
+## Tests with new site v3
+
+---
+
+## Exploratory testing
+
+- No new issues were found throughout this session
+- We reviewed previously raised bug tickets to check functionality had been corrected
+- Test results
+- Localhost:3030/Posts
+- ( + ) No more issues around user/email validation
+	 -  Email validation decided must all be lowercase (prompt message appears when hovered over text box)
+- ( + ) Can’t post empty string
+- ( + ) String post with empty text before + after i.e. “	hello.	“
+- ( + ) Icon links to home
+
+## Accessibility (Lighthouse)
+- Localhost:3030/
+100 score on accessibility everything fixed
+- Localhost:3030/sessions/new
+95 score on accessibility - Background & foreground colours don’t have sufficient contrast ratio
+Localhost:3030/users/new
+- 100 score on accessibility everything fixed
+Localhost:3030/posts
+- 95 score on accessibility - Background & foreground colours don’t have sufficient contrast ratio
+Localhost:3030/posts
+- 95 score on accessibility - Background & foreground colours don’t have sufficient contrast ratio
+Localhost:3030/posts/new
+- 100 score on accessibility everything fixed
+- Note:
+  - Accessibility > keyboard accessible works
+
+
 
 ## Entry Criteria
 Testing will commence when:
