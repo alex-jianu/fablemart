@@ -36,8 +36,29 @@
         </header>
 
         <div class="content col-xs-10 col-s-10 col-7">
-            <h1>Timeline</h1>
-
+            <h1>Requests Pending</h1>
+            <h2>Received</h2>
+            <div class="posts">
+                {{#each receivedRequests}}
+                    <div class="post">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="author">requesterID/{{this.requesterId}}>
+                                </div>
+                            </span>
+                        </div>
+                        <p>requesteeID{{this.requesteeID}}</p>
+                        <p>status{{this.status}}</p>
+                        </div>
+            <form class="button" action="/requests/{{this._id}}/confirm?_method=PATCH" method="POST">
+                <input class="logout" type="submit" value="Confirm">
+                </form>
+            <form class="button" action="/requests/{{this._id}}/decline?_method=PATCH" method="POST">
+                <input class="logout" type="submit" value="Decline">
+                </form>
+                {{/each}}
+            </div>
+            <h2>Sent</h2>
             <div class="posts">
                 {{#each sentRequests}}
                     <div class="post">
@@ -49,9 +70,13 @@
                         </div>
                         <p>requesteeID{{this.requesteeID}}</p>
                         <p>status{{this.status}}</p>
-                        </div>
+            <form class="button" action="/requests/{{this._id}}/cancel?_method=PATCH" method="POST">
+                <input class="logout" type="submit" value="Cancel">
+                </form>                        
+                </div>
                 {{/each}}
             </div>
+
         </div>
     </body>
     <footer>Acebook™ in partnership with Eta™</footer>
