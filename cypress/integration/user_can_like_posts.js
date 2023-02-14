@@ -25,9 +25,9 @@ describe("Liking post tests", () => {
     
       // Assert that we can see the likes count
     cy.get(".posts").should("contain", "0 Likes");
-    cy.get('[type="submit"]').contains("Like").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "1 Like");
-    cy.get('[type="submit"]').contains("Unlike").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "0 Likes");
     });
 
@@ -51,7 +51,7 @@ describe("Liking post tests", () => {
     cy.get("#new-post-form").submit();
 
     cy.get(".posts").should("contain", "0 Likes");
-    cy.get('[type="submit"]').contains("Like").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "1 Like");
 
     // sign up user 2
@@ -68,7 +68,7 @@ describe("Liking post tests", () => {
     cy.get("#submit").click();
 
     cy.get(".posts").should("contain", "1 Like");
-    cy.get('[type="submit"]').contains("Like").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "2 Likes");
 
     // sign up user 3
@@ -85,9 +85,9 @@ describe("Liking post tests", () => {
     cy.get("#submit").click();
 
     cy.get(".posts").should("contain", "2 Likes");
-    cy.get('[type="submit"]').contains("Like").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "3 Likes");
-    cy.get('[type="submit"]').contains("Unlike").click();
+    cy.get('.fa-heart').click();
     cy.get(".posts").should("contain", "2 Likes");
     })
 });
