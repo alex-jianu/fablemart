@@ -2,6 +2,7 @@
 describe("Timeline", () => {
   beforeEach(() => {
     cy.task("clearUsers");
+    cy.task("clearPosts");
   });
 
   it("can see likes count on a new post", () => {
