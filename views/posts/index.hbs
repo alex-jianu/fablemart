@@ -6,6 +6,20 @@
         <link rel='stylesheet' href='/stylesheets/posts-index.css' />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+        <script>
+            window.addEventListener('beforeunload', function() {
+              localStorage.setItem('scrollPosition', window.pageYOffset);
+            });
+
+            window.addEventListener('load', function() {
+              var scrollPosition = localStorage.getItem('scrollPosition');
+              if (scrollPosition !== null) {
+                window.scrollTo(0, scrollPosition);
+                localStorage.removeItem('scrollPosition');
+              }
+            });
+        </script>
     </head>
     <body>
         <header>
