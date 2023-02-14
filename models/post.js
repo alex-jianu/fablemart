@@ -6,6 +6,7 @@ const PostSchema = new mongoose.Schema({
   likes: Number,
   likedBy: Array,
   isLiked: Boolean,
+  isMultiple: Boolean,
 });
 
 const Post = mongoose.model("Post", PostSchema);
