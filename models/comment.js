@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema({
+const CommentSchema = new mongoose.Schema({
   author: String,
   message: String,
   likes: Number,
   likedBy: Array,
   isLiked: Boolean,
   isMultiple: Boolean,
-  comments: Array,
+  postID: String,
 });
 
-const Post = mongoose.model("Post", PostSchema);
+const Comment = mongoose.model("Comment", CommentSchema);
 
-module.exports = Post;
+module.exports = Comment;
