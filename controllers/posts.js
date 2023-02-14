@@ -19,6 +19,12 @@ const PostsController = {
           } else {
             post.isLiked = false;
           }
+
+          if (post.likes === 1) {
+            post.isMultiple = false;
+          } else {
+            post.isMultiple = true;
+          }
         });
 
         res.render("posts/index", {
