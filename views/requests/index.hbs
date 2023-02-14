@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Acebook - Timeline</title>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel='stylesheet' href='/stylesheets/posts-index.css' />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <span class="site_logo">
+                <a href="/posts"><img src="/images/logo trial 3.png" alt="Acebook" height="50"></a>
+            </span>
+
+            <span class="larger">
+
+                <form class="button" action="/posts/new">
+                    <input class="logout" type="submit" value="New post">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/sessions?_method=DELETE" method="POST">
+                    <input class="logout" type="submit" value="Log Out">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/requests" method="GET">
+                    <input class="logout" type="submit" value="Requests">
+                </form>
+
+            </span>
+            </span>
+        </header>
+
+        <div class="content col-xs-10 col-s-10 col-7">
+            <h1>Timeline</h1>
+
+            <div class="posts">
+                {{#each sentRequests}}
+                    <div class="post">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="author">requesterID/{{this.requesterId}}>
+                                </div>
+                            </span>
+                        </div>
+                        <p>requesteeID{{this.requesteeID}}</p>
+                        <p>status{{this.status}}</p>
+                        </div>
+                {{/each}}
+            </div>
+        </div>
+    </body>
+    <footer>Acebook™ in partnership with Eta™</footer>
+</html>
