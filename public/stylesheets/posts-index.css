@@ -162,6 +162,11 @@ form.button {
   padding: 0;
 }
 
+button {
+  border: none;
+  background: transparent;
+}
+
 /* responsive */
 
 /* For mobile phones: */

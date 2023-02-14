@@ -1,5 +1,6 @@
 /* eslint-disable quotes */
 const Post = require("../models/post");
+const Comment = require("../models/comment");
 
 const PostsController = {
   Index: async (req, res) => {
@@ -76,6 +77,66 @@ const PostsController = {
       res.redirect("/posts");
     }
   },
+  PostByID: async (req, res) => {
+    const post = await Post.findById(req.params.id);
+
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
+
+      await Comment.find({postID: post._id}, (err, comments) => {
+        if (err) {
+          throw err;
+        }
+
+        comments.forEach((comment) => {
+          if (comment.likedBy.includes(username)) {
+            comment.isLiked = true;
+          } else {
+            comment.isLiked = false;
+          }
+
+          if (comment.likes === 1) {
+            comment.isMultiple = false;
+          } else {
+            comment.isMultiple = true;
+          }
+        });
+
+        res.render("posts/id", {
+          post: post,
+          comments: comments,
+          id: post._id,
+          user: req.session.user,
+        });
+      });
+    }
+  },
+  Comment: (req, res) => {
+    res.render("posts/new-comment", { user: req.session.user, postID: req.params.id });
+  },
+  PostComment: (req, res) => {
+    const comment = new Comment(req.body);
+    comment.author = req.session.user.username;
+    comment.likes = 0;
+    comment.likedBy = [];
+    comment.message = comment.message.trim();
+    comment.postID = req.params.id;
+
+    if (comment.message === "") {
+      res.redirect("/posts/:id/comment");
+    } else {
+      comment.save((err) => {
+        if (err) {
+          throw err;
+        }
+
+        res.status(201).redirect(`/posts/${req.params.id}`);
+      });
+    }
+
+  }
 };
 
 module.exports = PostsController;
