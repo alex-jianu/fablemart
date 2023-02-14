@@ -1,7 +1,8 @@
 /* eslint-disable quotes */
-describe("Timeline", () => {
+describe("Submitting posts", () => {
   beforeEach(() => {
     cy.task("clearUsers");
+    cy.task("clearPosts");
   });
 
   it("can submit posts, when signed in, and view them", () => {
