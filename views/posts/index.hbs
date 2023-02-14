@@ -39,6 +39,12 @@
                     <input class="logout" type="submit" value="Log Out">
                 </form>
 
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/requests" method="GET">
+                    <input class="logout" type="submit" value="Requests">
+                </form>
+
             </span>
             </span>
         </header>
@@ -60,7 +66,7 @@
                             </span>
 
                             <span class="request">
-                                <form action="/request">
+                                <form action="/requests/{{this.author}}" method="POST">
                                     <input class="custom-file-upload" type="submit" value="+ Request">
                                 </form>
                             </span>
