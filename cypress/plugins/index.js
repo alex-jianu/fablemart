@@ -15,6 +15,7 @@
 
 const mongoose = require("mongoose");
 const User = require("../../models/user");
+const Post = require("../../models/post");
 
 module.exports = async (on) => {
   on("task", {
@@ -27,5 +28,14 @@ module.exports = async (on) => {
 
       return null;
     },
+    async clearPosts() {
+      mongoose.connect("mongodb://0.0.0.0/acebook_test", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      await Post.deleteMany({});
+
+      return null;
+    }
   });
 };
