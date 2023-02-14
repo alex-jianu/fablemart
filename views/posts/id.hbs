@@ -15,8 +15,8 @@
 
             <span class="larger">
 
-                <form class="button" action="/posts/new">
-                    <input class="logout" type="submit" value="New post">
+                <form class="button" action="/posts/{{post._id}}/comment">
+                    <input class="logout" type="submit" value="New comment">
                 </form>
 
                 &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -30,11 +30,31 @@
         </header>
 
         <div class="content col-xs-10 col-s-10 col-7">
-            <h1>Timeline</h1>
+                <div class="posts">
+                    <div class="post">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="profile-photo">
+                                    <img src="/images/logo trial 2.png" alt="profile-photo">
+                                </div>
+                                <div class="author">{{post.author}}
+                                </div>
+                            </span>
+                        </div>
+                        <p>{{post.message}}</p>
+                        <div class="likes-comments">
+                            <div>
+                                <span class="comments">
+                                    <p>{{post.likes}} {{#if post.isMultiple}} Likes {{else}} Like {{/if}}</p><br>
+                                    <p>Comments</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             <div class="posts">
-                {{#each posts}}
-                <a href="/posts/{{this._id}}">
+                {{#each comments}}
                     <div class="post">
                         <div class="title">
                             <span class="user-pic">
@@ -76,8 +96,9 @@
                     </div>
                 {{/each}}
 
-                </a>
+
             </div>
+
         </div>
     </body>
     <footer>Acebook™ in partnership with Eta™</footer>
