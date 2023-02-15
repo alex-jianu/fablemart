@@ -10,6 +10,7 @@ const UsersController = {
 
   Create: async (req, res) => {
     const user = new User(req.body);
+    user.friends = [];
 
     // const allUsersArray = await User.find({});
 
