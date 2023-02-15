@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Acebook - Requests</title>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel='stylesheet' href='/stylesheets/posts-index.css' />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <span class="site_logo">
+                <a href="/posts"><img src="/images/logo trial 3.png" alt="Acebook" height="50"></a>
+            </span>
+
+            <span class="larger">
+
+                <form class="button" action="/posts">
+                    <input class="logout" type="submit" value="Home">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/sessions?_method=DELETE" method="POST">
+                    <input class="logout" type="submit" value="Log Out">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/requests" method="GET">
+                    <input class="logout" type="submit" value="Requests">
+                </form>
+
+            </span>
+            </span>
+        </header>
+
+        <div class="content col-xs-10 col-s-10 col-7">
+            <h1>Requests Pending</h1>
+            <h2>Received</h2>
+            <div class="posts">
+                {{#each receivedRequests}}
+                    <div class="post">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="author">{{this.requesterUsername}} sent you a request.
+                                </div>
+                            </span>
+                        </div>
+                        <p>Status: {{this.status}}</p>
+                        <br>
+                        <div class="confirm-decline">
+                            <form class="button" action="/requests/{{this._id}}/confirm?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Confirm">
+                            </form>
+                            <form class="button" action="/requests/{{this._id}}/decline?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Decline">
+                            </form>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <h2>Sent</h2>
+            <div class="posts">
+                {{#each sentRequests}}
+                    <div class="post">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="author">You have sent a request to: {{this.requesteeUsername}}
+                                </div>
+                            </span>
+                        </div>
+                        <p>Status: {{this.status}}</p>
+                        <div class="confirm-decline">
+                            <form class="button" action="/requests/{{this._id}}/cancel?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Cancel">
+                            </form>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </body>
+    <footer>Acebook™ in partnership with Eta™</footer>
+</html>

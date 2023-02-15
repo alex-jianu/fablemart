@@ -26,6 +26,12 @@ const PostsController = {
           } else {
             post.isMultiple = true;
           }
+
+          if (post.comments.length === 1) {
+            post.commentsPlural = false;
+          } else {
+            post.commentsPlural = true;
+          }
         });
 
         res.render("posts/index", {
@@ -44,6 +50,7 @@ const PostsController = {
     post.author = req.session.user.username;
     post.likes = 0;
     post.likedBy = [];
+    post.comments = [];
     post.message = post.message.trim();
 
     if (post.message === "") {
@@ -85,7 +92,7 @@ const PostsController = {
     } else {
       const { username } = req.session.user;
 
-      await Comment.find({postID: post._id}, (err, comments) => {
+      await Comment.find({ postID: post._id }, (err, comments) => {
         if (err) {
           throw err;
         }
@@ -114,15 +121,22 @@ const PostsController = {
     }
   },
   Comment: (req, res) => {
-    res.render("posts/new-comment", { user: req.session.user, postID: req.params.id });
+    res.render("posts/new-comment", {
+      user: req.session.user,
+      postID: req.params.id,
+    });
   },
-  PostComment: (req, res) => {
+  PostComment: async (req, res) => {
     const comment = new Comment(req.body);
     comment.author = req.session.user.username;
     comment.likes = 0;
     comment.likedBy = [];
     comment.message = comment.message.trim();
     comment.postID = req.params.id;
+    const post = await Post.findById(req.params.id);
+    const newComments = post.comments.concat(comment);
+
+    await Post.updateOne({ _id: req.params.id }, { comments: newComments });
 
     if (comment.message === "") {
       res.redirect("/posts/:id/comment");
@@ -135,8 +149,7 @@ const PostsController = {
         res.status(201).redirect(`/posts/${req.params.id}`);
       });
     }
-
-  }
+  },
 };
 
 module.exports = PostsController;
