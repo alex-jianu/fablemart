@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema({
-  requesterID: String,
-  requesteeID: String,
+  requesterUsername: String,
+  requesteeUsername: String,
   status: String,
 });
 

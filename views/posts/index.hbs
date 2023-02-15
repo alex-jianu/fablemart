@@ -8,16 +8,16 @@
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
         <script>
-            window.addEventListener('beforeunload', function() {
-              localStorage.setItem('scrollPosition', window.pageYOffset);
+            window.addEventListener('beforeunload', function () {
+                localStorage.setItem('scrollPosition', window.pageYOffset);
             });
 
-            window.addEventListener('load', function() {
-              var scrollPosition = localStorage.getItem('scrollPosition');
-              if (scrollPosition !== null) {
-                window.scrollTo(0, scrollPosition);
-                localStorage.removeItem('scrollPosition');
-              }
+            window.addEventListener('load', function () {
+                var scrollPosition = localStorage.getItem('scrollPosition');
+                if (scrollPosition !== null) {
+                    window.scrollTo(0, scrollPosition);
+                    localStorage.removeItem('scrollPosition');
+                }
             });
         </script>
     </head>
@@ -54,7 +54,6 @@
 
             <div class="posts">
                 {{#each posts}}
-                <a href="/posts/{{this._id}}">
                     <div class="post">
                         <div class="title">
                             <span class="user-pic">
@@ -76,18 +75,25 @@
 
                             <div>
                                 <span class="comments">
-                                    <p>{{this.likes}}{{#if this.isMultiple}} Likes {{else}} Like {{/if}}</p><br>
-                                    <p>Comments</p>
+                                    <p>{{this.likes}}{{#if this.isMultiple}} Likes {{else}} Like
+                                        {{/if}}&nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <a href="/posts/{{this._id}}">
+                                            <p>{{this.comments.length}}
+                                                {{#if this.commentsPlural}}Comments{{else}}Comment{{/if}}</p>
+                                        </a>
+                                    </p>
                                 </span>
                             </div>
 
                             <div>
-                                <span>
+                                <span class="comments">
                                     <form action="/posts/{{this._id}}/like?_method=PATCH" method="POST">
                                         {{#if this.isLiked}}
-                                            <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+                                            <button><input class="logout" type="submit" value=""><i class="fas fa-heart"
+                                                    style="font-size: 30px; color: red"></i></button>
                                         {{else}}
-                                            <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>                                        
+                                            <button><input class="logout" type="submit" value=""><i class="far fa-heart"
+                                                    style="font-size: 30px; color: grey"></i></button>
                                         {{/if}}
                                     </form>
                                 </span>
@@ -95,8 +101,6 @@
                         </div>
                     </div>
                 {{/each}}
-
-                </a>
             </div>
         </div>
     </body>

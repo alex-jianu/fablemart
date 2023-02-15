@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Acebook - Timeline</title>
+        <title>Acebook - Requests</title>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel='stylesheet' href='/stylesheets/posts-index.css' />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -15,8 +15,8 @@
 
             <span class="larger">
 
-                <form class="button" action="/posts/new">
-                    <input class="logout" type="submit" value="New post">
+                <form class="button" action="/posts">
+                    <input class="logout" type="submit" value="Home">
                 </form>
 
                 &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -43,19 +43,21 @@
                     <div class="post">
                         <div class="title">
                             <span class="user-pic">
-                                <div class="author">requesterID/{{this.requesterId}}>
+                                <div class="author">{{this.requesterUsername}} sent you a request.
                                 </div>
                             </span>
                         </div>
-                        <p>requesteeID{{this.requesteeID}}</p>
-                        <p>status{{this.status}}</p>
+                        <p>Status: {{this.status}}</p>
+                        <br>
+                        <div class="confirm-decline">
+                            <form class="button" action="/requests/{{this._id}}/confirm?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Confirm">
+                            </form>
+                            <form class="button" action="/requests/{{this._id}}/decline?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Decline">
+                            </form>
                         </div>
-            <form class="button" action="/requests/{{this._id}}/confirm?_method=PATCH" method="POST">
-                <input class="logout" type="submit" value="Confirm">
-                </form>
-            <form class="button" action="/requests/{{this._id}}/decline?_method=PATCH" method="POST">
-                <input class="logout" type="submit" value="Decline">
-                </form>
+                    </div>
                 {{/each}}
             </div>
             <h2>Sent</h2>
@@ -64,16 +66,17 @@
                     <div class="post">
                         <div class="title">
                             <span class="user-pic">
-                                <div class="author">requesterID/{{this.requesterId}}>
+                                <div class="author">You have sent a request to: {{this.requesteeUsername}}
                                 </div>
                             </span>
                         </div>
-                        <p>requesteeID{{this.requesteeID}}</p>
-                        <p>status{{this.status}}</p>
-            <form class="button" action="/requests/{{this._id}}/cancel?_method=PATCH" method="POST">
-                <input class="logout" type="submit" value="Cancel">
-                </form>                        
-                </div>
+                        <p>Status: {{this.status}}</p>
+                        <div class="confirm-decline">
+                            <form class="button" action="/requests/{{this._id}}/cancel?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Cancel">
+                            </form>
+                        </div>
+                    </div>
                 {{/each}}
             </div>
 

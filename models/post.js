@@ -7,6 +7,7 @@ const PostSchema = new mongoose.Schema({
   likedBy: Array,
   isLiked: Boolean,
   isMultiple: Boolean,
+  ccommentsPlural: Boolean,
   comments: Array,
 });
 

@@ -16,7 +16,13 @@
             <span class="larger">
 
                 <form class="button" action="/posts/{{post._id}}/comment">
-                    <input class="logout" type="submit" value="New comment">
+                    <input class="logout" type="submit" value="New Comment">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/posts" method="GET">
+                    <input class="logout" type="submit" value="Home">
                 </form>
 
                 &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -24,35 +30,28 @@
                 <form class="button" action="/sessions?_method=DELETE" method="POST">
                     <input class="logout" type="submit" value="Log Out">
                 </form>
-
             </span>
             </span>
         </header>
 
         <div class="content col-xs-10 col-s-10 col-7">
-                <div class="posts">
-                    <div class="post">
-                        <div class="title">
-                            <span class="user-pic">
-                                <div class="profile-photo">
-                                    <img src="/images/logo trial 2.png" alt="profile-photo">
-                                </div>
-                                <div class="author">{{post.author}}
-                                </div>
-                            </span>
-                        </div>
-                        <p>{{post.message}}</p>
-                        <div class="likes-comments">
-                            <div>
-                                <span class="comments">
-                                    <p>{{post.likes}} {{#if post.isMultiple}} Likes {{else}} Like {{/if}}</p><br>
-                                    <p>Comments</p>
-                                </span>
+            <h1>Post</h1>
+            <div class="posts">
+                <div class="post">
+                    <div class="title">
+                        <span class="user-pic">
+                            <div class="profile-photo">
+                                <img src="/images/logo trial 2.png" alt="profile-photo">
                             </div>
-                        </div>
+                            <div class="author">{{post.author}}</div>
+                        </span>
                     </div>
+                    <p>{{post.message}}</p>
                 </div>
-
+            </div>
+            <br>
+            <h2>Comments</h2>
+            <br>
             <div class="posts">
                 {{#each comments}}
                     <div class="post">
@@ -64,40 +63,15 @@
                                 <div class="author">{{this.author}}
                                 </div>
                             </span>
-
-                            <span class="request">
-                                <form action="/request">
-                                    <input class="custom-file-upload" type="submit" value="+ Request">
-                                </form>
-                            </span>
                         </div>
                         <p>{{this.message}}</p>
-                        <div class="likes-comments">
-
-                            <div>
-                                <span class="comments">
-                                    <p>{{this.likes}} {{#if this.isMultiple}} Likes {{else}} Like {{/if}}</p><br>
-                                    <p>Comments</p>
-                                </span>
-                            </div>
-
-                            <div>
-                                <span>
-                                    <form action="/posts/{{this._id}}/like?_method=PATCH" method="POST">
-                                        {{#if this.isLiked}}
-                                            <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
-                                        {{else}}
-                                            <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>                                        
-                                        {{/if}}
-                                    </form>
-                                </span>
-                            </div>
-                        </div>
                     </div>
                 {{/each}}
-
-
             </div>
+        </div>
+
+
+        </div>
 
         </div>
     </body>
