@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 const Post = require("../models/post");
 const Comment = require("../models/comment");
+const Request = require("../models/request");
 
 const PostsController = {
   Index: async (req, res) => {
@@ -8,6 +9,8 @@ const PostsController = {
       res.redirect("/");
     } else {
       const { username } = req.session.user;
+      const req1 = await Request.find({requesterUsername: username, requesteeUsername: post.author});
+      const req2 = await Request.find({requesterUsername: post.author, requesteeUsername: username});
 
       await Post.find((err, posts) => {
         if (err) {
@@ -32,7 +35,17 @@ const PostsController = {
           } else {
             post.commentsPlural = true;
           }
-        });
+
+          if (post.author === username) {
+            post.isSame = true
+          } else if (req1 && req1.status === "pending") {
+            post.hasSentRequest = true;
+          } else if (req2 && req2.status === "pending") {
+            post.hasReceivedRequest = true;
+          } else if (req1.status === "confirmed" || req2.status === "confirmed") {
+          }
+
+      });
 
         res.render("posts/index", {
           posts: posts.reverse(),
