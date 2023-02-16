@@ -66,7 +66,7 @@
 
                             <span class="request">
                                 <form action="/requests/{{this.author}}" method="POST">
-                                    <input class="custom-file-upload" type="submit" value="+ Request">
+                                    <input class="custom-file-upload" type="submit" value="{{this.requestStatus}}" {{#unless this.requestButtonEnabled}} disabled{{/unless}}>
                                 </form>
                             </span>
                         </div>
