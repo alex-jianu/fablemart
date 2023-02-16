@@ -20,6 +20,13 @@
                 }
             });
         </script>
+        <script>
+            const Handlebars = require('handlebars');
+
+            Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+                return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -56,7 +63,7 @@
 
 
             <script id="template" type="text/x-handlebars-template">
-                <div>{{uppercase title}}</div>
+                <div>{{title}}</div>
             </script>
 
 
@@ -76,7 +83,8 @@
 
                             <span class="request">
                                 <form action="/requests/{{this.author}}" method="POST">
-                                    <input class="custom-file-upload" type="submit" value="+ Request">
+                                    <input class="custom-file-upload" type="submit" value="{{this.requestStatus}}"
+                                        {{#unless this.requestButtonEnabled}} disabled {{/unless}}>
                                 </form>
                             </span>
                         </div>
@@ -89,7 +97,8 @@
                                         {{/if}}&nbsp;&nbsp;|&nbsp;&nbsp;
                                         <a href="/posts/{{this._id}}">
                                             <p>{{this.comments.length}}
-                                                {{#if this.commentsPlural}}Comments{{else}}Comment{{/if}}</p>
+                                                {{#if this.commentsPlural}}Comments{{else}}Comment{{/if}}
+                                            </p>
                                         </a>
                                     </p>
                                 </span>

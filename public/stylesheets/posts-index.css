@@ -171,6 +171,15 @@ form {
   border: none;
 }
 
+.custom-file-upload:disabled {
+  background-color: #8d99ae;
+  color: #2b2d42;
+}
+
+.custom-file-upload:disabled:hover {
+  cursor: default;
+}
+
 div.profile-photo {
   overflow: hidden;
 }

@@ -2,6 +2,7 @@
 const Post = require("../models/post");
 const Comment = require("../models/comment");
 const Request = require("../models/request");
+const User = require("../models/user");
 
 const PostsController = {
   Index: async (req, res) => {
@@ -9,8 +10,9 @@ const PostsController = {
       res.redirect("/");
     } else {
       const { username } = req.session.user;
-      const req1 = await Request.find({requesterUsername: username, requesteeUsername: post.author});
-      const req2 = await Request.find({requesterUsername: post.author, requesteeUsername: username});
+      const user = await User.findOne({ username: username });
+      const friends = user.friends || [];
+      const allRequests = await Request.find({ status: "pending" });
 
       await Post.find((err, posts) => {
         if (err) {
@@ -18,6 +20,17 @@ const PostsController = {
         }
 
         posts.forEach((post) => {
+          const req1 = allRequests.find(
+            (request) =>
+              request.requesterUsername === username &&
+              request.requesteeUsername === post.author
+          );
+          const req2 = allRequests.find(
+            (request) =>
+              request.requesterUsername === post.author &&
+              request.requesteeUsername === username
+          );
+
           if (post.likedBy.includes(username)) {
             post.isLiked = true;
           } else {
@@ -37,15 +50,23 @@ const PostsController = {
           }
 
           if (post.author === username) {
-            post.isSame = true
-          } else if (req1 && req1.status === "pending") {
-            post.hasSentRequest = true;
-          } else if (req2 && req2.status === "pending") {
-            post.hasReceivedRequest = true;
-          } else if (req1.status === "confirmed" || req2.status === "confirmed") {
+            post.requestStatus = "You";
+          } else if (req1) {
+            post.requestStatus = "Request Sent";
+          } else if (req2) {
+            post.requestStatus = "Request Received";
+          } else if (friends.includes(post.author)) {
+            post.requestStatus = "Friends";
+          } else {
+            post.requestStatus = "+ Request";
           }
 
-      });
+          if (post.requestStatus === "+ Request") {
+            post.requestButtonEnabled = true;
+          } else {
+            post.requestButtonEnabled = false;
+          }
+        });
 
         res.render("posts/index", {
           posts: posts.reverse(),
@@ -78,6 +99,7 @@ const PostsController = {
       });
     }
   },
+
   Like: async (req, res) => {
     const post = await Post.findById(req.params.id);
 

@@ -9,6 +9,8 @@ const PostSchema = new mongoose.Schema({
   isMultiple: Boolean,
   commentsPlural: Boolean,
   comments: Array,
+  requestStatus: String,
+  requestButtonEnabled: Boolean,
 });
 
 const Post = mongoose.model("Post", PostSchema);
