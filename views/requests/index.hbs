@@ -15,7 +15,7 @@
 
             <span class="larger">
 
-                <form class="button" action="/posts">
+                <form class="button" action="/posts" method="GET">
                     <input class="logout" type="submit" value="Home">
                 </form>
 
@@ -38,6 +38,7 @@
         <div class="content col-xs-10 col-s-10 col-7">
             <h1>Requests Pending</h1>
             <h2>Received</h2>
+            <br>
             <div class="posts">
                 {{#each receivedRequests}}
                     <div class="post">
@@ -60,7 +61,10 @@
                     </div>
                 {{/each}}
             </div>
+            <br>
+            <br>
             <h2>Sent</h2>
+            <br>
             <div class="posts">
                 {{#each sentRequests}}
                     <div class="post">

@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Acebook - Log In</title>
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-<link rel='stylesheet' href='/stylesheets/user-index.css' />
-</head>
-<body>
-<header>
-  <span class="site_logo"> 
-    <a href="/posts"><img src="/images/logo trial 3.png" alt="Acebook" height="50"></a>
-      </span>
-      <span> 
-        <a href="/">Home</a>
-          <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-          <a href="/users/new">Sign Up</a>
-      </span>
-  </span>
-</header>
-            
-<div class="container">
-  <div id = "leftbox">
-  <h1>Acebook</h1>
-  <p>Missing the "F"...<br>...as in "Funding"</p> </div><br>
+  <head>
+    <title>Acebook - Log In</title>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <link rel='stylesheet' href='/stylesheets/user-index.css' />
+  </head>
+    <body>
 
-  <div id ="rightbox">
-  <form id="new-session-form" action="/sessions" method="post">
-  <h2>Log into Acebook</h2> 
-  <label for="email">Email: </label>
-  <input id="email" type="email" name="email" value="">
-  <label for="password">Password: </label>
-  <input id="password" type="password" name="password" value="">
-  <input id="submit" type="submit" value="Submit">
-  </form>
-</div>
-</div>
-</body>
-<footer>Acebook™ in partnership with Eta™</footer>
+    <header>
+      <span class="site_logo"> 
+        <a href="/posts"><img src="/images/logo trial 3.png" alt="Acebook" height="50"></a>
+          </span>
+          <span> 
+            <a href="/">Home</a>
+              <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+              <a href="/users/new">Sign Up</a>
+          </span>
+      </span>
+    </header>
+                
+        <div class="container col-10 col-s-11 col-xs-11">
+          
+          <div id = "leftbox" class="col-6 col-s-8 col-xs-10">
+            <h1>Acebook</h1>
+            <p>Missing the "F"...<br>...as in "Funding"</p> 
+          </div>
+          
+          <div id ="rightbox" class="col-6 col-s-8 col-xs-10">
+            <form id="new-session-form" action="/sessions" method="post">
+              <h2>Log into Acebook</h2> 
+
+              <label for="email">Email: </label>
+              <input id="email" type="email" name="email" value="">
+
+              <label for="password">Password: </label>
+              <input id="password" type="password" name="password" value="">
+
+              <input id="submit" type="submit" value="Submit">
+            </form>
+        </div>
+      </div>
+    </body>
+  <footer>Acebook™ in partnership with Eta™</footer>
 </html>

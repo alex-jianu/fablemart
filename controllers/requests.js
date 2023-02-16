@@ -8,13 +8,9 @@ const RequestsController = {
     request.requesterUsername = req.session.user.username;
     request.requesteeUsername = req.params.username;
     request.status = "pending";
-    const req1 = await Request.find({requesterUsername: request.requesterUsername});
-
-    // if (requesterUsername === requesteeUsername) {
-    //   res.redirect("/posts")
-    // } else {
-      
-    // }  
+    const req1 = await Request.find({
+      requesterUsername: request.requesterUsername,
+    });
 
     request.save((err) => {
       if (err) {
@@ -48,17 +44,23 @@ const RequestsController = {
     const newStatus = "confirmed";
     const user1 = await User.findOne({ username: request.requesterUsername });
     const user2 = await User.findOne({ username: request.requesteeUsername });
-  
+
     let user1Friends = user1.friends || [];
     user1Friends = user1Friends.concat(user2.username);
-  
+
     let user2Friends = user2.friends || [];
     user2Friends = user2Friends.concat(user1.username);
-  
+
+    await User.updateOne(
+      { username: user1.username },
+      { friends: user1Friends }
+    );
+    await User.updateOne(
+      { username: user2.username },
+      { friends: user2Friends }
+    );
     await Request.updateOne({ _id: request._id }, { status: newStatus });
-    await User.findOneAndUpdate({ username: user1.username }, { friends: user1Friends });
-    await User.findOneAndUpdate({ username: user2.username }, { friends: user2Friends });
-  
+
     res.redirect("/requests");
   },
 

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Optima", sans-serif;
+  box-sizing: border-box;
 }
 body {
   background-color: #edf2f4;
@@ -19,6 +20,8 @@ header {
   color: #edf2f4;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 footer {
@@ -35,18 +38,18 @@ footer {
 
 #leftbox {
   background: #edf2f4;
-  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 5%;
 }
+
 #rightbox {
   background: #8d99ae;
-  width: 40%;
-  align-self: right;
   padding: 10px;
   border-radius: 10px;
 }
+
 h1 {
   color: #2b2d42;
   text-align: center;
@@ -54,6 +57,7 @@ h1 {
   margin-bottom: 20px;
   font-size: 300%;
 }
+
 p {
   color: #2b2d42;
   text-align: center;
@@ -63,12 +67,10 @@ p {
 
 div.container {
   display: flex;
-  width: 100%;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
+  margin-top: 20%;
 }
 
 a {
@@ -95,7 +97,7 @@ input,
 /* style the submit button */
 input[type="submit"] {
   background-color: #edf2f4;
-  color: #8d99ae;
+  color: #2b2d42;
   cursor: pointer;
   margin-top: 10px;
 }
