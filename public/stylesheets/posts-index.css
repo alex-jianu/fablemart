@@ -55,6 +55,15 @@ span {
   align-self: center;
   display: flex;
 }
+span.comments {
+  align-content: center;
+}
+
+div.confirm-decline {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
 
 span.request {
   display: flex;
@@ -106,19 +115,27 @@ h1 {
 p {
   font-size: 20px;
   margin-top: 3%;
+  word-wrap: break-word;
 }
 
 div.post {
   text-align: left;
-  border-bottom: #2b2d42 solid 2px;
-  margin-bottom: 10px;
+  border-bottom: 1px solid grey;
   padding: 20px;
+}
+
+div.post:last-child {
+  border: none;
 }
 
 .posts {
   border: 1px solid grey;
   border-style: solid;
   border-radius: 8px;
+}
+
+div.comments {
+  align-self: center;
 }
 
 .title {
@@ -154,12 +171,26 @@ form {
   border: none;
 }
 
+.custom-file-upload:disabled {
+  background-color: #8d99ae;
+  color: #2b2d42;
+}
+
+.custom-file-upload:disabled:hover {
+  cursor: default;
+}
+
 div.profile-photo {
   overflow: hidden;
 }
 
 form.button {
   padding: 0;
+}
+
+button {
+  border: none;
+  background: transparent;
 }
 
 /* responsive */

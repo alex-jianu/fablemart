@@ -1,6 +1,7 @@
 describe("Authentication", () => {
   beforeEach(() => {
     cy.task("clearUsers");
+    cy.task("clearPosts");
   });
 
   it("A user signs in and is redirected to /posts", () => {

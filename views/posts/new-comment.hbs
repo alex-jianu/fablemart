@@ -40,20 +40,21 @@
         </span>
       </span>
     </header>
-    <form id="new-post-form" action="/posts" method="post">
+    <form id="new-post-form" action="/posts/{{postID}}" method="post">
       <div class="new-post">
 
-        <label for="message" class="label">Create a post</label>
+        <label for="message" class="label">Create a comment</label>
 
-        <textarea id="message" name="message" placeholder="Write a message here..." maxlength="250" minlength="1" value="" rows="4" cols="50" oninput="textareaLengthCheck(this)" required></textarea>
+        <textarea id="message" name="message" placeholder="Write a comment here..." maxlength="250" minlength="1" value="" rows="4" cols="50" oninput="textareaLengthCheck(this)" required></textarea>
 
         <p class="characters-remaining-field" id="lblRemainingCount"></p>
 
-        {{!-- <label for="file-upload" class="custom-file-upload" accept=".jpg, .jpeg, .png">+ Add image</label>
+        <!-- label for="file-upload" class="custom-file-upload" accept=".jpg, .jpeg, .png">+ Add image</label>
 
-      <input id="file-upload" type="file" name="image"/> --}}
+      <input id="file-upload" type="file" name="image"/-->
         <input class="post"type="submit" value="Post">
       </div>
+
     </form>
     <footer>Acebook™ in partnership with Eta™</footer>
   </body>

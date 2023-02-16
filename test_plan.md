@@ -179,7 +179,21 @@ Localhost:3030/posts/new
 - Note:
   - Accessibility > keyboard accessible works
 
+## Tests with new site v4
 
+---
+## Exploratory testing
+- No new issues in terms of functionality were found throughout this session
+- Issue found related to pre-seeded database
+	- This was fixed by editing the the index plugin file which now clears the accounts and posts within the database
+- We reviewed previously raised bug tickets to check functionality had been corrected
+- Test results
+- Localhost:3030/Posts
+- ( + ) Like and unlike function is now working and counting number of likes on a post
+- ( - ) Database wasn’t seeding the correct information throwing an error, database needed values to be set such as author and number of likes rather than being null
+
+## Accessibility (Lighthouse)
+- No changes still 100
 
 ## Entry Criteria
 Testing will commence when:
