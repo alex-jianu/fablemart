@@ -5,6 +5,33 @@
         <script
             src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link href="../stylesheets/signup.css" rel="stylesheet" />
+
+        <script>
+            window.onload = function() {
+                const passwordField = document.querySelector('#password');
+                const changeColour = document.querySelector('#change-colour');
+                const submitButton = document.querySelector('#submit');
+                passwordField.addEventListener('focus', function() {
+                    changeColour.style.color = 'red';
+                });
+                passwordField.addEventListener('blur', function() {
+                    changeColour.style.color = 'black';
+                });
+
+                passwordField.addEventListener('input', function() {
+                    if (passwordField.value.length >= 8 && passwordField.value.length <= 32) {
+                        passwordField.setCustomValidity('');
+                        changeColour.style.color = 'green';
+                        submitButton.disabled = false;
+                    } else {
+                        passwordField.setCustomValidity('Password must be between 8 and 32 characters');
+                        changeColour.style.color = 'red';
+                        submitButton.disabled = true;
+                    }
+                });
+            };
+        </script>
+
     </head>
     <body>
         <header>
@@ -20,7 +47,7 @@
                 <a href="/sessions/new">Log In</a>
             </span>
         </header>
-        <form id="new-user-form" action="/users"
+        <form id="new-user-form" class="col-6 col-s-ß7 col-xs-8" action="/users"
             method="post">
             <div class="user-inputs">
                 <div class="username-field">
@@ -51,16 +78,20 @@
                     <label for="password">Password: </label>
                     <input
                         id="password"
-                        title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1
-                        Digit, 1 Special
-                        Character"
+                        title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character"
                         type="password"
                         name="password"
                         pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$"
-                            required
-                            />
+                        required/>
+                        </div>
+                        <div>
+                            <p id="change-colour">Must contain between 8-32 characters</p>
+                            <p id="change-colour">Must contain between 8-32 characters</p>
+                            <p id="change-colour">Must contain between 8-32 characters</p>
+                            <p id="change-colour">Must contain between 8-32 characters</p>
                         </div>
                     </div>
+
                     <input id="submit" type="submit" value="Submit" />
                 </form>
             </body>
