@@ -5,18 +5,20 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const ejs = require("ejs");
 
 const homeRouter = require("./routes/home");
-const postsRouter = require("./routes/posts");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
-const requestsRouter = require("./routes/requests");
+const ordersRouter = require("./routes/orders");
+const itemsRouter = require("./routes/items");
+const messagesRouter = require("./routes/messages");
 
 const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -56,10 +58,11 @@ const sessionChecker = (req, res, next) => {
 
 // route setup
 app.use("/", homeRouter);
-app.use("/posts", sessionChecker, postsRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
-app.use("/requests", sessionChecker, requestsRouter);
+app.use("/orders", sessionChecker, ordersRouter);
+app.use("/items", itemsRouter);
+app.use("/messages", sessionChecker, messagesRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
