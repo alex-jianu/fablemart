@@ -20,7 +20,7 @@ const Post = require("../../models/post");
 module.exports = async (on) => {
   on("task", {
     async clearUsers() {
-      mongoose.connect("mongodb://0.0.0.0/acebook_test", {
+      mongoose.connect("mongodb://0.0.0.0/fablemart_test", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
@@ -29,13 +29,13 @@ module.exports = async (on) => {
       return null;
     },
     async clearPosts() {
-      mongoose.connect("mongodb://0.0.0.0/acebook_test", {
+      mongoose.connect("mongodb://0.0.0.0/fablemart_test", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
       await Post.deleteMany({});
 
       return null;
-    }
+    },
   });
 };
