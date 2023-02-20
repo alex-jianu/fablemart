@@ -5,8 +5,8 @@ const ItemSchema = new mongoose.Schema({
   description: String,
   photo: String,
   owner: String,
-  likedBy: String,
-  viewedBy: String,
+  likedBy: Array,
+  viewedBy: Array,
 });
 
 const Item = mongoose.model("Item", ItemSchema);
