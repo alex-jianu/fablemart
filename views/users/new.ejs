@@ -2,25 +2,11 @@
 <html lang="en">
     <head>
         <title>Acebook - Sign Up</title>
-        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-        <link href="../stylesheets/signup.css" rel="stylesheet" />
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="../javascripts/password.js"></script>
-
     </head>
     <body>
         <header>
-            <span class="site_logo">
-                <a href="/posts">
-                    <img src="/images/logo trial 3.png" alt="Acebook" height="50" />
-                </a>
-            </span>
-            <span class="login-signup">
                 <a href="/">Home</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                 <a href="/sessions/new">Log In</a>
-            </span>
         </header>
         <form id="new-user-form" class="col-6 col-s-7 col-xs-8" action="/users" method="post">
             <div class="user-inputs">
@@ -42,6 +28,10 @@
                         required />
                     <span><i class="fa fa-eye-slash" id="toggle-password"></i> &nbsp; Show password</span><br>
                 </div>
+                <div class="bio-field">
+                    <label for="bio">Bio: </label>
+                    <input id="bio" type="text" name="bio" title="Enter a bio for everyone to see">
+                </div>
                 <div>
                     <p id="character-length">✗ Must contain between 8-32 characters</p>
                     <p id="lower-case">✗ Must contain lower case</p>
@@ -54,5 +44,4 @@
             <input id="submit" type="submit" value="Submit" />
         </form>
     </body>
-    <footer>Acebook™ in partnership with Eta™</footer>
 </html>
