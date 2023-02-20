@@ -2,44 +2,24 @@
 <html lang="en">
   <head>
     <title>Acebook - Log In</title>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <link rel='stylesheet' href='/stylesheets/user-index.css' />
   </head>
   <body>
-
     <header>
-      <span class="site_logo">
-        <a href="/posts"><img src="/images/logo trial 3.png" alt="Acebook" height="50"></a>
-      </span>
-      <span>
-        <a href="/">Home</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/users/new">Sign Up</a>
-      </span>
-      </span>
+      <a href="/">Home</a>
+      <a href="/users/new">Sign Up</a>
     </header>
+    <h1>FableMart</h1>
+    <p>Spend money you don't have<br>on things you don't need</p>
+    <form id="new-session-form" action="/sessions" method="post">
+      <h2>Log into FableMart</h2>
 
-    <div class="container col-10 col-s-11 col-xs-11">
+      <label for="email">Email: </label>
+      <input id="email" type="email" name="email" value="">
 
-      <div id="leftbox" class="col-6 col-s-8 col-xs-10">
-        <h1>Acebook</h1>
-        <p>Missing the "F"...<br>...as in "Funding"</p>
-      </div>
+      <label for="password">Password: </label>
+      <input id="password" type="password" name="password" value="">
 
-      <div id="rightbox" class="col-6 col-s-8 col-xs-10">
-        <form id="new-session-form" action="/sessions" method="post">
-          <h2>Log into Acebook</h2>
-
-          <label for="email">Email: </label>
-          <input id="email" type="email" name="email" value="">
-
-          <label for="password">Password: </label>
-          <input id="password" type="password" name="password" value="">
-
-          <input id="submit" type="submit" value="Submit">
-        </form>
-      </div>
-    </div>
+      <input id="submit" type="submit" value="Submit">
   </body>
-  <footer>Acebook™ in partnership with Eta™</footer>
+  <footer>FableMart™ in partnership with Eta™</footer>
 </html>
