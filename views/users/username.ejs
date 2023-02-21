@@ -1,4 +1,8 @@
+<a href="/">home</a>
 <h1>profile page for <%=profileUser.username %></h1>
+<p> username: <%=profileUser.username %></p>
+<p> email: <%=profileUser.email %></p>
+<p> bio: <%=profileUser.bio %></p>
 <%if (currentUser.username === profileUser.username) {%>
 <a href = "/users/<%=profileUser.username%>/edit" >edit</a>
 <% } else {%>

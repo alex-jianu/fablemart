@@ -33,21 +33,33 @@ const UsersController = {
   },
 
   Profile: async (req, res) => {
-    const profileUser = await User.findOne({username:req.params.username});
-    const profileUserItems = await Item.find({username: req.params.username});
+    if (!req.session.user) {
+      res.redirect("/")
+    }else {
+      const profileUser = await User.findOne({username:req.params.username});
+      const profileUserItems = await Item.find({owner: req.params.username});
 
 
-    res.render("users/username", {profileUser: profileUser, currentUser: req.session.user});
+      res.render("users/username", {profileUser: profileUser, currentUser: req.session.user, items: profileUserItems});
+    }
+
   },
   Edit: async (req, res) => {
-    const profileUser = await User.findOne({username:req.params.username});
-    console.log("create new bio");
-    const bio = 
-
+    if (!req.session.user) {
+      res.redirect("/")
+    }else {
+      const profileUser = await User.findOne({username:req.params.username});
     
-    res.render("users/edit", {profileUser:  profileUser, currentUser: req.session.user});
-
+    
+      res.render("users/edit", {profileUser:  profileUser, currentUser: req.session.user});
+    }
   },
+  Update: async (req, res) => {
+    const newBio = req.body.bio;
+    await User.updateOne({username: req.session.user.username}, {bio: newBio});
+
+    res.redirect(`/users/${req.params.username}`)
+  }
   // Items: (req, res) => {
 
   // }
