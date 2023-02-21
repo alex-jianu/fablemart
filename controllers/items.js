@@ -21,7 +21,6 @@ const ItemsController = {
           } else {
             item.isLiked = false;
           }
-
         });
 
         res.render("items/index", {
@@ -35,7 +34,7 @@ const ItemsController = {
   New: (req, res) => {
     res.render("items/new", { user: req.session.user });
   },
-  Create: (req, res) => {
+  Create: async (req, res) => {
     const item = new Item(req.body);
 
     item.owner = req.session.user.username;
@@ -44,38 +43,23 @@ const ItemsController = {
     item.name = item.name.trim();
     item.description = item.description.trim();
 
-
-    Item.findOne({ name: item.name }).then((itemByName) => {
-      if (!itemByName) {
-        Item.findOne({ description: item.description }).then((itemByDescription) => {
-          if (!itemByDescription) {
-            item.save((err) => {
-              if (err) {
-                throw err;
-              }
-              res.redirect("/items");
-            });
-          } else {
-            if (item.name === "" || item.description === "") {
-              res.redirect("/items/new");
-            } else {
-        
-              item.save((err) => {
-                if (err) {
-                  throw err;
-                }
-        
-                res.status(201).redirect("/items");
-              });
-            }
+    if (item.name === "" || item.description === "") {
+      res.redirect("/items/new");
+    } else {
+      const existingItem = await Item.findOne({
+        $or: [{ name: item.name }, { description: item.description }],
+      });
+      if (!existingItem) {
+        item.save((err) => {
+          if (err) {
+            throw err;
           }
+          res.status(201).redirect("/items");
         });
       } else {
         res.redirect("/items/new");
       }
-    });
-
-
+    }
   },
 
   Like: async (req, res) => {
