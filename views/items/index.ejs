@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Acebook - Homepage</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
@@ -21,9 +22,35 @@
         </header>
 
             <div>
-                <p>Image of Product</p>
-                <p>Name of Product</p>
-                <p>Description of Product</p>
+                <% items.forEach(function (item) { %>
+                    <div>
+                    <p>Imagine a photo idk</p>
+                    <a href="/items/<%= item.id%>"<p>Name: <%= item.name %></p></a>
+                    <p><%= item.description %></p>
+                    <p>Posted by: <%= item.owner %></p>
+
+                    <% if (item.likedBy.length === 0) { %>
+                        <p>No Likes</p>
+                    <% } else if (item.likedBy.length === 1) { %>
+                        <p><%= item.likedBy.length %> Like</p>
+                    <% } else { %> 
+                        <p><%= item.likedBy.length %> Likes</p>
+                    <% } %>
+
+
+                    <p><%= item.viewedBy.length %> Viewed</p>
+
+                    <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
+                        <% if (item.isLiked) { %>
+                            <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+                        <% } else { %>
+                            <button><input class="logout" type="submit" value=""><i class="far fa-heart"style="font-size: 30px; color: grey"></i></button>
+                        <% } %>
+                    </form>
+
+                    <br><hr>
+                    </div>
+                <% }) %>
             </div>
 
     </body>
