@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Acebook - Homepage</title>
-    </head>
-    <body>
-        <header>
-            <span>
-                <input type="text" placeholder="Search..">
-            </span>
 
-            <span>
-                <a href="/sessions/new">Log Out</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items/new">+ New Product</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/messages">Messages</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/profile">Profile</a>
-            </span>
-        </header>
+<head>
+  <title>Acebook - Homepage</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
 
-            <div>
-                <p>Image of Product</p>
-                <p>Name of Product</p>
-                <p>Description of Product</p>
-            </div>
+<body>
+  <header>
+    <span>
+      <input type="text" placeholder="Search..">
+    </span>
 
-    </body>
-    <footer>FableMart™ in partnership with Eta™</footer>
+    <span>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log Out">
+      </form>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items/new">+ New Product</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/messages">Messages</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/profile">Profile</a>
+    </span>
+  </header>
+
+  <div>
+    <% items.forEach(function (item) { %>
+    <div>
+      <p>Imagine a photo idk</p>
+      <a href="/items/<%= item.id%>" <p>Name: <%= item.name %></p></a>
+      <p><%= item.description %></p>
+      <p>Posted by: <%= item.owner %></p>
+
+      <% if (item.likedBy.length === 0) { %>
+      <p>No Likes</p>
+      <% } else if (item.likedBy.length === 1) { %>
+      <p><%= item.likedBy.length %> Like</p>
+      <% } else { %>
+      <p><%= item.likedBy.length %> Likes</p>
+      <% } %>
+
+
+      <p><%= item.viewedBy.length %> Viewed</p>
+
+      <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
+        <% if (item.isLiked) { %>
+        <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+        <% } else { %>
+        <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
+        <% } %>
+      </form>
+
+      <br>
+      <hr>
+    </div>
+    <% }) %>
+  </div>
+
+</body>
+<footer>FableMart™ in partnership with Eta™</footer>
+
 </html>
