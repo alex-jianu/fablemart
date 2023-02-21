@@ -2,6 +2,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable quotes */
 const User = require("../models/user");
+const Item = require("../models/item");
 
 const UsersController = {
   New: (req, res) => {
@@ -30,6 +31,27 @@ const UsersController = {
       }
     });
   },
+
+  Profile: async (req, res) => {
+    const profileUser = await User.findOne({username:req.params.username});
+    const profileUserItems = await Item.find({username: req.params.username});
+
+
+    res.render("users/username", {profileUser: profileUser, currentUser: req.session.user});
+  },
+  Edit: async (req, res) => {
+    const profileUser = await User.findOne({username:req.params.username});
+    console.log("create new bio");
+    const bio = 
+
+    
+    res.render("users/edit", {profileUser:  profileUser, currentUser: req.session.user});
+
+  },
+  // Items: (req, res) => {
+
+  // }
 };
 
 module.exports = UsersController;
+
