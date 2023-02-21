@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FableMart- Orders</title>
+    </head>
+    <body>
+        <header>
+                <form class="button" action="/items" method="GET">
+                    <input class="logout" type="submit" value="Home">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/sessions?_method=DELETE" method="POST">
+                    <input class="logout" type="submit" value="Log Out">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/orders" method="GET">
+                    <input class="logout" type="submit" value="Orders">
+                </form>
+        </header>
+
+        <div class="content col-xs-10 col-s-10 col-7">
+            <h1>Orders Pending</h1>
+            <h2>Received</h2>
+            <br>
+            <div class="items">
+                {{#each receivedOrders}}
+                    <div class="item">
+                        <div class="title">
+                            <span class="user-pic">
+                                <div class="author">{{this.buyerUsername}} requested an item.
+                                </div>
+                            </span>
+                        </div>
+                        <p>Status: {{this.status}}</p>
+                        <br>
+                        <div>
+                            <form class="button" action="/orders/{{this._id}}/confirm?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Confirm">
+                            </form>
+                            <form class="button" action="/orders/{{this._id}}/decline?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Decline">
+                            </form>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <br>
+            <br>
+            <h2>Sent</h2>
+            <br>
+            <div>
+                {{#each sentOrders}}
+                    <div class="item">
+                        <div>
+                                <div>You have confirmed an order for: {{this.buyerUsername}}
+                                </div>
+                        </div>
+                        <p>Status: {{this.status}}</p>
+                        <div>
+                            <form class="button" action="/orders/{{this._id}}/cancel?_method=PATCH" method="POST">
+                                <input class="logout" type="submit" value="Cancel">
+                            </form>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </body>
+    <footer>FableMart™ Bringing imagination to life</footer>
+</html>

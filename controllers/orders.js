@@ -7,7 +7,7 @@ const OrdersController = {
     if (!req.session.user) {
       res.redirect("/");
     } else {
-      res.render("requests/index", {
+      res.render("/orders/index", {
         orders: orders.reverse(),
       });
     }
