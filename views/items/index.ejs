@@ -28,7 +28,8 @@
   <div>
     <% items.forEach(function (item) { %>
     <div>
-      <p>Imagine a photo idk</p>
+      <img src="<%= item.photo %>" height="100" width="100">
+      <br>
       <a href="/items/<%= item.id%>" <p>Name: <%= item.name %></p></a>
       <p><%= item.description %></p>
       <p>Posted by: <%= item.owner %></p>
