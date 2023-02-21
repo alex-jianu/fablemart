@@ -15,6 +15,15 @@ const ItemsController = {
           throw err;
         }
 
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+
+        });
+
         res.render("items/index", {
           items: items.reverse(),
           user: req.session.user,
@@ -28,23 +37,45 @@ const ItemsController = {
   },
   Create: (req, res) => {
     const item = new Item(req.body);
+
     item.owner = req.session.user.username;
     item.likedBy = [];
     item.viewedBy = [];
     item.name = item.name.trim();
     item.description = item.description.trim();
 
-    if (item.name === "" || item.description === "") {
-      res.redirect("/items/new");
-    } else {
-      item.save((err) => {
-        if (err) {
-          throw err;
-        }
 
-        res.status(201).redirect("/items");
-      });
-    }
+    Item.findOne({ name: item.name }).then((itemByName) => {
+      if (!itemByName) {
+        Item.findOne({ description: item.description }).then((itemByDescription) => {
+          if (!itemByDescription) {
+            item.save((err) => {
+              if (err) {
+                throw err;
+              }
+              res.redirect("/items");
+            });
+          } else {
+            if (item.name === "" || item.description === "") {
+              res.redirect("/items/new");
+            } else {
+        
+              item.save((err) => {
+                if (err) {
+                  throw err;
+                }
+        
+                res.status(201).redirect("/items");
+              });
+            }
+          }
+        });
+      } else {
+        res.redirect("/items/new");
+      }
+    });
+
+
   },
 
   Like: async (req, res) => {
@@ -79,5 +110,14 @@ const ItemsController = {
     }
   },
 };
+
+// User ===> Item
+// user ===> item
+// name: user.email ===> name: item.name
+// userByEmail ===> itemByName
+// username: user.username ===> description: item.description
+// userByUsername ===> itemByDescription
+// /sessions/new ===> /items
+// /users/new ===> /items/new
 
 module.exports = ItemsController;
