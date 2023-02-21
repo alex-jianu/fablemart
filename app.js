@@ -62,7 +62,7 @@ app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
 app.use("/orders", sessionChecker, ordersRouter);
 app.use("/items", itemsRouter);
-app.use("/messages", sessionChecker, messagesRouter);
+app.use("/messages", messagesRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
