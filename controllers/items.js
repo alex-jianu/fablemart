@@ -15,6 +15,14 @@ const ItemsController = {
           throw err;
         }
 
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+        });
+
         res.render("items/index", {
           items: items.reverse(),
           user: req.session.user,
@@ -26,8 +34,9 @@ const ItemsController = {
   New: (req, res) => {
     res.render("items/new", { user: req.session.user });
   },
-  Create: (req, res) => {
+  Create: async (req, res) => {
     const item = new Item(req.body);
+
     item.owner = req.session.user.username;
     item.likedBy = [];
     item.viewedBy = [];
@@ -37,13 +46,19 @@ const ItemsController = {
     if (item.name === "" || item.description === "") {
       res.redirect("/items/new");
     } else {
-      item.save((err) => {
-        if (err) {
-          throw err;
-        }
-
-        res.status(201).redirect("/items");
+      const existingItem = await Item.findOne({
+        $or: [{ name: item.name }, { description: item.description }],
       });
+      if (!existingItem) {
+        item.save((err) => {
+          if (err) {
+            throw err;
+          }
+          res.status(201).redirect("/items");
+        });
+      } else {
+        res.redirect("/items/new");
+      }
     }
   },
 
@@ -79,5 +94,14 @@ const ItemsController = {
     }
   },
 };
+
+// User ===> Item
+// user ===> item
+// name: user.email ===> name: item.name
+// userByEmail ===> itemByName
+// username: user.username ===> description: item.description
+// userByUsername ===> itemByDescription
+// /sessions/new ===> /items
+// /users/new ===> /items/new
 
 module.exports = ItemsController;

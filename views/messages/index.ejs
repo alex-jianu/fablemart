@@ -1,0 +1,11 @@
+<h1>All Messages</h1>
+<h2>Users Contacted:</h2>
+<% contactedUsers.forEach((user)=> { %>
+  <div>
+    <a href="/messages/<%= user %>">
+      <p>
+        <%= user %>
+      </p>
+    </a>
+  </div>
+  <% }) %>
