@@ -71,12 +71,12 @@ const ItemsController = {
         (entry) => entry !== req.session.user.username
       );
       await Item.updateOne(query, { likedBy: newLikedBy });
-      res.redirect("/items");
+      res.redirect(`/items/${req.params.id}`);
     } else {
       const query = { _id: req.params.id };
       const newLikedBy = item.likedBy.concat(req.session.user.username);
       await Item.updateOne(query, { likedBy: newLikedBy });
-      res.redirect("/items");
+      res.redirect(`/items/${req.params.id}`);
     }
   },
   ItemByID: async (req, res) => {
