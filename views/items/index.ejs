@@ -21,7 +21,7 @@
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/messages">Messages</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/profile">Profile</a>
+      <a href="/users/<%=user.username%>">Profile</a>
     </span>
   </header>
 
@@ -43,14 +43,6 @@
 
 
       <p><%= item.viewedBy.length %> Viewed</p>
-
-      <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
-        <% if (item.isLiked) { %>
-        <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
-        <% } else { %>
-        <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
-        <% } %>
-      </form>
 
       <br>
       <hr>
