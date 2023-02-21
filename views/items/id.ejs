@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Acebook - Homepage</title>
-    </head>
-    <body>
-        <header>
-            <span>
-                <a href="/items">FableMart</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/user/:username">User Profile</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items/new">New Item</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/messages">Message</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/orders">Orders</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/sessions/new">Log out</a>
-            </span>
-            <br>
-        </header><hr>
 
-        <header>
-            <span>
-                <a href="/items">Most Popular</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Most Recent</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Recently Viewed</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Etc.</a>
-            </span>
-            <br>
-        </header><hr>
+<head>
+  <title>Acebook - Homepage</title>
+</head>
 
-        <div>
+<body>
+  <header>
+    <span>
+      <a href="/items">FableMart</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/users/<%=item.owner%>">User Profile</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items/new">New Item</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/messages">Message</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/orders">Orders</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/sessions/new">Log out</a>
+    </span>
+    <br>
+  </header>
+  <hr>
 
-        </div>
+  <header>
+    <span>
+      <a href="/items">Most Popular</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Most Recent</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Recently Viewed</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Etc.</a>
+    </span>
+    <br>
+  </header>
+  <hr>
 
-        <br>
+  <div>
 
-        <p><%= item.name%></p>
-        <p>Photo: <%= item.photo%></p>
-        <p><%= item.description%></p>
-        <p>Owner: <%= item.owner%></p>
-        <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
-            <p><%= item.viewedBy.length%> views</p>
-            <p><%= item.likedBy.length%> likes</p><button><input class="logout" type="submit" value="Like"><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
-        </form>
+  </div>
 
-        <form action="/items/<%= item.id%>/order" method="POST">
-            <button><input class="logout" type="submit" value="Order"><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
-        </form>
+  <br>
 
-    </body>
-    <footer>FableMart™ in partnership with Eta™</footer>
+  <p><%= item.name%></p>
+  <p>Photo: <%= item.photo%></p>
+  <p><%= item.description%></p>
+  <a href="/users/<%=item.owner%>">
+    <p>Owner: <%= item.owner%></p>
+  </a>
+  <p><%= item.viewedBy.length%> views</p>
+  <p><%= item.likedBy.length%> likes</p>
+
+  <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
+    <% if (item.isLiked) { %>
+    <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+    <% } else { %>
+    <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
+    <% } %>
+  </form>
+
+
+  <form action="/items/<%= item.id%>/order" method="POST">
+    <button>
+      <input class="logout" type="submit" value="Order">
+      <i class="far fa-heart" style="font-size: 30px; color: grey"></i>
+    </button>
+  </form>
+
+</body>
+<footer>FableMart™ in partnership with Eta™</footer>
+
 </html>
