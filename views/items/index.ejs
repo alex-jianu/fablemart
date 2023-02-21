@@ -46,9 +46,9 @@
 
       <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
         <% if (item.isLiked) { %>
-        <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+            <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
         <% } else { %>
-        <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
+            <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
         <% } %>
       </form>
 
