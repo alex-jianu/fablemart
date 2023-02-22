@@ -5,6 +5,7 @@ const OrderSchema = new mongoose.Schema({
   sellerUsername: String,
   buyerUsername: String,
   status: String,
+  transactions: Array,
 });
 
 const Order = mongoose.model("Order", OrderSchema);
