@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Acebook - Homepage</title>
-    </head>
-    <body>
-        <header>
-            <span>
-                <a href="/items">FableMart</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/user/:username">User Profile</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items/new">New Item</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/messages">Message</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/orders">Orders</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/sessions/new">Log out</a>
-            </span>
-            <br>
-        </header><hr>
 
-        <header>
-            <span>
-                <a href="/items">Most Popular</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Most Recent</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Recently Viewed</a>
-                <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/items">Etc.</a>
-            </span>
-            <br>
-        </header><hr>
+<head>
+  <title>Acebook - Homepage</title>
+</head>
 
-        <form action="/items" method="post">
-            <div>
-                <label for="name">Name: &nbsp;</label><input type="text" name="name">
-            </div><br>
+<body>
+  <header>
+    <span>
+      <a href="/items">FableMart</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/user/:username">User Profile</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items/new">New Item</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/messages">Message</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/orders">Orders</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/sessions/new">Log out</a>
+    </span>
+    <br>
+  </header>
+  <hr>
 
-            <div>
-                <label for="description">Description &nbsp;</label><input type="text" name="description">
-            </div><br>
+  <header>
+    <span>
+      <a href="/items">Most Popular</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Most Recent</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Recently Viewed</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items">Etc.</a>
+    </span>
+    <br>
+  </header>
+  <hr>
 
-            <div>
-                <input type="file" id="myFile" name="filename">
-            </div><br><br>
+  <form action="/items" method="post">
+    <div>
+      <label for="name">Name: &nbsp;</label><input type="text" name="name">
+    </div><br>
 
-            <div>
-                <input type="submit">
-            </div>
+    <div>
+      <label for="description">Description &nbsp;</label><input type="text" name="description">
+    </div><br>
 
-            <div>
-                <input type="submit" value="Cancel">
-            </div><br><br>
+    <div>
+      <label for="photo">Photo Link &nbsp;</label>
+      <input type="text" name="photo">
+    </div><br><br>
 
-        </form>
+    <div>
+      <input type="submit">
+    </div>
 
-    </body>
-    <footer>FableMart™ in partnership with Eta™</footer>
+    <div>
+      <input type="submit" value="Cancel">
+    </div><br><br>
+
+  </form>
+
+</body>
+<footer>FableMart™ in partnership with Eta™</footer>
+
 </html>
