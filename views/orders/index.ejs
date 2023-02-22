@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FableMart- Orders</title>
+    </head>
+    <body>
+        <header>
+                <form class="button" action="/items" method="GET">
+                    <input class="logout" type="submit" value="Home">
+                </form>
+
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                <form class="button" action="/sessions?_method=DELETE" method="POST">
+                    <input class="logout" type="submit" value="Log Out">
+                </form>
+        </header>
+            <h1>Orders Pending</h1>
+            <h2>Received</h2>
+            <br>
+                <%receivedOrders.forEach((order)=> { %>
+                    <p><%= order.buyerUsername %> sent you a request for <a href="/items/<%=order.itemID%>"> this item.</a> </p>
+                    <form class="button" action="/orders/<%=order._id%>/confirm?_method=PATCH" method="POST">
+                        <input class="logout" type="submit" value="Confirm">
+                    </form>
+                    <form class="button" action="/orders/<%=order._id%>/decline?_method=PATCH" method="POST">
+                        <input class="logout" type="submit" value="Decline">
+                    </form>
+                <%})%>
+                <h2>Sent</h2>
+                <%sentOrders.forEach((order)=> { %>
+                    <p>You sent <%= order.sellerUsername %> a request for <a href="/items/<%=order.itemID%>"> this item.</a> </p>
+                    <form class="button" action="/orders/<%=order._id%>/cancel?_method=PATCH" method="POST">
+                        <input class="logout" type="submit" value="Cancel">
+                    </form>
+                <%})%>
+    </body>
+    <footer>FableMart™ Bringing imagination to life</footer>
+</html>
