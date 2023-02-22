@@ -1,5 +1,14 @@
 const Message = require("../models/message");
 const User = require("../models/user");
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "fablemart.makers@gmail.com",
+    pass: "ircysilfftmtovnq",
+  },
+});
 
 const MessagesController = {
   Index: async (req, res) => {
@@ -84,6 +93,21 @@ const MessagesController = {
           if (err) {
             throw err;
           }
+
+          let mailOptions = {
+            from: "fablemart.makers@gmail.com",
+            to: receiver.email,
+            subject: `Psst...${sender.username} just sent you a message`,
+            text: `Warm regards, ${receiver.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that ${sender.username} would like to have a word with you, in private.\nMaybe it is about one of your listed items that caught his eye, or perhaps he would like to hear your travel stories..\nWhatever it is, you should not keep a fellow FableTraveller waiting, so go ahead and see what they want\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+          };
+
+          transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("Email sent: " + info.response);
+            }
+          });
 
           res.status(201).redirect(`/messages/${receiver.username}`);
         });
