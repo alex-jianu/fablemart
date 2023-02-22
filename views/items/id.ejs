@@ -44,14 +44,28 @@
 
   <br>
 
+  <img src="<%= item.photo %>" height="400" width="400">
   <p><%= item.name%></p>
-  <p>Photo: <%= item.photo%></p>
   <p><%= item.description%></p>
   <a href="/users/<%=item.owner%>">
     <p>Owner: <%= item.owner%></p>
   </a>
-  <p><%= item.viewedBy.length%> views</p>
-  <p><%= item.likedBy.length%> likes</p>
+
+    <% if (item.viewedBy.length === 0) { %>
+        <p>No Views</p>
+    <% } else if (item.viewedBy.length === 1) { %>
+        <p><%= item.viewedBy.length %> View</p>
+    <% } else { %>
+        <p><%= item.viewedBy.length %> Views</p>
+    <% } %>
+
+    <% if (item.likedBy.length === 0) { %>
+        <p>No Likes</p>
+    <% } else if (item.likedBy.length === 1) { %>
+        <p><%= item.likedBy.length %> Like</p>
+    <% } else { %>
+        <p><%= item.likedBy.length %> Likes</p>
+    <% } %>
 
   <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
     <% if (item.isLiked) { %>

@@ -71,21 +71,28 @@ const ItemsController = {
         (entry) => entry !== req.session.user.username
       );
       await Item.updateOne(query, { likedBy: newLikedBy });
-      res.redirect(`/items/${req.params.id}`);
+      res.redirect("/items");
     } else {
       const query = { _id: req.params.id };
       const newLikedBy = item.likedBy.concat(req.session.user.username);
       await Item.updateOne(query, { likedBy: newLikedBy });
-      res.redirect(`/items/${req.params.id}`);
+      res.redirect("/items");
     }
   },
+
   ItemByID: async (req, res) => {
     const item = await Item.findById(req.params.id);
-
+  
     if (!req.session.user) {
       res.redirect("/");
     } else {
       const { username } = req.session.user;
+  
+      if (!item.viewedBy.includes(username)) {
+        item.viewedBy.push(username);
+        await item.save();
+      }
+  
       res.render("items/id", {
         item: item,
         id: item._id,
@@ -93,6 +100,7 @@ const ItemsController = {
       });
     }
   },
+  
 };
 
 // User ===> Item
