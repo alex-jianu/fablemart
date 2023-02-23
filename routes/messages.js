@@ -4,7 +4,8 @@ const router = express.Router();
 const MessagesController = require("../controllers/messages");
 
 router.get("/", MessagesController.Index);
-router.post("/", MessagesController.Create);
-router.get("/new", MessagesController.New);
+router.get("/:username", MessagesController.MessagesByUsername);
+router.get("/:username/new", MessagesController.New);
+router.patch("/:username", MessagesController.Create);
 
 module.exports = router;

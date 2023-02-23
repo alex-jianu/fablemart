@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Acebook - Log In</title>
-  </head>
-  <body>
-    <header>
-      <a href="/">Home</a>
-      <a href="/users/new">Sign Up</a>
-    </header>
-    <h1>FableMart</h1>
-    <p>Spend money you don't have<br>on things you don't need</p>
-    <form id="new-session-form" action="/sessions" method="post">
-      <h2>Log into FableMart</h2>
 
-      <label for="email">Email: </label>
-      <input id="email" type="email" name="email" value="">
+<head>
+  <title>Acebook - Log In</title>
+</head>
 
-      <label for="password">Password: </label>
-      <input id="password" type="password" name="password" value="">
+<body>
+  <header>
+    <a href="/">Home</a>
+    <a href="/users/new">Sign Up</a>
+  </header>
+  <h1>FableMart</h1>
+  <p>Spend money you don't have<br>on things you don't need</p>
+  <form id="new-session-form" action="/sessions" method="post">
+    <h2>Log into FableMart</h2>
 
-      <input id="submit" type="submit" value="Submit">
-  </body>
-  <footer>FableMart™ in partnership with Eta™</footer>
+    <label for="email">Email: </label>
+    <input id="email" type="email" name="email" value="">
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" name="password" value="">
+
+    <input id="submit" type="submit" value="Submit">
+  </form>
+  <a href="/forgot-password" style="color: red">Oh, no!!! What was my enchanted passphrase?!?</a>
+</body>
+<footer>FableMart™ in partnership with Eta™</footer>
+
 </html>

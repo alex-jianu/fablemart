@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Acebook - Homepage</title>
+</head>
+
+<body>
+  <header>
+    <span>
+      <form action="/sessions?_method=DELETE" method="POST"></form>
+      <a href="/items">FableMart</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/users/<%=item.owner%>">User Profile</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items/new">New Item</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/messages">Messages</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/orders">Orders</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <input type="submit" value="Log Out">
+      </form>
+    </span>
+    <br>
+  </header>
+  <img src="<%= item.photo %>" height="400" width="400">
+  <p><%= item.name%></p>
+  <p><%= item.description%></p>
+  <a href="/users/<%=item.owner%>">
+    <p>Owner: <%= item.owner%></p>
+  </a>
+
+  <% if (item.viewedBy.length === 0) { %>
+  <p>No Views</p>
+  <% } else if (item.viewedBy.length === 1) { %>
+  <p><%= item.viewedBy.length %> View</p>
+  <% } else { %>
+  <p><%= item.viewedBy.length %> Views</p>
+  <% } %>
+
+  <% if (item.likedBy.length === 0) { %>
+  <p>No Likes</p>
+  <% } else if (item.likedBy.length === 1) { %>
+  <p><%= item.likedBy.length %> Like</p>
+  <% } else { %>
+  <p><%= item.likedBy.length %> Likes</p>
+  <% } %>
+
+  <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
+    <% if (item.isLiked) { %>
+    <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
+    <% } else { %>
+    <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
+    <% } %>
+  </form>
+
+
+  <form action="/orders/<%=item.id%>" method="POST">
+    <button>
+      <input class="logout" type="submit" value="Order">
+      <i class="far fa-heart" style="font-size: 30px; color: grey"></i>
+    </button>
+  </form>
+
+</body>
+<footer>FableMart™ in partnership with Eta™</footer>
+
+</html>
