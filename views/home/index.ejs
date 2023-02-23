@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Welcome to FableMart</title>
-    </head>
-    <body>
-        <header>
-            <a href="/sessions/new">Log In</a>
-            <a href="/users/new">Sign Up</a>
-        </header>
-            <h1>
-                <%=title%>
-            </h1>
-            <p>Whatever you’ve got in mind, we’ve got inside.</p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FableMart Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+</head>
+    <body style="text-align: center;" class="align-middle">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        
+        <nav>
+            <div class="container-fluid justify-content-center">
+              <a class="navbar-brand fs-1" href="/">FableMart</a>
+            </div>
+        </nav>
+            <div class="content">
+                <h1> FableMart </h1>
+                <div class="fs-2 justify-content-center">
+                    <p>Since the dawn of the universe life has never ceased <br> to wander into the unknown and retrieve the unimaginable</p>
+                    <p>Time has come for all travelers to come together in one place</p>
+                    <p>Are you ready to spend money you don't have on things that don't exist <br> and talk about fictitious items with other internet travellers?</p>
+                    <p>Then you'd better get your FablePass ready
+                        and remember: <p>Nothing is real... But most of it is pretty funny</p>
+                        </p>
+                </div>
+
+                <div class="buttons">
+                    <form action="/sessions/new" method="GET" style="width: 200px; margin-right: 10px">
+                        <input type="submit" class="btn btn-lg fs-3" value="Here's my &#10; FablePASS"> </input>
+                    </form>
+
+                    <form action="/users/new" method="GET" style="width: 200px; margin-left: 10px">
+                        <input type="submit" class="btn btn-lg fs-3" value="I need a &#10; FablePASS"> </input>
+                    </form>
+                </div>
+            </div>
+
+                <nav style="position: fixed; bottom: 0%; right: 0%; left: 0%; padding-top:1%">
+                    <div class="justify-content-center">
+                    <p>FableMart™ Bringing imagination to life</p>
+                    <p >Whatever you’ve got in mind, we’ve got inside.</p>
+                    </div>
+                </nav>
+            
+
     </body>
-    <footer>FableMart™ Bringing imagination to life</footer>
+
+    
 </html>
