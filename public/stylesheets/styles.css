@@ -1,0 +1,75 @@
+* {
+    font-family: 'Verlag A', 'Verlag B', "Verlag";
+    flex-direction: column;
+}
+
+body {
+    background-color: #E76F4D;
+    position: relative;
+}
+
+nav {
+    background-color: var(--raising-black);
+    color: var(--burnt-sienna);
+}
+
+div.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+div.content {
+    margin-top: 15%;
+}
+
+.fs-2 {
+    background-color: var(--buff);
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.btn-lg {
+    width: 200px;
+    font-weight: 900;
+    background-color: var(--garnet); 
+    color: var(--burnt-sienna);
+    border-radius: 15px;
+    border: solid var(--raising-black) 2px;
+    align-items: center;
+}
+
+title {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--burnt-sienna);
+    margin: auto;
+    width: 100%;
+}
+
+.btn-lg:hover {
+    background-color: var(--chestnut);
+    border: solid var(--garnet) 2px;
+    color: var(--raising-black);
+}
+
+:root {
+    --buff: #efd0c1;
+    --indian-red: #EF5D60;
+    --cerise: #EC4067;
+    --fandango: #A01A7D;
+    --russian-violet: #311847;
+
+    --raising-black: #312D39;
+    --garnet: #663234;
+    --chestnut: #A34839;
+    --jasper: #C4563B;
+    --burnt-sienna: #E76F4D;
+
+
+}
