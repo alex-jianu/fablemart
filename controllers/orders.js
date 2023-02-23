@@ -27,37 +27,38 @@ const OrdersController = {
     order.save((err) => {
       if (err) {
         throw err;
+      } else {
+        let mailOptions = {
+          from: "fablemart.makers@gmail.com",
+          to: req.session.user.email,
+          subject: "You might just be lucky enough to get it!",
+          text: `Warm regards, ${req.session.user.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that your order for the FableMart item, ${item.name}, has been sent.\nIf I were you I would try really hard to get in ${item.owner}'s graces ASAP.\nGood luck!\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log("Email sent: " + info.response);
+          }
+        });
+
+        mailOptions = {
+          from: "fablemart.makers@gmail.com",
+          to: owner.email,
+          subject: "Your item has everyone drooling over it!",
+          text: `Warm regards, ${owner.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that your FableMart item, ${item.name}, has been requested by ${req.session.user.username}.\nGive it away or keep it, that is entirely up to you. Just don't leave people waiting for an answer for too long.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log("Email sent: " + info.response);
+          }
+        });
+        res.redirect(`/items/${req.params.id}`);
       }
-      let mailOptions = {
-        from: "fablemart.makers@gmail.com",
-        to: req.session.user.email,
-        subject: "You might just be lucky enough to get it!",
-        text: `Warm regards, ${req.session.user.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that your order for the FableMart item, ${item.name}, has been sent.\nIf I were you I would try really hard to get in ${item.owner}'s graces ASAP.\nGood luck!\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
-      };
-
-      transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-        }
-      });
-
-      mailOptions = {
-        from: "fablemart.makers@gmail.com",
-        to: owner.email,
-        subject: "Your item has everyone drooling over it!",
-        text: `Warm regards, ${owner.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that your FableMart item, ${item.name}, has been requested by ${req.session.user.username}.\nGive it away or keep it, that is entirely up to you. Just don't leave people waiting for an answer for too long.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
-      };
-
-      transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-        }
-      });
-      res.redirect(`/items/${req.params.id}`);
     });
     // }
   },
@@ -97,7 +98,7 @@ const OrdersController = {
       (order) => order.buyerUsername
     );
     const allUsers = await User.find({});
-    const declinedUsers = allUsers.select((user) =>
+    const declinedUsers = allUsers.filter((user) =>
       declinedBuyers.includes(user.username)
     );
 
@@ -105,8 +106,8 @@ const OrdersController = {
       mailOptions = {
         from: "fablemart.makers@gmail.com",
         to: user.email,
-        subject: `${owner.username} has declined your order`,
-        text: `Warm regards, ${user.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that ${owner.username} declined your order for their FableMart item, ${item.name}\nMaybe it was not meant to be.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+        subject: `${item.owner} has declined your order`,
+        text: `Warm regards, ${user.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that ${item.owner} declined your order for their FableMart item, ${item.name}\nMaybe it was not meant to be.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
       };
 
       transporter.sendMail(mailOptions, function (error, info) {
@@ -128,8 +129,8 @@ const OrdersController = {
     mailOptions = {
       from: "fablemart.makers@gmail.com",
       to: winningUser.email,
-      subject: `${owner.username} has confirmed your order`,
-      text: `Warm regards, ${winningUser.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that ${owner.username} has confirmed your order for their FableMart item, ${item.name}\nCongratulations, and take very good care of your brand-new ${item.name}.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+      subject: `${item.owner} has confirmed your order`,
+      text: `Warm regards, ${winningUser.username}!\n\nI am a FableMart carrier pigeon and I am here to let you know that ${item.owner} has confirmed your order for their FableMart item, ${item.name}\nCongratulations, and take very good care of your brand-new ${item.name}.\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
