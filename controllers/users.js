@@ -15,53 +15,44 @@ const transporter = nodemailer.createTransport({
 
 const UsersController = {
   New: (req, res) => {
-    if (!req.session.user) {
-      res.redirect("/");
-    } else {
-      res.render("users/new", {});
-    }
+    res.render("users/new", {});
   },
 
   Create: async (req, res) => {
-    if (!req.session.user) {
-      res.redirect("/");
-    } else {
-      const user = new User(req.body);
+    const user = new User(req.body);
 
-      User.findOne({ email: user.email }).then((userByEmail) => {
-        if (!userByEmail) {
-          User.findOne({ username: user.username }).then((userByUsername) => {
-            if (!userByUsername) {
-              user.save((err) => {
-                if (err) {
-                  throw err;
+    User.findOne({ email: user.email }).then((userByEmail) => {
+      if (!userByEmail) {
+        User.findOne({ username: user.username }).then((userByUsername) => {
+          if (!userByUsername) {
+            user.save((err) => {
+              if (err) {
+                throw err;
+              }
+              let mailOptions = {
+                from: "fablemart.makers@gmail.com",
+                to: user.email,
+                subject: "Don't freak out, but... your FablePASS is ready!!!!",
+                text: `Warm regards, ${user.username}!\n\nI am a FableMart carrier pigeon and I am here to bring your own personal FablePASS.\nFrom this day onwards, you are a FableTraveller amongst many others!\nMay your browsing be ever surprising and may you gain some invaluable friends along the way\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
+              };
+
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
                 }
-                let mailOptions = {
-                  from: "fablemart.makers@gmail.com",
-                  to: user.email,
-                  subject:
-                    "Don't freak out, but... your FablePASS is ready!!!!",
-                  text: `Warm regards, ${user.username}!\n\nI am a FableMart carrier pigeon and I am here to bring your own personal FablePASS.\nFrom this day onwards, you are a FableTraveller amongst many others!\nMay your browsing be ever surprising and may you gain some invaluable friends along the way\n\nAnd remember...\nNothing is real, but most of it is really funny!\nᕙ(\`▿\´)ᕗ`,
-                };
-
-                transporter.sendMail(mailOptions, function (error, info) {
-                  if (error) {
-                    console.log(error);
-                  } else {
-                    console.log("Email sent: " + info.response);
-                  }
-                });
-                res.redirect("/sessions/new");
               });
-            } else {
-              res.redirect("/users/new");
-            }
-          });
-        } else {
-          res.redirect("/users/new");
-        }
-      });
-    }
+              res.redirect("/sessions/new");
+            });
+          } else {
+            res.redirect("/users/new");
+          }
+        });
+      } else {
+        res.redirect("/users/new");
+      }
+    });
   },
 
   Profile: async (req, res) => {

@@ -8,42 +8,22 @@
 <body>
   <header>
     <span>
+      <form action="/sessions?_method=DELETE" method="POST"></form>
       <a href="/items">FableMart</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/users/<%=item.owner%>">User Profile</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/items/new">New Item</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/messages">Message</a>
+      <a href="/messages">Messages</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/orders">Orders</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/sessions/new">Log out</a>
+      <input type="submit" value="Log Out">
+      </form>
     </span>
     <br>
   </header>
-  <hr>
-
-  <header>
-    <span>
-      <a href="/items">Most Popular</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Most Recent</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Recently Viewed</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Etc.</a>
-    </span>
-    <br>
-  </header>
-  <hr>
-
-  <div>
-
-  </div>
-
-  <br>
-
   <img src="<%= item.photo %>" height="400" width="400">
   <p><%= item.name%></p>
   <p><%= item.description%></p>
@@ -51,21 +31,21 @@
     <p>Owner: <%= item.owner%></p>
   </a>
 
-    <% if (item.viewedBy.length === 0) { %>
-        <p>No Views</p>
-    <% } else if (item.viewedBy.length === 1) { %>
-        <p><%= item.viewedBy.length %> View</p>
-    <% } else { %>
-        <p><%= item.viewedBy.length %> Views</p>
-    <% } %>
+  <% if (item.viewedBy.length === 0) { %>
+  <p>No Views</p>
+  <% } else if (item.viewedBy.length === 1) { %>
+  <p><%= item.viewedBy.length %> View</p>
+  <% } else { %>
+  <p><%= item.viewedBy.length %> Views</p>
+  <% } %>
 
-    <% if (item.likedBy.length === 0) { %>
-        <p>No Likes</p>
-    <% } else if (item.likedBy.length === 1) { %>
-        <p><%= item.likedBy.length %> Like</p>
-    <% } else { %>
-        <p><%= item.likedBy.length %> Likes</p>
-    <% } %>
+  <% if (item.likedBy.length === 0) { %>
+  <p>No Likes</p>
+  <% } else if (item.likedBy.length === 1) { %>
+  <p><%= item.likedBy.length %> Like</p>
+  <% } else { %>
+  <p><%= item.likedBy.length %> Likes</p>
+  <% } %>
 
   <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
     <% if (item.isLiked) { %>

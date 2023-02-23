@@ -32,7 +32,133 @@ const ItemsController = {
           }
         });
 
+        items.sort(function compareFn(a, b) {
+          let textA = a.name.toUpperCase();
+          var textB = b.name.toUpperCase();
+          return textA < textB ? -1 : textA > textB ? 1 : 0;
+        });
+
         res.render("items/index", {
+          items: items,
+          user: req.session.user,
+        });
+      });
+    }
+  },
+
+  MostPopular: async (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
+
+      await Item.find((err, items) => {
+        if (err) {
+          throw err;
+        }
+
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+        });
+
+        items.sort(function compareFn(a, b) {
+          return b.likedBy.length - a.likedBy.length;
+        });
+
+        res.render("items/most-popular", {
+          items: items,
+          user: req.session.user,
+        });
+      });
+    }
+  },
+
+  MostRecent: async (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
+
+      await Item.find((err, items) => {
+        if (err) {
+          throw err;
+        }
+
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+        });
+
+        res.render("items/most-recent", {
+          items: items.reverse(),
+          user: req.session.user,
+        });
+      });
+    }
+  },
+
+  MostViewed: async (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
+
+      await Item.find((err, items) => {
+        if (err) {
+          throw err;
+        }
+
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+        });
+
+        items.sort(function compareFn(a, b) {
+          return b.viewedBy.length - a.viewedBy.length;
+        });
+
+        res.render("items/most-viewed", {
+          items: items,
+          user: req.session.user,
+        });
+      });
+    }
+  },
+
+  LikedByYou: async (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/");
+    } else {
+      const { username } = req.session.user;
+
+      await Item.find((err, items) => {
+        if (err) {
+          throw err;
+        }
+
+        items.forEach((item) => {
+          if (item.likedBy.includes(username)) {
+            item.isLiked = true;
+          } else {
+            item.isLiked = false;
+          }
+        });
+
+        items = items.filter((item) =>
+          item.likedBy.includes(req.session.user.username)
+        );
+
+        res.render("items/liked-by-you", {
           items: items.reverse(),
           user: req.session.user,
         });
