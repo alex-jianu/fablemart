@@ -1,0 +1,85 @@
+
+* {
+    font-family: Cambria, Georgia, serif;
+    flex-direction: column;
+}
+
+#myContainer {
+    transition: left 0.5s;
+}
+
+:root {
+    --russian-violet-dark: #2C0735;
+    --russian-violet-light: #3D0E61;
+    --indigo: #4E148C;
+    --grape: #5829A7;
+    --iris: #613DC1;
+    --slate-blue: #7364D2;
+    --jordy-blue: #8EB5F0;
+    --pale-azure: #97DFFC;
+
+}
+
+.username-box1 {
+    transition: left 1.5s;
+}
+
+html, body {
+    position: relative;
+    background-color: #e0aaff;
+    color: white;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+}
+
+input, label {
+    display:block;
+}
+
+::placeholder {
+    font-size: 18px !important;
+}
+
+.input-box {
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+input[type=text],  input[type=email], input[type=password]{
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px #3c096c;
+    background-color:white;
+}
+
+input[type=submit] {
+    padding-bottom: 0%;
+}
+
+.header {
+    text-align: right;
+    background-color: #240046;
+    color: white;
+    bottom: 0;
+}
+
+.footer {
+    text-align: center;
+    background-color: #240046;
+    color: white; 
+    bottom: 0;
+    position: fixed;
+    right: 0%;
+    left: 0%;
+
+}
+
+.form {
+    padding-top: 10px;
+    padding-bottom: 1%;
+}
+
+.logo {
+    padding-right: 10px;
+}
