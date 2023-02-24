@@ -1,31 +1,87 @@
-<h2>Users Contacted:</h2>
-<% sender.contactedUsers.forEach((user)=> { %>
-<div>
-  <a href="/messages/<%= user %>">
-    <p>
-      <%= user %>
-    </p>
-  </a>
-</div>
-<% }) %>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Messages exchanged with <%= receiver.username %>
-</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart Messages</title>
+  <link rel='stylesheet' href='/stylesheets/messages-username.css' />
+</head>
 
-<% allMessages.forEach((message)=> { %>
-<div>
-  <% if (message.senderUsername === sender.username) { %>
-  <p style="text-align: right;">You --- <%= message.time %>:<br><%= message.content %></p>
-  <% } else { %>
-  <p><%= message.senderUsername %> --- <%= message.time %>:<br><%= message.content %></p>
-</div>
-<% }}) %>
+<body>
+  <header>
+    <span>
+      <a href="/">
+        <img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px">
+      </a>
+    </span>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <a href="/orders">Orders</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <input type="submit" value="Log Out">
+      </form>
+    </span>
+  </header>
+  <div class="container col-xs-11 col-10 col-xl-9">
+    <div class="contact-list col-xs-3 col-3 col-xl-3">
+      <p>Messages</p>
+      <hr>
+      <div class="contacts">
+        <% user.contactedUsers.forEach((user)=> { %>
+        <% if (user === paramsUsername) {%>
+        <div class="selected-contact">
+          <a href="/messages/<%= user %>">
+            <p>
+              <%= user %>
+            </p>
+          </a>
+        </div>
+        <%} else {%>
+        <div class="contact">
+          <a class="dark-link" href="/messages/<%= user %>">
+            <p>
+              <%= user %>
+            </p>
+          </a>
+        </div>
+        <% } %>
+        <% }) %>
+      </div>
+    </div>
+    <div class="messages col-xs-9 col-9 col-xl-9">
+      <div class="all-messages">
+        <% allMessages.forEach((message)=> { %>
+        <% if (message.senderUsername === sender.username) { %>
+        <div class="message message-sent">
+          <p class="author">You:</p>
+          <p class="content"><%= message.content %></p>
+          <p class="time"><%= message.time %></p>
+        </div>
+        <% } else { %>
+        <div class="message message-received">
+          <p class="author"><%= message.senderUsername %>:</p>
+          <p class="content"><%= message.content %></p>
+          <p class="time"><%= message.time %></p>
+        </div>
+        <% }}) %>
+      </div>
+      <div class="new-message">
+        <form class="new-message" action="/messages/<%= receiver.username %>?_method=PATCH" method="POST">
+          <label for="content">Your message:</label>
+          <div class="content-send">
+            <input class="new-message" type="text" name="content">
+            <input class="new-message" type="submit" value="Send Message">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
+</body>
 
-<h1>New Message To <%= receiver.username %>
-</h1>
-<form action="/messages/<%= receiver.username %>?_method=PATCH" method="POST">
-  <label for="content">Your message:</label>
-  <input type="text" name="content">
-  <input type="submit" value="Send Message">
-</form>
-<a href="/">Home</a>
+</html>
