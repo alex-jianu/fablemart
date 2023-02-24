@@ -9,10 +9,10 @@
 }
 
 body {
-  background: conic-gradient(from 135deg, #c4563b 90deg, #0000 0) 100px
+  background: conic-gradient(from 135deg, #964a4d 90deg, #0000 0) 100px
       calc(100px / 2),
-    conic-gradient(from 135deg, #e76f4d 90deg, #0000 0),
-    conic-gradient(from 135deg at 50% 0, #c4563b 90deg, #0000 0) #e76f4d;
+    conic-gradient(from 135deg, #eb8a6f 90deg, #0000 0),
+    conic-gradient(from 135deg at 50% 0, #964a4d 90deg, #0000 0) #eb8a6f;
   background-size: 200px 100px;
   margin-bottom: 50px;
 }
@@ -25,13 +25,13 @@ title {
 
 header {
   padding: 5px;
-  color: #e76f4d;
+  color: #eb8a6f;
   align-items: center;
 }
 
 div.story {
   background-color: #271e37;
-  color: #e76f4d;
+  color: #eb8a6f;
   font-size: 150%;
   border-radius: 50px;
   margin: auto;
@@ -54,7 +54,7 @@ footer {
   position: fixed;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: #e76f4d;
+  color: #eb8a6f;
   width: 100%;
   bottom: 0;
   background-color: #271e37;
@@ -77,14 +77,15 @@ input {
   font-size: 120%;
   margin: auto;
   border-radius: 20px;
-  border: solid #a34839 4px;
+  border: solid #bf5a4a 4px;
+  border-style: dashed;
   background-color: #271e37;
-  color: #e76f4d;
+  color: #eb8a6f;
   align-items: center;
 }
 
 input:hover {
-  background-color: #c4563b;
+  background-color: #964a4d;
   color: #271e37;
   border-color: #271e37;
 }
