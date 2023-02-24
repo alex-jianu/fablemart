@@ -8,19 +8,19 @@
         <link rel='stylesheet' href='/stylesheets/sign-up.css' />
     </head>
 
-        <div>
+        <!-- <div>
             <nav class="header">
                 <div class="container-fluid justify-content-center">
                     <a class="logo navbar-brand fs-1" href="/">FableMart</a>
                     <a class="login navbar-brand fs-1" href="/sessions/new">Log In</a>
                 </div>
             </nav>
-        </div>
+        </div> -->
 
     <body class="">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <header> <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"> </header>
 
-        
         <div class="content d-flex justify-content-center align-items-center fs-6">
         
             <div class="form text-center">
@@ -30,26 +30,29 @@
                 <p>We'll need some information from you first. Let's go!</p>
                 <img src="https://static.thenounproject.com/png/4866-200.png"><br><br>
 
-                <button onclick="movingLeft()">Move Left</button>
-                <button onclick="movingRight()">Move Right</button>
+                <div style="padding-bottom: 10%; justify-content: space-evenly;">
+                    <button onclick="movingRight()" id="move-right" disabled>Previous Step</button>
+                    <button onclick="movingLeft()" id="move-left">Next Step</button>
+                </div>
+
         
                 <form id="new-user-form" action="/users" method="post">
-                    <div class="username mt-2" id="username" style="position: relative; left: 1800px;">
-                        <label id="username" for="username" class="text-center">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
+                    <div class="username-box mt-2" id="username" style="position: relative; left: 1800px;">
+                        <label id="username" for="username" class="text-center mb-3 text-light">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
                         <input id="username" for="username" class="input-box" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)" size="50"
                         minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" placeholder="type in da usename plis..." required />
                     </div>        
                 <br>
         
-                <div id="email" class="email mt-2" style="position: relative; left: 3600px; bottom: 105px"> 
-                    <label id="email" for="email" class="text-center">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
+                <div id="email" class="email-box mt-2" style="position: relative; left: 3600px; bottom: 190px"> 
+                    <label id="email" for="email" class="text-center mb-3 text-light">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
                     <input id="email" for="email" class="input-box" type="email" title="LowerCase Only" name="email" placeholder="your NI numb.. i mean e-mail plz" size="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
                 </div>
         
                 <br>
 
-                <div class="password mt-2" id="password" style="position: relative; left: 5400px; bottom: 210px"> 
-                    <label id="password" for="password" class="text-center">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
+                <div class="password-box mt-2" id="password" style="position: relative; left: 5400px; bottom: 360px"> 
+                    <label id="password" for="password" class="text-center mb-3 text-light">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
                     <input id="password" for="password" class="input-box" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character" 
                         type="password" name="password" size="50" placeholder="smh your password N O W" required
                         pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$"/>
@@ -58,9 +61,10 @@
 
                     <br>
 
-                    <div class="bio mt-2" style="position: relative; left: 7200px; bottom: 315px" id="bio">
-                        <label for="bio" class="text-center" >Tell us something about yourself <br>  (or not) </label>
+                    <div class="bio-box mt-2" style="position: relative; left: 7200px; bottom: 530px; align-items: center;" id="bio">
+                        <label for="bio" class="text-center mb-3 text-light" >Tell us something about yourself <br> (or not) </label>
                         <input id="bio" class="input-box"  type="text" name="bio" title="Enter a bio for everyone to see" size="50" placeholder="there are kids in my basement ;)">
+                        <input id="submit" type="submit" value="Submit" style="position: relative; align-items: center;" />
                     </div>
 
                     <br>
@@ -75,55 +79,134 @@
 
                 </div>
 
-                <input id="submit" type="submit" value="Submit" style="position: relative; left: 1800px;" />
+
+                <div class="view align-bottom">
+                    <div class="progress bg-primary" role="progressbar" id="progress-bar" aria-label="Example 1px high" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" style="width: 0%">0%</div>
+                    </div>
+
+                    <!-- <footer> <p>FableMart™ - Bringing imagination to life</p> </footer> -->
+                </div>
             </form>
         </div>
 
-            </div>
-
-        <nav>
-            <div class="footer justify-content-center">
-            <p>FableMart™ Bringing imagination to life</p>
-            <p >Whatever you’ve got in mind, we’ve got inside.</p>
-            </div>
-        </nav>
+    </div>
 
     </body>        
     <script>
+        var counter = 0;
+        var moveLeft = document.getElementById("move-left");
+        var moveRight = document.getElementById("move-right");
+        var progress = document.getElementById("progress-bar");
+
+        // Step 0
+        const step0AriaValue = 0; // Set new value for aria-valuenow
+        const step0Width = `${step0AriaValue}%`; // Set new value for style
+        const step0Text = `${step0AriaValue}%`; // Set new value for progress bar text
+
+        // Step 1
+        const step1AriaValue = 25; // Set new value for aria-valuenow
+        const step1Width = `${step1AriaValue}%`; // Set new value for style
+        const step1Text = `${step1AriaValue}%`; // Set new value for progress bar text
+
+        // Step 2
+        const step2AriaValue = 50; // Set new value for aria-valuenow
+        const step2Width = `${step2AriaValue}%`; // Set new value for style
+        const step2Text = `${step2AriaValue}%`; // Set new value for progress bar text
+
+        // Step 3
+        const step3AriaValue = 75; // Set new value for aria-valuenow
+        const step3Width = `${step3AriaValue}%`; // Set new value for style
+        const step3Text = `${step3AriaValue}%`; // Set new value for progress bar text
+
+        // Step 4
+        const step4AriaValue = 100; // Set new value for aria-valuenow
+        const step4Width = `${step4AriaValue}%`; // Set new value for style
+        const step4Text = `${step4AriaValue}%`; // Set new value for progress bar text
+
+    
+        function checkCounter() {
+            if (counter === 0) {
+                progress.setAttribute("aria-valuenow", step0AriaValue);
+                progress.querySelector(".progress-bar").style.width = step0Width;
+                progress.querySelector(".progress-bar").textContent = step0Text;
+            } else if (counter === 1) {
+                progress.setAttribute("aria-valuenow", step1AriaValue);
+                progress.querySelector(".progress-bar").style.width = step1Width;
+                progress.querySelector(".progress-bar").textContent = step1Text;
+            } else if (counter === 2) {
+                progress.setAttribute("aria-valuenow", step2AriaValue);
+                progress.querySelector(".progress-bar").style.width = step2Width;
+                progress.querySelector(".progress-bar").textContent = step2Text;
+            } else if (counter === 3) {
+                progress.setAttribute("aria-valuenow", step3AriaValue);
+                progress.querySelector(".progress-bar").style.width = step3Width;
+                progress.querySelector(".progress-bar").textContent = step3Text;
+            } else if (counter === 4) {
+                progress.setAttribute("aria-valuenow", step4AriaValue);
+                progress.querySelector(".progress-bar").style.width = step4Width;
+                progress.querySelector(".progress-bar").textContent = step4Text;
+            } else {
+                console.log(2)
+            }
+
+
+            if (counter === 4) {
+                moveLeft.disabled = true;
+                moveRight.disabled = false;
+            } else if (counter === 0) {
+                moveLeft.disabled = false;
+                moveRight.disabled = true;
+            } else {
+                moveLeft.disabled = false;
+                moveRight.disabled = false;
+            }
+        }
+    
         function movingLeft() {
             var usernameBox = document.getElementById("username");
             var emailBox = document.getElementById("email");
             var passwordBox = document.getElementById("password");
             var bioBox = document.getElementById("bio");
-
-            usernameBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            emailBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            passwordBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            bioBox.style.transition = 'all 1.5s ease-out'; // add transition property
-
+    
+            usernameBox.style.transition = 'all 1s ease-out'; // add transition property
+            emailBox.style.transition = 'all 1s ease-out'; // add transition property
+            passwordBox.style.transition = 'all 1s ease-out'; // add transition property
+            bioBox.style.transition = 'all 1s ease-out'; // add transition property
+    
             usernameBox.style.left = parseInt(usernameBox.style.left) - 1800 + 'px';
             emailBox.style.left = parseInt(emailBox.style.left) - 1800 + 'px';
             passwordBox.style.left = parseInt(passwordBox.style.left) - 1800 + 'px';
             bioBox.style.left = parseInt(bioBox.style.left) - 1800 + 'px';
+    
+            counter++;
+            checkCounter();
         }
-
+    
         function movingRight() {
             var usernameBox = document.getElementById("username");
             var emailBox = document.getElementById("email");
             var passwordBox = document.getElementById("password");
             var bioBox = document.getElementById("bio");
-
-            usernameBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            emailBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            passwordBox.style.transition = 'all 1.5s ease-out'; // add transition property
-            bioBox.style.transition = 'all 1.5s ease-out'; // add transition property
-
+    
+            usernameBox.style.transition = 'all 1s ease-out'; // add transition property
+            emailBox.style.transition = 'all 1s ease-out'; // add transition property
+            passwordBox.style.transition = 'all 1s ease-out'; // add transition property
+            bioBox.style.transition = 'all 1s ease-out'; // add transition property
+    
             usernameBox.style.left = parseInt(usernameBox.style.left) + 1800 + 'px';
             emailBox.style.left = parseInt(emailBox.style.left) + 1800 + 'px';
             passwordBox.style.left = parseInt(passwordBox.style.left) + 1800 + 'px';
             bioBox.style.left = parseInt(bioBox.style.left) + 1800 + 'px';
+    
+            counter--;
+            checkCounter();
         }
+    
+        checkCounter(); // check the counter initially
     </script>
+    
+    
 </html>
 
 <!-- // function moveElement(elementId) {

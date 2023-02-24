@@ -1,11 +1,8 @@
 
 * {
-    font-family: Cambria, Georgia, serif;
+    /* font-family: Cambria, Georgia, serif; */
+    font-family: "Bradley Hand", cursive;
     flex-direction: column;
-}
-
-#myContainer {
-    transition: left 0.5s;
 }
 
 :root {
@@ -18,16 +15,83 @@
     --jordy-blue: #8EB5F0;
     --pale-azure: #97DFFC;
 
+    --dark-purple: #271E37;
+    --cordovan: #964A4D;
+    --jasper: #BF5A4A;
+    --burnt-sienna: #D07862;
+    --salmon: #EB8A6F;
+
 }
 
-.username-box1 {
-    transition: left 1.5s;
+.bg-primary {
+    background-color: var(--dark-purple) !important;
+}
+
+.bg-secondary {
+    background-color: var(--burnt-sienna) !important;
+}
+
+.progress {
+    --bs-progress-border-radius: 12px; 
+    --bs-progress-height: 2rem;
+    --bs-progress-font-size: 22px; 
+    --bs-progress-bar-animation-timing: 0.6s infinite;
+}
+
+.view {
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+.progress  {
+    width: 200px;
+    background-color: var(--dark-purple);
+}
+
+/* .dot {
+    height: 25px;
+    width: 50px;
+    border-color: black;
+    background-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    display: inline-block;
+} */
+
+.username-box {
+    border-radius: 10px !important;
+    border-width: 2px;
+    background-color: var(--dark-purple);;
+    padding: 5%;
+}
+
+.password-box {
+    border-radius: 10px !important;
+    border-width: 2px;
+    background-color: var(--dark-purple);;
+    padding: 5%;
+}
+
+.email-box {
+    border-radius: 10px !important;
+    border-width: 2px;
+    background-color: var(--dark-purple);;
+    padding: 5%;
+}
+
+.bio-box {
+    border-radius: 10px !important;
+    border-width: 2px;
+    background-color: var(--dark-purple);;
+    padding: 5%;
 }
 
 html, body {
     position: relative;
-    background-color: #e0aaff;
-    color: white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23EB8A6F' cx='50' cy='0' r='50'/%3E%3Cg fill='%23e88268' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23e57a61' cx='50' cy='100' r='50'/%3E%3Cg fill='%23e1725a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23dd6b53' cx='50' cy='200' r='50'/%3E%3Cg fill='%23d9634d' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d55b47' cx='50' cy='300' r='50'/%3E%3Cg fill='%23d15441' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cc4d3b' cx='50' cy='400' r='50'/%3E%3Cg fill='%23c64637' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bb4437' cx='50' cy='500' r='50'/%3E%3Cg fill='%23b04237' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a63f37' cx='50' cy='600' r='50'/%3E%3Cg fill='%239c3d37' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23923b36' cx='50' cy='700' r='50'/%3E%3Cg fill='%23893835' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%237f3634' cx='50' cy='800' r='50'/%3E%3Cg fill='%23763433' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%236d3232' cx='50' cy='900' r='50'/%3E%3Cg fill='%23653030' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%235C2E2F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: contain;
     /* overflow-x: hidden;
     overflow-y: hidden; */
 }
@@ -65,21 +129,32 @@ input[type=submit] {
 }
 
 .footer {
-    text-align: center;
+    text-align: center !important;
     background-color: #240046;
     color: white; 
     bottom: 0;
-    position: fixed;
+    position: fixed !important;
     right: 0%;
     left: 0%;
-
+    margin-top: 100%;
 }
 
 .form {
     padding-top: 10px;
     padding-bottom: 1%;
+    height: 800px !important;
 }
 
 .logo {
     padding-right: 10px;
 }
+
+footer {
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #eb8a6f;
+    width: 100%;
+    bottom: 0;
+    background-color: #271e37;
+  }
