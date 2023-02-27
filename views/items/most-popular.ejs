@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FableMart- Most praised</title>
+  <title>FableMart™ most praised</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/items-index.css' />
 </head>
@@ -14,7 +14,7 @@
   <nav>
     <span class="container-fluid justify-content-center">
       <form action="/sessions?_method=DELETE" method="POST"></form>
-      <a href="/items">FableMart</a>
+      <a href="/items"><img src="/images/fablemart-logo.png" alt="fablemart" height="50px" width="75px"></a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <span>
         <input type="text" placeholder="Search..">
@@ -47,9 +47,10 @@
   </span>
 </div>
   <div class="main-content">
-    <div class="sale-items">
+    <div class="sale-items col-xs-11 col-s-11 col-11">
     <% items.forEach(function (item) { %>
-    <div class="details">
+    <div class="details col-xs-6 col-s-4 col-3 col-l-3 col-xl-2">
+      <div class="contents col-xs-11 col-s-11 col-11">
       <div class="picture">
         <img src="<%= item.photo %>" class="responsive" height="200" width="245">
       </div>
@@ -70,6 +71,7 @@
         <% } else { %>
         <p><%= item.viewedBy.length %> Views</p>
         <% } %>
+      </div>
       </div>
     </div>
     <% }) %>
