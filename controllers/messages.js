@@ -16,7 +16,7 @@ const MessagesController = {
       res.redirect("/");
     } else {
       const user = await User.findOne({ username: req.session.user.username });
-      const contactedUsers = user.contactedUsers;
+      const contactedUsers = user.contactedUsers || [];
 
       await Message.find((err, messages) => {
         if (err) {
