@@ -27,6 +27,7 @@ nav {
     background-color: var(--dark-purple);
     color: var(--buff);
     text-align: center;
+    padding-bottom: 5px;
 }
 
 input[type=text] {
@@ -46,6 +47,7 @@ input[placeholder="Search.."] {
 img {
     border-radius: 5%;
     margin: auto;
+    border: var(--dark-purple) solid 2px;
 }
 
 .photo {
@@ -53,6 +55,13 @@ img {
     justify-content: center;
     align-items: center;
     object-fit: fill;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bottom-items {
+    display: flex;
+    align-items: center;
 }
 
 .likes-views {
@@ -62,6 +71,8 @@ img {
     max-height: 20px;
     padding-left: 2%;
     padding-right: 2%;
+    width: 40%;
+    text-align: center;
 }
 
 .like-order {
@@ -71,6 +82,59 @@ img {
     max-height: 20px;
     padding-left: 2%;
     padding-right: 2%;
+    width: 40%;
+    text-align: center;
+}
+
+input[type=submit] {
+    background-color: var(--buff);
+    height: 35px;
+    width: 90px;
+    border-radius: 5px;
+    border: var(--dark-purple) solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+
+button {
+    height: 40px;
+    width: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    border: var(--dark-purple) solid 1px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: var(--buff);
+    text-align: center;
+    padding-bottom: 1%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.lower-text {
+    background-color: var(--dark-purple);
+    color: var(--buff);
+    width: 40%;
+    display: flex;
+    align-self: center;
+    margin: auto;
+    border-radius: 15px;
+    padding-bottom: 30px;
 }
 
 :root {
