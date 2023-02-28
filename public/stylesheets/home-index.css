@@ -15,9 +15,11 @@ body {
   background-size: contain;
   margin-bottom: 50px;
 }
+
 img {
   border-radius: 150px;
 }
+
 title {
   display: none;
 }
