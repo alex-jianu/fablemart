@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const User = require("../models/user");
 
 const SessionsController = {
@@ -17,7 +18,7 @@ const SessionsController = {
         res.redirect("/sessions/new");
       } else {
         req.session.user = user;
-        res.redirect("/posts");
+        res.redirect("/items");
       }
     });
   },
@@ -27,7 +28,7 @@ const SessionsController = {
     if (req.session.user && req.cookies.user_sid) {
       res.clearCookie("user_sid");
     }
-    res.redirect("/sessions/new");
+    res.redirect("/");
   },
 };
 

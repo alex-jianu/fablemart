@@ -1,0 +1,31 @@
+<h2>Users Contacted:</h2>
+<% sender.contactedUsers.forEach((user)=> { %>
+<div>
+  <a href="/messages/<%= user %>">
+    <p>
+      <%= user %>
+    </p>
+  </a>
+</div>
+<% }) %>
+
+<h1>Messages exchanged with <%= receiver.username %>
+</h1>
+
+<% allMessages.forEach((message)=> { %>
+<div>
+  <% if (message.senderUsername === sender.username) { %>
+  <p style="text-align: right;">You --- <%= message.time %>:<br><%= message.content %></p>
+  <% } else { %>
+  <p><%= message.senderUsername %> --- <%= message.time %>:<br><%= message.content %></p>
+</div>
+<% }}) %>
+
+<h1>New Message To <%= receiver.username %>
+</h1>
+<form action="/messages/<%= receiver.username %>?_method=PATCH" method="POST">
+  <label for="content">Your message:</label>
+  <input type="text" name="content">
+  <input type="submit" value="Send Message">
+</form>
+<a href="/">Home</a>

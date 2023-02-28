@@ -1,6 +1,10 @@
 const HomeController = {
   Index: (req, res) => {
-    res.render("home/index", { title: "Acebook" });
+    if (req.session.user) {
+      res.redirect("/items");
+    } else {
+      res.render("home/index", { title: "FableMart" });
+    }
   },
 };
 
