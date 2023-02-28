@@ -32,10 +32,17 @@ a:hover {
 }
 
 nav {
-    background-color: var(--dark-purple);
-    color: var(--buff);
-    text-align: center;
-    padding-bottom: 5px;
+  background-color: var(--dark-purple);
+  color: var(--buff);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+input[value="Log Out"] {
+  background-color: var(--dark-purple);
+  color: var(--buff);
+  border: none;
 }
 
 input[type=text] {
@@ -72,7 +79,7 @@ input[placeholder="Search.."] {
 img {
     border-radius: 5%;
     margin: auto;
-    border: var(--dark-purple) solid 2px;
+    border: var(--dark-purple) solid 4px;
 }
 
 .lower-text {
@@ -94,8 +101,8 @@ img {
     flex-direction: row;
     justify-content: space-between;
     max-height: 20px;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 27%;
+    padding-right: 27%;
     width: 100%;
     text-align: center;
 }
@@ -112,7 +119,7 @@ img {
     padding-bottom: 7%;
 }
 
-input[type=submit] {
+input[class="logout"] {
     background-color: var(--buff);
     height: 35px;
     width: 90px;
@@ -139,6 +146,8 @@ footer {
     color: var(--buff);
     text-align: center;
     padding-bottom: 5px;
+    padding-top: 5px;
+    
 }
 
 :root {

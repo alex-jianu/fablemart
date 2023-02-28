@@ -28,6 +28,8 @@ nav {
   background-color: var(--dark-purple);
   color: var(--buff);
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 input[type=text] {
@@ -40,15 +42,16 @@ input[type=text]:focus {
   background-color: var(--cosmos);
 }
 
-input[placeholder="Search.."] {
+input[type=submit] {
   background-color: var(--dark-purple);
+  color: var(--buff);
+  border: none;
 }
 
 .lists {
   background-color: var(--dark-purple);
   color: var(--buff);
   text-align: center;
-  padding-top: 1%;
   padding-bottom: 0.5%;
 }
 
@@ -66,8 +69,6 @@ input[placeholder="Search.."] {
   padding-left: 1%;
   padding-right: 1%;
   margin-top: 10px;
-  /* padding-left: 1%;
-  padding-right: 1%; */
 }
 
 .picture {
