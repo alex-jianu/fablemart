@@ -37,67 +37,64 @@
   </nav>
 
   </header>
-  <div class="content"> 
+    <div class="content col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10"> 
       <div class="photo">
         <img src="<%= item.photo %>" height="400" width="400">
       </div>
+
       <div class="lower-text">
-        <div class="details">
-          <p><%= item.name%></p>
+
+          <h6><%= item.name%></h6>
           <br>
           <p><%= item.description%></p>
           <br>
-          <a href="/users/<%=item.owner%>">
-            <p>Owner: <%= item.owner%></p>
-          </a>
+            <a href="/users/<%=item.owner%>">
+              <p>Owner: <%= item.owner%></p>
+            </a>
           <br>
-        </div>
-          <div class="bottom-items">
-            <div class="likes-views">
-              <% if (item.likedBy.length === 0) { %>
-              <p>No Likes</p>
-              <% } else if (item.likedBy.length === 1) { %>
-              <p><%= item.likedBy.length %> Like</p>
-              <% } else { %>
-              <p><%= item.likedBy.length %> Likes</p>
-              <% } %>
 
-              <% if (item.viewedBy.length === 0) { %>
+          <div class="likes-views">
+            <% if (item.likedBy.length === 0) { %>
+              <p>No Likes</p>
+            <% } else if (item.likedBy.length === 1) { %>
+              <p><%= item.likedBy.length %> Like</p>
+            <% } else { %>
+              <p><%= item.likedBy.length %> Likes</p>
+            <% } %>
+
+            <% if (item.viewedBy.length === 0) { %>
               <p>No Views</p>
-              <% } else if (item.viewedBy.length === 1) { %>
+            <% } else if (item.viewedBy.length === 1) { %>
               <p><%= item.viewedBy.length %> View</p>
-              <% } else { %>
+            <% } else { %>
               <p><%= item.viewedBy.length %> Views</p>
-              <% } %>
+            <% } %>
           </div>
 
           <br> 
 
           <div class="like-order">
+
             <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
               <% if (item.isLiked) { %>
-                <button><input class="logout" type="submit" value="Like"></button>
+                <button><input class="logout" type="submit" value="Like ♥️"></button>
               <% } else { %>
-                <button><input class="logout" type="submit" value="Like"></button>
+                <button><input class="logout" type="submit" value="Like ♥️"></button>
               <% } %>
             </form>
 
             <form action="/orders/<%=item.id%>" method="POST">
               <button>
-                <input class="logout" type="submit" value="Order">
+                <input class="logout" type="submit" value="Order 📦">
               </button>
             </form>
           </div>
-        </div>
       </div>
     </div>
 
-  <nav style="position: fixed; bottom: 0%; right: 0%; left: 0%; padding-top:1%">
-    <div class="justify-content-center">
-    <p>FableMart™ Bringing imagination to life</p>
-    </div>
-  </nav>
+    <footer>
+        <p>FableMart™ Bringing imagination to life</p>
+    </footer>
 
-</body>
-
+  </body>
 </html>
