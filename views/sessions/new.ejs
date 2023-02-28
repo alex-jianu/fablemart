@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-  <title>Acebook - Log In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/sessions-new.css' />
 </head>
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 <body>
-  <header>
-    <a href="/">Home</a>
-    <a href="/users/new">Sign Up</a>
+  <div class="logo-story d-flex justify-content-center align-items-center col-l-9 col-10 col-s-11 col-xs-11">
+    <header> <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"> </header>
+    <div class="story col-l-9 col-10 col-s-11 col-xs-11">
+      <h2>Welcome back, traveller!<br>Let's have a look at your FablePass</h2>
+      <hr class="col-l-9 col-10 col-s-11 col-xs-11">
+      <form class="story col-l-9 col-10 col-s-11 col-xs-11" action="/sessions" method="POST">
+        <label for="email">What is your pigeon-mail coordinates?<br>(sometimes known as email address)</label>
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px" id="email" type="email" name="email" value="">
+        <label for="password">And your enchanted passphrase? </label>
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px" id="password" type="password" name="password" value="">
+        <input type="submit" value="That's my FablePASS">
+      </form>
+    </div>
+  </div>
+
+
+
   </header>
-  <h1>FableMart</h1>
-  <p>Spend money you don't have<br>on things you don't need</p>
-  <form id="new-session-form" action="/sessions" method="post">
-    <h2>Log into FableMart</h2>
 
-    <label for="email">Email: </label>
-    <input id="email" type="email" name="email" value="">
+  <div class="body-container">
+    <div class="container-fluid justify-content-center">
+      <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
+      <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
+    </div>
+  </div>
 
-    <label for="password">Password: </label>
-    <input id="password" type="password" name="password" value="">
 
-    <input id="submit" type="submit" value="Submit">
-  </form>
-  <a href="/forgot-password" style="color: red">Oh, no!!! What was my enchanted passphrase?!?</a>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
 </body>
-<footer>FableMart™ in partnership with Eta™</footer>
 
 </html>
