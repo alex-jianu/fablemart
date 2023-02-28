@@ -15,11 +15,9 @@
     <nav>
       <span class="container-fluid justify-content-center">
         <form action="/sessions?_method=DELETE" method="POST"></form>
-        <a href="/items"><img src="/images/fablemart-logo.png" alt="fablemart" height="50px" width="75px"></a>
+        <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
         <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <span>
-          <input type="text" placeholder="Search..">
-        </span>
+        <a href="/users/<%= user.username %>">Profile</a>
         <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
         <a href="/items/new">New Item</a>
         <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -29,7 +27,7 @@
         <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
         <a href="/orders">Orders</a>
         <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/sessions/new">Log out</a>
+        <input type="submit" value="Log Out">
         </form>
       </span>
     </nav>

@@ -74,10 +74,12 @@ const UsersController = {
       res.redirect("/");
     } else {
       const profileUser = await User.findOne({ username: req.params.username });
+      const profileUserItems = await Item.find({ owner: req.params.username });
 
       res.render("users/edit", {
         profileUser: profileUser,
         currentUser: req.session.user,
+        items: profileUserItems,
       });
     }
   },

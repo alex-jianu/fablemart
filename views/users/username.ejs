@@ -10,17 +10,19 @@
 
 <body>
   <header>
-    <span>
+    <span class="container-fluid justify-content-center">
+      <form action="/sessions?_method=DELETE" method="POST"></form>
       <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
-    </span>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <span>
-      <form action="/sessions?_method=DELETE" method="POST">
-        <a href="/messages">Messages</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/orders">Orders</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <input type="submit" value="Log Out">
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/users/<%= profileUser.username %>">Profile</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/items/new">New Item</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/messages">Messages</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="/orders">Orders</a>
+      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <input type="submit" value="Log Out">
       </form>
     </span>
   </header>
@@ -30,26 +32,10 @@
       <div class="items">
         <% items.forEach(function (item) { %>
         <div class="item">
-          <img src="<%= item.photo %>" height="50" width="50">
-          <br>
+          <img class="item" src="<%= item.photo %>" height="50" width="50">
           <a class="dark-link" href="/items/<%= item.id%>" <p><%= item.name %>
             </p>
           </a>
-          <% if (item.likedBy.length === 0) { %>
-          <p>No Likes</p>
-          <% } else if (item.likedBy.length === 1) { %>
-          <p><%= item.likedBy.length %> Like</p>
-          <% } else { %>
-          <p><%= item.likedBy.length %> Likes</p>
-          <% } %>
-
-          <% if (item.viewedBy.length === 0) { %>
-          <p>No Views</p>
-          <% } else if (item.viewedBy.length === 1) { %>
-          <p><%= item.viewedBy.length %> View</p>
-          <% } else { %>
-          <p><%= item.viewedBy.length %> Views</p>
-          <% } %>
         </div>
         <% }) %>
       </div>
@@ -63,7 +49,7 @@
         <%if (currentUser.username === profileUser.username) {%>
       </div>
       <div class="edit-message">
-        <form class="new-message" action="/users/<%= profileUser.username %>/edit" method="GET">
+        <form class="edit-message" action="/users/<%= profileUser.username %>/edit" method="GET">
           <input class="edit-message" type="submit" value="Edit">
         </form>
         <% } else {%>
