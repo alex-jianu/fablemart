@@ -11,59 +11,54 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-        <div class="container col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+        <div class="container mt-5 col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
 
-            <div class="main-containers">
-                <div class="col-xs-10 col-s-10 col-10 col-l-4 col-xl-4 col-xxl-4">
+            <div class="left-box">
+
+                <div class="parent">
                     <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo">
+                    <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
                 </div>
 
-                <div>
-                    <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" height="175px" width="175px" class="pigeon">
-                </div>
+                <!-- class="col-xs-10 col-s-10 col-10 col-l-4 col-xl-4 col-xxl-4" -->
 
                 <div class="story-container">
                     <div class="text-container">
-                    <p>*sighs*</p>
-                    <p>Well, then, let's get you one now, shall we?</p>
-                    <p>We'll need some information from you first. Let's go!</p>
-                    <a href="/sessions/new"><p>Or did you remember it?</p></a>
+                        <p>*sighs*</p>
+                        <p>Well, then, let's get you one now, shall we?</p>
+                        <p>We'll need some information from you first. Let's go!</p>
+                        <a href="/sessions/new"><p>Or did you remember it?</p></a>
                     </div>
                 </div>
             </div>
 
 
-            <div class="main-containers">
-                <div class="page-container">
-                    <div class="button-container">
-                    <button onclick="movingRight()" id="move-right">Previous Step</button>
-                    <button onclick="movingLeft()" id="move-left">Next Step</button>
-                    </div>
-                </div>
-
+            <div class="right-box">
                 <div class="progress bg-primary col-md-12 w-100" role="progressbar" id="progress-bar" aria-label="Example 1px high" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped col-md-12 bg-secondary" style="width: 0%">0%</div>
                 </div>
 
-                <div class="form text-center">
+                <div class="form">
                 
                         <form id="new-user-form" action="/users" method="post">
-                            <div class="username-box mt-2" id="username" style="position: relative; left: 1800px;">
-                                <label id="username" for="username" class="text-center mb-3 text-light">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
+
+                            <div class="username-box" id="username" style="left: 1800px;">
+                                <label id="username" for="username">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
                                 <input id="username" for="username" class="input-box" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)" size="50"
                                 minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" placeholder="lowercase only, yes? (or else)" required />
                             </div>        
+
                         <br>
                 
-                        <div id="email" class="email-box mt-2" style="position: relative; left: 3600px; bottom: 265px"> 
-                            <label id="email" for="email" class="text-center mb-3 text-light">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
+                        <div id="email" class="email-box" style="left: 3600px; bottom: 330px"> 
+                            <label id="email" for="email">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
                             <input id="email" for="email" class="input-box" type="email" title="LowerCase Only" name="email" placeholder="you know the thing with '@'? yh that" size="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
                         </div>
                 
                         <br>
 
-                        <div class="password-box mt-2" id="password" style="position: relative; left: 5400px; bottom: 495px"> 
-                            <label id="password" for="password" class="text-center mb-3 text-light">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
+                        <div class="password-box" id="password" style="left: 5400px; bottom: 660px"> 
+                            <label id="password" for="password">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
                             <input id="password" for="password" class="input-box" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character" 
                                 type="password" name="password" size="50" placeholder="uhh, just look up password verification" required
                                 pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$"/>
@@ -72,10 +67,13 @@
 
                             <br>
 
-                        <div class="bio-box d-flex justify-content-center align-items-center mt-2" style="position: relative; left: 7200px; bottom: 725px;" id="bio">
-                            <label for="bio" class="text-center mb-3 text-light" >Tell us something about yourself <br> (or not) </label>
+                        <div class="bio-box" style="left: 7200px; bottom: 990px;" id="bio">
+                            <label for="bio" >Tell us something about yourself <br> (or not) </label>
                             <input id="bio" class="input-box"  type="text" name="bio" title="Enter a bio for everyone to see" size="50" placeholder="last placeholder text was smth else 😭">
-                            <input id="submit" type="submit" value="Submit" />
+
+                            <div class="mb-4">
+                                <input id="submit" type="submit" value="Submit"/>
+                            </div>
                         </div>
                             <!-- 
                             <div>
@@ -89,10 +87,18 @@
                         
                         </form>
                 </div>
-
-                <div class="d-flex justify-content-center align-items-center fs-6 col-xs-10 col-s-10 col-10 col-l-8 col-xl-8 col-xxl-8">
-                    <div style="padding-top: 10px;" class="story text-center"></div>
+                
+                <div class="page-container">
+                    <div class="button-container">
+                    <button onclick="movingRight()" id="move-right">Previous Step</button>
+                    <button onclick="movingLeft()" id="move-left">Next Step</button>
+                    </div>
                 </div>
+
+
+                <!-- <div class="d-flex justify-content-center align-items-center fs-6 col-xs-10 col-s-10 col-10 col-l-8 col-xl-8 col-xxl-8">
+                    <div style="padding-top: 10px;" class="story text-center"></div>
+                </div> -->
             </div>
         </div>
 
@@ -107,6 +113,16 @@
         var moveRight = document.getElementById("move-right");
         var progress = document.getElementById("progress-bar");
         var pigeon = document.getElementById("pigeon");
+
+        var usernameBox = document.getElementById("username");
+        var emailBox = document.getElementById("email");
+        var passwordBox = document.getElementById("password");
+        var bioBox = document.getElementById("bio");
+
+        usernameBox.style.transition = 'all 1s ease-out'; // add transition property
+        emailBox.style.transition = 'all 1s ease-out'; // add transition property
+        passwordBox.style.transition = 'all 1s ease-out'; // add transition property
+        bioBox.style.transition = 'all 1s ease-out'; // add transition property
 
         pigeon.addEventListener("click", function() {
             // Display an alert message when the image is clicked
@@ -140,7 +156,13 @@
             moveRight.disabled = moveRightStatus;
         }
 
-    
+        function moving(value) {
+            usernameBox.style.left = parseInt(usernameBox.style.left) - value + 'px';
+            emailBox.style.left = parseInt(emailBox.style.left) - value + 'px';
+            passwordBox.style.left = parseInt(passwordBox.style.left) - value + 'px';
+            bioBox.style.left = parseInt(bioBox.style.left) - value + 'px';
+        }
+
         function checkCounter() {
             if (counter === 0) {
                 changeBar()
@@ -160,7 +182,7 @@
                 changeButtonStatus(false, false);
             } else if (counter === 4) {
                 changeBar()
-                changeButtonText("<- Password might be weak lol", "Haven't forgotten anything, have you? 🧐");
+                changeButtonText("<- Password might be weak lol", "Haven't forgotten anything, have you?");
                 changeButtonStatus(true, false);
             } else {
                 changeButtonStatus(false, false);
@@ -168,41 +190,13 @@
         }
     
         function movingLeft() {
-            var usernameBox = document.getElementById("username");
-            var emailBox = document.getElementById("email");
-            var passwordBox = document.getElementById("password");
-            var bioBox = document.getElementById("bio");
-    
-            usernameBox.style.transition = 'all 1s ease-out'; // add transition property
-            emailBox.style.transition = 'all 1s ease-out'; // add transition property
-            passwordBox.style.transition = 'all 1s ease-out'; // add transition property
-            bioBox.style.transition = 'all 1s ease-out'; // add transition property
-    
-            usernameBox.style.left = parseInt(usernameBox.style.left) - 1800 + 'px';
-            emailBox.style.left = parseInt(emailBox.style.left) - 1800 + 'px';
-            passwordBox.style.left = parseInt(passwordBox.style.left) - 1800 + 'px';
-            bioBox.style.left = parseInt(bioBox.style.left) - 1800 + 'px';
-    
+            moving(1800);
             counter++;
             checkCounter();
         }
     
         function movingRight() {
-            var usernameBox = document.getElementById("username");
-            var emailBox = document.getElementById("email");
-            var passwordBox = document.getElementById("password");
-            var bioBox = document.getElementById("bio");
-    
-            usernameBox.style.transition = 'all 1s ease-out'; // add transition property
-            emailBox.style.transition = 'all 1s ease-out'; // add transition property
-            passwordBox.style.transition = 'all 1s ease-out'; // add transition property
-            bioBox.style.transition = 'all 1s ease-out'; // add transition property
-    
-            usernameBox.style.left = parseInt(usernameBox.style.left) + 1800 + 'px';
-            emailBox.style.left = parseInt(emailBox.style.left) + 1800 + 'px';
-            passwordBox.style.left = parseInt(passwordBox.style.left) + 1800 + 'px';
-            bioBox.style.left = parseInt(bioBox.style.left) + 1800 + 'px';
-    
+            moving(-1800);
             counter--;            
             checkCounter();
         }
