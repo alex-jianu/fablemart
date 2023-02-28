@@ -21,11 +21,10 @@ body {
 }
 
 .orders {
-    background-color: var(--dark-purple);
-    padding: 20px;
-    border-radius: 12px;
-    border: solid black 0px;
-
+  background-color: var(--dark-purple);
+  padding: 20px;
+  border-radius: 12px;
+  border: solid black 0px;
 }
 
 .order-text {
