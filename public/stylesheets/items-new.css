@@ -23,16 +23,24 @@ a:hover {
 }
 
 nav {
-    background-color: var(--dark-purple);
-    color: var(--buff);
-    text-align: center;
+  background-color: var(--dark-purple);
+  color: var(--buff);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+input[value="Log Out"] {
+  background-color: var(--dark-purple);
+  color: var(--buff);
+  border: none;
 }
 
 .lists {
     background-color: var(--dark-purple);
     color: var(--buff);
     text-align: center;
-    padding-top: 1%;
+    padding-bottom: 0.5%;
 }
 
 .input-field {
