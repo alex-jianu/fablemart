@@ -324,6 +324,7 @@ footer {
     width: 83.33%;
   }
   .col-l-11 {
+    display: block;
     width: 91.66%;
   }
   .col-l-12 {
@@ -367,6 +368,7 @@ footer {
     width: 83.33%;
   }
   .col-xl-11 {
+    display: block;
     width: 91.66%;
   }
   .col-xl-12 {
@@ -410,6 +412,7 @@ footer {
     width: 83.33%;
   }
   .col-xxl-11 {
+    display: block;
     width: 91.66%;
   }
   .col-xxl-12 {

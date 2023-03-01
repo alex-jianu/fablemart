@@ -1,6 +1,7 @@
 * {
+  margin: 0;
+  padding: 0;
   font-family: bradley hand, cursive;
-  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -13,62 +14,79 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23EB8A6F' cx='50' cy='0' r='50'/%3E%3Cg fill='%23e88268' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23e57a61' cx='50' cy='100' r='50'/%3E%3Cg fill='%23e1725a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23dd6b53' cx='50' cy='200' r='50'/%3E%3Cg fill='%23d9634d' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d55b47' cx='50' cy='300' r='50'/%3E%3Cg fill='%23d15441' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cc4d3b' cx='50' cy='400' r='50'/%3E%3Cg fill='%23c64637' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bb4437' cx='50' cy='500' r='50'/%3E%3Cg fill='%23b04237' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a63f37' cx='50' cy='600' r='50'/%3E%3Cg fill='%239c3d37' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23923b36' cx='50' cy='700' r='50'/%3E%3Cg fill='%23893835' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%237f3634' cx='50' cy='800' r='50'/%3E%3Cg fill='%23763433' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%236d3232' cx='50' cy='900' r='50'/%3E%3Cg fill='%23653030' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%235C2E2F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: contain;
-  height: 100vh;
+  margin-bottom: 50px;
 }
+
 header {
   padding-left: 20px;
   padding-right: 20px;
   color: #eb8a6f;
   background-color: #271e37;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 120%;
 }
-a {
-  text-decoration: none;
-  color: #eb8a6f;
-  margin: auto;
-}
-
-a:hover {
-  color: var(--burnt-sienna);
-}
-
-nav {
-  background-color: var(--dark-purple);
-  color: var(--buff);
-  text-align: center;
+span.container-fluid {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-input[type=text] {
-  border: var(--buff) solid 1px;
+footer {
+  position: fixed;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #eb8a6f;
+  width: 100%;
+  bottom: 0;
+  background-color: #271e37;
+}
+
+h1 {
+  font-size: 150%;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 20%;
+  background-color: #eb8a6f;
+  border: solid #271e37 5px;
+  color: #271e37;
+}
+a {
+  color: #eb8a6f;
+  text-decoration: none;
+}
+
+input[type="text"] {
+  border: #efd0c1 solid 1px;
   border-radius: 5px;
-  background-color: var(--cordovan);
+  background-color: #964a4d;
 }
 
 input[type="text"]:focus {
-  background-color: var(--cosmos);
+  background-color: #3d0019;
 }
 
-input[type=submit] {
-  background-color: var(--dark-purple);
-  color: var(--buff);
+input[type="submit"] {
+  background-color: #271e37;
+  color: #efd0c1;
   border: none;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
 }
 
 .lists {
-  background-color: var(--dark-purple);
-  color: var(--buff);
+  background-color: #271e37;
+  color: #eb8a6f;
   text-align: center;
   padding-bottom: 0.5%;
+  width: 100%;
 }
 
 .main-content {
   padding-bottom: 5%;
+  width: 100%;
 }
 
 .sale-items {
@@ -104,7 +122,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  color: var(--buff);
+  color: #efd0c1;
   text-align: center;
   padding-bottom: 1%;
   margin-bottom: 5px;
@@ -112,8 +130,8 @@ img {
 }
 
 .contents {
-  background-color: var(--dark-purple);
-  border: var(--dark-purple) solid 2px;
+  background-color: #271e37;
+  border: #271e37 solid 2px;
   border-radius: 5%;
   display: flex;
   flex-direction: column;
