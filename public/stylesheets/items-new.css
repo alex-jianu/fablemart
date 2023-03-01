@@ -1,25 +1,27 @@
 * {
-    font-family: bradley hand, cursive;
-    flex-direction: column;
+  font-family: bradley hand, cursive;
+  flex-direction: column;
 }
 
 body {
-    position: relative;
-    background-color: #eb8a6f;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23EB8A6F' cx='50' cy='0' r='50'/%3E%3Cg fill='%23e88268' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23e57a61' cx='50' cy='100' r='50'/%3E%3Cg fill='%23e1725a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23dd6b53' cx='50' cy='200' r='50'/%3E%3Cg fill='%23d9634d' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d55b47' cx='50' cy='300' r='50'/%3E%3Cg fill='%23d15441' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cc4d3b' cx='50' cy='400' r='50'/%3E%3Cg fill='%23c64637' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bb4437' cx='50' cy='500' r='50'/%3E%3Cg fill='%23b04237' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a63f37' cx='50' cy='600' r='50'/%3E%3Cg fill='%239c3d37' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23923b36' cx='50' cy='700' r='50'/%3E%3Cg fill='%23893835' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%237f3634' cx='50' cy='800' r='50'/%3E%3Cg fill='%23763433' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%236d3232' cx='50' cy='900' r='50'/%3E%3Cg fill='%23653030' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%235C2E2F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: contain;
+  position: relative;
+  background-color: #eb8a6f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23EB8A6F' cx='50' cy='0' r='50'/%3E%3Cg fill='%23e88268' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23e57a61' cx='50' cy='100' r='50'/%3E%3Cg fill='%23e1725a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23dd6b53' cx='50' cy='200' r='50'/%3E%3Cg fill='%23d9634d' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d55b47' cx='50' cy='300' r='50'/%3E%3Cg fill='%23d15441' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cc4d3b' cx='50' cy='400' r='50'/%3E%3Cg fill='%23c64637' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bb4437' cx='50' cy='500' r='50'/%3E%3Cg fill='%23b04237' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a63f37' cx='50' cy='600' r='50'/%3E%3Cg fill='%239c3d37' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23923b36' cx='50' cy='700' r='50'/%3E%3Cg fill='%23893835' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%237f3634' cx='50' cy='800' r='50'/%3E%3Cg fill='%23763433' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%236d3232' cx='50' cy='900' r='50'/%3E%3Cg fill='%23653030' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%235C2E2F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: contain;
 }
 
 a {
-    text-decoration: none;
-    color: var(--buff);
-    margin: auto;
-    width: 100%;
+  text-decoration: none;
+  color: var(--buff);
+  margin: auto;
+  width: 100%;
+  transition: 0.25s ease-in-out;
 }
 
 a:hover {
-    color: var(--burnt-sienna);
+  color: var(--burnt-sienna);
+  transition: 0.25s ease-in-out;
 }
 
 nav {
@@ -36,79 +38,89 @@ input[value="Log Out"] {
   border: none;
 }
 
-.lists {
-    background-color: var(--dark-purple);
-    color: var(--buff);
-    text-align: center;
-    padding-bottom: 0.5%;
-}
-
 .input-field {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding-top: 7%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 7%;
 }
 
 .item-input {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 35%;
-    padding: 2%;
-    border: var(--dark-purple) solid 1px;
-    border-radius: 20px;
-    background-color: var(--dark-purple);
-    color: var(--buff);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+  padding: 2%;
+  border: var(--dark-purple) solid 1px;
+  border-radius: 20px;
+  background-color: var(--dark-purple);
+  color: var(--buff);
 }
 
 input[type=text] {
-    border: var(--buff) solid 1px;
-    border-radius: 5px;
-    background-color: var(--cordovan);
-}
-
-input[placeholder="Search.."] {
-    background-color: var(--dark-purple);
+  border: var(--burnt-sienna) solid 1px;
+  border-radius: 5px;
+  background-color: var(--burnt-sienna);
+  transition: 0.15s ease-in-out;
 }
 
 input[type=text]:focus {
-    background-color: #3D0019;
+  border: var(--burnt-sienna) solid 1px;
+  background-color: var(--cordovan);
+  transition: 0.15s ease-in-out;
+}
+
+input[type=text]:hover {
+  border: var(--burnt-sienna) solid 1px;
+  background-color: var(--cordovan);
+  transition: 0.15s ease-in-out;
 }
 
 input[name=name], input[name=description], input[name=photo] {
-    width: 100%;
+  width: 100%;
+  color: var(--dark-purple);
 }
 
 .buttons {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .buttons>input[type=submit] {
-    width: 40%;
-    background-color: var(--dark-purple);
-    border: var(--buff) solid 1px;
-    border-radius: 10px;
-    color: var(--buff);
-    align-items: center;
+  width: 40%;
+  background-color: var(--salmon);
+  border: var(--salmon) solid 1px;
+  border-radius: 10px;
+  color: var(--dark-purple);
+  align-items: center;
+  transition: 0.25s ease-in-out;
+}
+
+.buttons>input[type=submit]:hover {
+  width: 40%;
+  background-color: var(--dark-purple);
+  border: var(--salmon) solid 1px;
+  border-radius: 10px;
+  color: var(--salmon);
+  align-items: center;
+  transition: 0.25s ease-in-out;
 }
 
 :root {
-    --buff: #efd0c1;
-    --indian-red: #EF5D60;
-    --cerise: #EC4067;
-    --fandango: #A01A7D;
-    --russian-violet: #311847;
+  --buff: #efd0c1;
+  --indian-red: #EF5D60;
+  --cerise: #EC4067;
+  --fandango: #A01A7D;
+  --russian-violet: #311847;
 
-    --dark-purple: #271E37;
-    --cordovan: #964A4D;
-    --jasper: #BF5A4A;
-    --burnt-sienna: #D07862;
-    --salmon: #EB8A6F;
-    --cosmos: #3D0019;
+  --dark-purple: #271E37;
+  --cordovan: #964A4D;
+  --jasper: #BF5A4A;
+  --burnt-sienna: #D07862;
+  --salmon: #EB8A6F;
+  --cosmos: #3D0019;
 }
 
 /* media queries */
@@ -152,9 +164,9 @@ input[name=name], input[name=description], input[name=photo] {
     .col-xs-12 {
       width: 100%;
     }
-  }
+}
   
-  @media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {
       width: 8.33%;
@@ -192,9 +204,9 @@ input[name=name], input[name=description], input[name=photo] {
     .col-s-12 {
       width: 100%;
     }
-  }
+}
   
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     /* For desktop: */
     .col-1 {
       width: 8.33%;
@@ -232,9 +244,9 @@ input[name=name], input[name=description], input[name=photo] {
     .col-12 {
       width: 100%;
     }
-  }
+}
   
-  @media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
     /* For desktop: */
     .col-l-1 {
       width: 8.33%;
@@ -272,9 +284,9 @@ input[name=name], input[name=description], input[name=photo] {
     .col-l-12 {
       width: 100%;
     }
-  }
+}
   
-  @media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     /* For desktop: */
     .col-xl-1 {
       width: 8.33%;
@@ -312,9 +324,9 @@ input[name=name], input[name=description], input[name=photo] {
     .col-xl-12 {
       width: 100%;
     }
-  }
+}
   
-  @media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1400px) {
     /* For desktop: */
     .col-xxl-1 {
       width: 8.33%;
@@ -352,4 +364,4 @@ input[name=name], input[name=description], input[name=photo] {
     .col-xxl-12 {
       width: 100%;
     }
-  }
+}

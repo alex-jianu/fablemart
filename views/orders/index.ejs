@@ -15,11 +15,6 @@
                   <form action="/sessions?_method=DELETE" method="POST"></form>
 
                     <a href="/items"><img src="/images/fablemart-logo.png" alt="fablemart" height="50px" width="75px"></a>
-                    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-
-                    <span>
-                        <input type="text" placeholder="Search..">
-                    </span>
 
                     <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                     <a href="/items/new">New Item</a>
@@ -41,7 +36,7 @@
         <div class="text-center mt-5">
             <h1>Orders Pending</h1>
 
-            <div class="container mt-4 col-l-9 col-9 col-s-10 col-xs-10">
+            <div class="container col-l-9 col-9 col-s-10 col-xs-10">
                 <div>
                   <h2 class="">Received</h2>
                     <div class="orders">
@@ -53,13 +48,15 @@
                                 </div>
 
                                 <span class="button_arrangement">
-                                    <form class="button" action="/orders/<%=order._id%>/confirm?_method=PATCH" method="POST">
-                                        <input class="logout" type="submit" value="Confirm">
+
+                                    <form action="/orders/<%=order._id%>/confirm?_method=PATCH" method="POST">
+                                        <input type="submit" value="Confirm">
                                     </form>
 
-                                    <form class="button" action="/orders/<%=order._id%>/decline?_method=PATCH" method="POST">
-                                        <input class="logout" type="submit" value="Decline">
+                                    <form action="/orders/<%=order._id%>/decline?_method=PATCH" method="POST">
+                                        <input type="submit" value="Decline">
                                     </form>
+
                                 </span>
                             </div>
                         <%})%>
@@ -79,7 +76,7 @@
                                   <span class="button_arrangement">
 
                                     <form class="button" action="/orders/<%=order._id%>/cancel?_method=PATCH" method="POST">
-                                        <input class="logout" type="submit" value="Cancel">
+                                        <input type="submit" value="Cancel">
                                     </form>
                                   </span>
                               </div>

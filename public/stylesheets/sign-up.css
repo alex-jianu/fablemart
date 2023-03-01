@@ -36,7 +36,7 @@ label {
 
 input[type="submit"] {
   display: flex;
-  border: hidden;
+  border: solid;
   border-radius: 10px;
   background-color: var(--salmon);
   color: var(--dark-purple);
@@ -49,28 +49,25 @@ input[type="submit"]:hover {
   border-radius: 10px;
   background-color: var(--dark-purple);
   color: var(--salmon);
-  padding-bottom: 0%;
-  margin-top: 4%;
   transition: 0.25s ease-in-out;
 }
+
+/* input#username,
+input#password {
+  background-color: #eb8a6f;
+  color: #271e37;
+} */
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  border-radius: 10px;
-  border-color: var(--salmon);
-  border-style: solid;
-  border-width: 1px;
-  /* box-shadow: 0px 0px 10px #3c096c; */
-  background-color: #eb8a6f;
-  color: #271e37;
-  width: 300px;
-}
-
-input#username,
-input#password {
-  background-color: #eb8a6f;
-  color: #271e37;
+    border-radius: 10px;
+    border-color: var(--salmon);
+    background-color: var(--salmon);
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    width: 300px;
 }
 
 input[type="text"]:hover,
@@ -78,11 +75,10 @@ input[type="email"]:hover,
 input[type="password"]:hover {
   border-radius: 10px;
   border-color: var(--salmon);
+  background-color: var(--dark-purple);
   border-style: solid;
   border-width: 1px;
-  opacity: 75%;
-  background-color: #eb8a6f;
-  color: #271e37;
+  color: white;
   transition: 0.25s ease-in-out;
 }
 
@@ -91,9 +87,9 @@ input[type="email"]:focus,
 input[type="password"]:focus {
   border-radius: 10px;
   border-color: var(--salmon);
+  background-color: var(--dark-purple);
   border-style: solid;
   border-width: 1px;
-  background-color: #eb8a6f;
   color: #271e37;
   transition: 0.25s ease-in-out;
 }
