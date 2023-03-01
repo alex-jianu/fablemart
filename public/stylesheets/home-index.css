@@ -94,6 +94,9 @@ input:hover {
 
 /* For mobile phones: */
 @media only screen and (max-width: 599px) {
+  .col-xs-0 {
+    display: none;
+  }
   .col-xs-1 {
     width: 8.33%;
   }
@@ -134,6 +137,9 @@ input:hover {
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
+  .col-s-0 {
+    display: none;
+  }
   .col-s-1 {
     width: 8.33%;
   }
@@ -174,6 +180,9 @@ input:hover {
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+  .col-0 {
+    display: none;
+  }
   .col-1 {
     width: 8.33%;
   }
@@ -214,6 +223,9 @@ input:hover {
 
 @media only screen and (min-width: 992px) {
   /* For desktop: */
+  .col-l-0 {
+    width: 0%;
+  }
   .col-l-1 {
     width: 8.33%;
   }
@@ -254,6 +266,9 @@ input:hover {
 
 @media only screen and (min-width: 1200px) {
   /* For desktop: */
+  .col-xl-0 {
+    display: none;
+  }
   .col-xl-1 {
     width: 8.33%;
   }
@@ -294,6 +309,9 @@ input:hover {
 
 @media only screen and (min-width: 1400px) {
   /* For desktop: */
+  .col-xxl-0 {
+    display: none;
+  }
   .col-xxl-1 {
     width: 8.33%;
   }
