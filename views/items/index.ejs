@@ -12,24 +12,19 @@
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <header>
-
-    <nav>
-      <span class="container-fluid justify-content-center">
-        <form action="/sessions?_method=DELETE" method="POST"></form>
-        <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/users/<%= user.username %>">Profile</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/items/new">New Item</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/messages">Messages</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="/orders">Orders</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <input type="submit" value="Log Out">
-        </form>
-      </span>
-    </nav>
+    <form action="/sessions?_method=DELETE" method="POST"></form>
+    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/users/<%= user.username %>">Profile</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/items/new">New Item</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/messages">Messages</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/orders">Orders</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <input type="submit" value="Log Out">
+    </form>
   </header>
   <div class="lists">
     <span class="container-fluid justify-content-center">
@@ -41,7 +36,7 @@
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/items/most-viewed">Most viewed</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items/liked-by-you">Liked by You</a>
+      <a href="/items/liked-by-you">Liked</a>
     </span>
   </div>
   <div class="main-content">

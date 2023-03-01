@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FableMart Profile</title>
-  <link rel='stylesheet' href='/stylesheets/users-username-edit.css' />
+  <link rel='stylesheet' href='/stylesheets/users-edit.css' />
 </head>
 
 <body>
@@ -34,12 +34,9 @@
       <div class="items">
         <% items.forEach(function (item) { %>
         <div class="item">
-          <img class="item" src="<%= item.photo %>" height="50" width="50">
-          <div class="item-name">
-            <a class="dark-link" href="/items/<%= item.id%>" <p><%= item.name %>
-              </p>
-            </a>
-          </div>
+          <a class="dark-link" href="/items/<%= item.id%>" <p><%= item.name %>
+            </p>
+          </a>
         </div>
         <% }) %>
       </div>
@@ -53,8 +50,10 @@
       <div class="edit-message">
         <form class="edit-message" action="/users/<%=profileUser.username%>?_method=PATCH" method="POST">
           <label for="bio">New Bio:</label>
-          <input class="new-message" type="text" value="<%=profileUser.bio %>" name="bio">
-          <input class="edit-message" type="submit" value="update details">
+          <div class="new-bio-submit">
+            <input class="new-message" type="text" value="<%=profileUser.bio %>" name="bio">
+            <input class="edit-message" type="submit" value="update details">
+          </div>
         </form>
       </div>
     </div>
