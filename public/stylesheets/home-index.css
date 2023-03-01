@@ -78,14 +78,14 @@ input {
   font-size: 120%;
   margin: auto;
   border-radius: 20px;
-  border: solid #bf5a4a 4px;
+  border: solid #eb8a6f 4px;
   background-color: #271e37;
   color: #eb8a6f;
   align-items: center;
 }
 
 input:hover {
-  background-color: #964a4d;
+  background-color: #eb8a6f;
   color: #271e37;
   border-color: #271e37;
 }
