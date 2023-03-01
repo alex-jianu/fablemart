@@ -15,6 +15,7 @@ body {
   background-size: contain;
   height: 100vh;
 }
+
 header {
   padding-left: 20px;
   padding-right: 20px;
@@ -26,6 +27,7 @@ header {
   justify-content: center;
   font-size: 120%;
 }
+
 a {
   text-decoration: none;
   color: #eb8a6f;
@@ -38,10 +40,16 @@ a:hover {
 
 nav {
   background-color: var(--dark-purple);
-  color: var(--buff);
+  color: var(--salmon);
   text-align: center;
   display: flex;
   justify-content: center;
+}
+
+input[value="Log Out"] {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  border: none;
 }
 
 input[type=text] {
@@ -56,13 +64,13 @@ input[type="text"]:focus {
 
 input[type=submit] {
   background-color: var(--dark-purple);
-  color: var(--buff);
+  color: var(--salmon);
   border: none;
 }
 
 .lists {
   background-color: var(--dark-purple);
-  color: var(--buff);
+  color: var(--salmon);
   text-align: center;
   padding-bottom: 0.5%;
 }
@@ -104,7 +112,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  color: var(--buff);
+  color: var(--salmon);
   text-align: center;
   padding-bottom: 1%;
   margin-bottom: 5px;

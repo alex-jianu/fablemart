@@ -8,6 +8,18 @@ h6 {
     font-size: x-large;
 }
 
+header {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #eb8a6f;
+  background-color: #271e37;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 120%;
+}
+
 body {
     position: relative;
     background-color: #eb8a6f;
@@ -22,7 +34,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--buff);
+    color: var(--salmon);
     margin: auto;
     width: 100%;
 }
@@ -41,7 +53,7 @@ nav {
 
 input[value="Log Out"] {
   background-color: var(--dark-purple);
-  color: var(--buff);
+  color: var(--salmon);
   border: none;
 }
 
@@ -55,9 +67,9 @@ input[type=text]:focus {
     background-color: var(--cosmos);
 }
 
-input[placeholder="Search.."] {
+/* input[placeholder="Search.."] {
     background-color: var(--dark-purple);
-}
+} */
 
 .content {
     display: flex;
@@ -84,7 +96,7 @@ img {
 
 .lower-text {
     background-color: var(--dark-purple);
-    color: var(--buff);
+    color: var(--salmon);
     display: flex;
     align-self: center;
     justify-content: center;
@@ -120,7 +132,7 @@ img {
 }
 
 input[class="logout"] {
-    background-color: var(--buff);
+    background-color: var(--salmon);
     height: 35px;
     width: 90px;
     border-radius: 5px;
@@ -143,7 +155,7 @@ button {
 
 footer {
     background-color: var(--dark-purple);
-    color: var(--buff);
+    color: var(--salmon);
     text-align: center;
     padding-bottom: 5px;
     padding-top: 5px;
