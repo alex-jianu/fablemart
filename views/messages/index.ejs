@@ -10,17 +10,15 @@
 
 <body>
   <header>
-    <span>
-      <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
-    </span>
+    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
     <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <span>
-      <form action="/sessions?_method=DELETE" method="POST">
-        <a href="/orders">Orders</a>
-        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <input type="submit" value="Log Out">
-      </form>
-    </span>
+    <a href="/users/<%= user.username %>">Profile</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/items/new">+Item</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/messages">Messages</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/orders">Orders</a>
   </header>
   <div class="container col-xs-11 col-10 col-xl-9">
     <div class="contact-list col-xs-3 col-3 col-xl-3">
@@ -44,6 +42,9 @@
   </div>
   <footer>
     <p>FableMart™ - Bringing imagination to life</p>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out">
+    </form>
   </footer>
 </body>
 

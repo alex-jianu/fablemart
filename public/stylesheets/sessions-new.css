@@ -94,16 +94,16 @@ input {
   padding: 7px 20px 7px 20px;
   font-size: 100%;
   border-radius: 20px;
-  border: solid #bf5a4a 4px;
+  border: solid #c4563b 4px;
+  align-items: center;
   background-color: #eb8a6f;
   color: #271e37;
-  align-items: center;
 }
 
 input:hover {
-  background-color: #271e37;
-  color: #d07862;
-  border-color: #bf5a4a;
+  background-color: #c4563b;
+  color: #271e37;
+  border-color: #eb8a6f;
 }
 
 title {
