@@ -1,11 +1,66 @@
-<a href="/">home</a>
-<h1>editing <%=profileUser.username %>'s profile</h1>
-<p> username: <%=profileUser.username %></p>
-<p> email: <%=profileUser.email %></p>
-<form action="/users/<%=profileUser.username%>?_method=PATCH" method="POST">
-    <input type="text" value="<%=profileUser.bio %>" name="bio">
-    <input type="submit" value="update details">
-  </form>
-</p>
-<p>Items: </p>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart Profile</title>
+  <link rel='stylesheet' href='/stylesheets/users-edit.css' />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <span class="container-fluid justify-content-center">
+        <form action="/sessions?_method=DELETE" method="POST"></form>
+        <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="/users/<%= profileUser.username %>">Profile</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="/items/new">New Item</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="/messages">Messages</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="/orders">Orders</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <input type="submit" value="Log Out">
+        </form>
+      </span>
+    </nav>
+  </header>
+  <div class="container col-xs-11 col-10 col-xl-9">
+    <div class="items-list col-xs-3 col-3 col-xl-3">
+      <p>Items owned:</p>
+      <div class="items">
+        <% items.forEach(function (item) { %>
+        <div class="item">
+          <a class="dark-link" href="/items/<%= item.id%>" <p><%= item.name %>
+            </p>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <div class="profile col-xs-9 col-9 col-xl-9">
+      <div class="profile-details">
+        <h1><%=profileUser.username %> Profile </h1>
+        <p> Username: <%=profileUser.username %></p>
+        <p> Email: <%=profileUser.email %></p>
+      </div>
+      <div class="edit-message">
+        <form class="edit-message" action="/users/<%=profileUser.username%>?_method=PATCH" method="POST">
+          <label for="bio">New Bio:</label>
+          <div class="new-bio-submit">
+            <input class="new-message" type="text" value="<%=profileUser.bio %>" name="bio">
+            <input class="edit-message" type="submit" value="update details">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
+</body>
+
+</html>

@@ -1,11 +1,50 @@
-<h1>All Messages</h1>
-<h2>Users Contacted:</h2>
-<% contactedUsers.forEach((user)=> { %>
-  <div>
-    <a href="/messages/<%= user %>">
-      <p>
-        <%= user %>
-      </p>
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart Messages</title>
+  <link rel='stylesheet' href='/stylesheets/messages-index.css' />
+</head>
+
+<body>
+  <header>
+    <span>
+      <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+    </span>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <a href="/orders">Orders</a>
+        <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <input type="submit" value="Log Out">
+      </form>
+    </span>
+  </header>
+  <div class="container col-xs-11 col-10 col-xl-9">
+    <div class="contact-list col-xs-3 col-3 col-xl-3">
+      <p>Messages</p>
+      <hr>
+      <div class="contacts">
+        <% contactedUsers.forEach((user)=> { %>
+        <div class="contact">
+          <a class="dark-link" href="/messages/<%= user %>">
+            <p>
+              <%= user %>
+            </p>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <div class="messages col-xs-9 col-9 col-xl-9">
+
+    </div>
   </div>
-  <% }) %>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
+</body>
+
+</html>

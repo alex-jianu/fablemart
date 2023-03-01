@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FableMart™ Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/items-index.css' />
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart™ Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/items-index.css' />
 </head>
+
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <header>
-  <nav>
-    <span class="container-fluid justify-content-center">
-      <form action="/sessions?_method=DELETE" method="POST"></form>
-      <a href="/items"><img src="/images/fablemart-logo.png" alt="fablemart" height="50px" width="75px"></a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <span>
-        <input type="text" placeholder="Search..">
-      </span>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items/new">New Item</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/user/:username">Profile</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/messages">Messages</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/orders">Orders</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/sessions/new">Log out</a>
-      </form>
-    </span>
-  </nav>
+    <form action="/sessions?_method=DELETE" method="POST"></form>
+    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/users/<%= user.username %>">Profile</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/items/new">New Item</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/messages">Messages</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/orders">Orders</a>
+    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <input type="submit" value="Log Out">
+    </form>
   </header>
   <div class="lists">
     <span class="container-fluid justify-content-center">
@@ -42,43 +36,43 @@
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="/items/most-viewed">Most viewed</a>
       <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items/liked-by-you">Liked by You</a>
+      <a href="/items/liked-by-you">Liked</a>
     </span>
   </div>
   <div class="main-content">
     <div class="sale-items col-xs-11 col-s-11 col-11">
-        <% items.forEach(function (item) { %>
-          <div class="details col-xs-6 col-s-4 col-3 col-l-3 col-xl-2">
-            <div class="contents col-xs-11 col-s-11 col-11">
-            <div class="picture">
-              <img src="<%= item.photo %>" class="responsive" height="200" width="245">
-            </div>
-            <a href="/items/<%= item.id%>" <p><%= item.name %></p></a>
-            <div class="likes-views">
-              <% if (item.likedBy.length === 0) { %>
-              <p>No Likes</p>
-              <% } else if (item.likedBy.length === 1) { %>
-              <p><%= item.likedBy.length %> Like</p>
-              <% } else { %>
-              <p><%= item.likedBy.length %> Likes</p>
-              <% } %>
+      <% items.forEach(function (item) { %>
+      <div class="details col-xs-6 col-s-4 col-3 col-l-3 col-xl-2">
+        <div class="contents col-xs-11 col-s-11 col-11">
+          <div class="picture">
+            <img src="<%= item.photo %>" class="responsive" height="200" width="245">
+          </div>
+          <a href="/items/<%= item.id%>" <p><%= item.name %></p></a>
+          <div class="likes-views">
+            <% if (item.likedBy.length === 0) { %>
+            <p>No Likes</p>
+            <% } else if (item.likedBy.length === 1) { %>
+            <p><%= item.likedBy.length %> Like</p>
+            <% } else { %>
+            <p><%= item.likedBy.length %> Likes</p>
+            <% } %>
 
-              <% if (item.viewedBy.length === 0) { %>
-              <p>No Views</p>
-              <% } else if (item.viewedBy.length === 1) { %>
-              <p><%= item.viewedBy.length %> View</p>
-              <% } else { %>
-              <p><%= item.viewedBy.length %> Views</p>
-              <% } %>
-            </div>
+            <% if (item.viewedBy.length === 0) { %>
+            <p>No Views</p>
+            <% } else if (item.viewedBy.length === 1) { %>
+            <p><%= item.viewedBy.length %> View</p>
+            <% } else { %>
+            <p><%= item.viewedBy.length %> Views</p>
+            <% } %>
           </div>
-          </div>
-            <% }) %>
+        </div>
+      </div>
+      <% }) %>
     </div>
   </div>
   <nav style="position: fixed; bottom: 0%; right: 0%; left: 0%; padding-top:1%">
     <div class="justify-content-center">
-    <p>FableMart™ Bringing imagination to life</p>
+      <p>FableMart™ Bringing imagination to life</p>
     </div>
   </nav>
 </body>

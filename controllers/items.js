@@ -232,12 +232,12 @@ const ItemsController = {
           (entry) => entry !== req.session.user.username
         );
         await Item.updateOne(query, { likedBy: newLikedBy });
-        res.redirect("/items");
+        res.redirect(`/items/${req.params.id}`);
       } else {
         const query = { _id: req.params.id };
         const newLikedBy = item.likedBy.concat(req.session.user.username);
         await Item.updateOne(query, { likedBy: newLikedBy });
-        res.redirect("/items");
+        res.redirect(`/items/${req.params.id}`);
       }
     }
   },
@@ -253,6 +253,12 @@ const ItemsController = {
       if (!item.viewedBy.includes(username)) {
         item.viewedBy.push(username);
         await item.save();
+      }
+
+      if (item.likedBy.includes(req.session.user.username)) {
+        item.isLiked = true;
+      } else {
+        item.isLiked = false;
       }
 
       res.render("items/id", {
