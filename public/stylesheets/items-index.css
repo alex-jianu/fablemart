@@ -28,6 +28,25 @@ header {
   font-size: 120%;
 }
 
+a {
+  text-decoration: none;
+  color: #eb8a6f;
+  margin: auto;
+}
+
+a:hover {
+  color: var(--burnt-sienna);
+}
+
+nav {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
   position: fixed;
   padding-top: 5px;
@@ -52,6 +71,12 @@ a {
   text-decoration: none;
 }
 
+input[value="Log Out"] {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  border: none;
+}
+
 input[type="text"] {
   border: #efd0c1 solid 1px;
   border-radius: 5px;
@@ -62,9 +87,9 @@ input[type="text"]:focus {
   background-color: #3d0019;
 }
 
-input[type="submit"] {
-  background-color: #271e37;
-  color: #efd0c1;
+input[type=submit] {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
   border: none;
 }
 input[type="submit"]:hover {
@@ -72,8 +97,8 @@ input[type="submit"]:hover {
 }
 
 .lists {
-  background-color: #271e37;
-  color: #eb8a6f;
+  background-color: var(--dark-purple);
+  color: var(--buff);
   text-align: center;
   padding-bottom: 0.5%;
   width: 100%;
@@ -117,7 +142,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  color: #efd0c1;
+  color: var(--buff);
   text-align: center;
   padding-bottom: 1%;
   margin-bottom: 5px;
