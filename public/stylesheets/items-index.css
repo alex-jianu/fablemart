@@ -105,7 +105,7 @@ input[type="submit"]:hover {
 
 .lists {
   background-color: var(--dark-purple);
-  color: var(--salmon);
+  color: var(--buff);
   text-align: center;
   padding-bottom: 0.5%;
   width: 100%;
@@ -149,7 +149,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  color: var(--salmon);
+  color: var(--buff);
   text-align: center;
   padding-bottom: 1%;
   margin-bottom: 5px;
