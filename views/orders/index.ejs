@@ -37,32 +37,64 @@
                 </span>
               </nav>
         </header>
+
+        <div class="text-center mt-5">
             <h1>Orders Pending</h1>
 
-            <div class="middle">
+            <div class="container mt-4 col-l-9 col-9 col-s-10 col-xs-10">
                 <div>
-                    <h2>Received</h2>
-                    <%receivedOrders.forEach((order)=> { %>
-                        <p><%= order.buyerUsername %> sent you a request for <a href="/items/<%=order.itemID%>"> this item.</a> </p>
-                        <form class="button" action="/orders/<%=order._id%>/confirm?_method=PATCH" method="POST">
-                            <input class="logout" type="submit" value="Confirm">
-                        </form>
-                        <form class="button" action="/orders/<%=order._id%>/decline?_method=PATCH" method="POST">
-                            <input class="logout" type="submit" value="Decline">
-                        </form>
-                    <%})%>
+                  <h2 class="">Received</h2>
+                    <div class="orders">
+                        <%receivedOrders.forEach((order)=> { %>
+                            <div class="single-order">
+
+                                <div class="order-text">
+                                    <p><%= order.buyerUsername %> sent you a request for <a href="/items/<%=order.itemID%>" class="item-link"> this item. </a> </p>
+                                </div>
+
+                                <span class="button_arrangement">
+                                    <form class="button" action="/orders/<%=order._id%>/confirm?_method=PATCH" method="POST">
+                                        <input class="logout" type="submit" value="Confirm">
+                                    </form>
+
+                                    <form class="button" action="/orders/<%=order._id%>/decline?_method=PATCH" method="POST">
+                                        <input class="logout" type="submit" value="Decline">
+                                    </form>
+                                </span>
+                            </div>
+                        <%})%>
+                    </div>
                 </div>
 
                 <div>
                     <h2>Sent</h2>
+                    <div class="orders">
                         <%sentOrders.forEach((order)=> { %>
-                            <p>You sent <%= order.sellerUsername %> a request for <a href="/items/<%=order.itemID%>"> this item.</a> </p>
-                            <form class="button" action="/orders/<%=order._id%>/cancel?_method=PATCH" method="POST">
-                                <input class="logout" type="submit" value="Cancel">
-                            </form>
-                        <%})%>                
-                </div>                
-            </div>
+                            <div class="single-order">
+  
+                                  <div class="order-text">
+                                    <p>You sent <%= order.sellerUsername %> a request for <a href="/items/<%=order.itemID%>" class="item-link"> this item.</a> </p>
+                                  </div>
+  
+                                  <span class="button_arrangement">
+
+                                    <form class="button" action="/orders/<%=order._id%>/cancel?_method=PATCH" method="POST">
+                                        <input class="logout" type="submit" value="Cancel">
+                                    </form>
+                                  </span>
+                              </div>
+                          <%})%>
+                      </div>
+                  </div>
+              
+              </div>
+        </div>
+
+              
     </body>
-    <footer>FableMart™ Bringing imagination to life</footer>
+    <nav style="position: fixed; bottom: 0%; right: 0%; left: 0%; padding-top:1%; color: var(--salmon)">
+        <div class="justify-content-center">
+        <p>FableMart™ Bringing imagination to life</p>
+        </div>
+      </nav>
 </html>
