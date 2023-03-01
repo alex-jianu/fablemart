@@ -77,12 +77,6 @@ input[value="Log Out"] {
   border: none;
 }
 
-input[value="Log Out"] {
-  background-color: var(--dark-purple);
-  color: var(--salmon);
-  border: none;
-}
-
 input[type="text"] {
   border: #efd0c1 solid 1px;
   border-radius: 5px;
