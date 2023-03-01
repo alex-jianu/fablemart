@@ -1,6 +1,38 @@
-<h1>Insert your email address</h1>
-<form action="/forgot-password" method="POST">
-  <label for="email">Email address</label>
-  <input type="text" name="email">
-  <input type="submit" value="get my password">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FableMart Oops I forgot</title>
+  <link rel='stylesheet' href='/stylesheets/insert-email.css' />
+</head>
+
+<body>
+
+  <div class="logo">
+    <header> 
+      <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"></a>
+    </header>
+  </div>
+
+  <div class="content-center">
+    <div class="reset-box col-xs-8 col-s-8 col-6 col-6 col-l-6 col-6 col-6">
+      <h1>Reset your password</h1>
+      <form action="/forgot-password" method="POST">
+        <label for="email">Email address: </label>
+        <input type="text" name="email">
+        <input type="submit" value="submit">
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out" style="position: fixed; left: 96%; bottom: 0.5%">
+    </form>
+  </footer>
+
+</body>
+</html>
