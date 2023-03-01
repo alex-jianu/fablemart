@@ -152,6 +152,10 @@ button:hover {
     position: absolute;
     bottom: 0px;
     right: 0px;
+    border-radius: 100px;
+    border: solid 3px var(--cordovan);
+    padding: 5px;
+    background-color:var(--salmon);
 }
 
 :root {
@@ -163,8 +167,6 @@ button:hover {
 }
 
 .right-box, .left-box {
-    background-color: var(--dark-purple);
-    padding: 20px;
     border-radius: 12px;
     border: solid black 0px;
     color: var(--salmon);
@@ -175,21 +177,26 @@ button:hover {
 }
 
 .right-box {
+    background-color: var(--dark-purple);
+    padding: 20px;
     justify-content: space-between;
 }
 
 .left-box {
     justify-content: center;
     font-size: 150%;
+    margin-bottom: 10px;
 }
 
 .container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .container > div {
-    width: 45%;
+    /* width: 45%; */
 }
 
 .bg-primary {
@@ -312,6 +319,9 @@ div.story {
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
+    background-color: var(--dark-purple);
+    border-radius: 20px;
+    margin-top: 20px;
 }
   
 .image-container {
