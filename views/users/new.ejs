@@ -41,28 +41,28 @@
         <form id="new-user-form" action="/users" method="post">
 
           <div class="username-box" id="username" style="left: 1800px;">
-            <label id="username" for="username">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
+            <label id="username" for="username">What should be your FablePASS traveller name? <hr> (Traveller names must be unique and permanent) </label>
             <input id="username" for="username" class="input-box" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)" size="50" minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" placeholder="lowercase only, yes? (or else)" required />
           </div>
 
           <br>
 
           <div id="email" class="email-box" style="left: 3600px; bottom: 330px">
-            <label id="email" for="email">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
+            <label id="email" for="email">What are your pigeon-box coordinates? <hr> (boringly referred to as "email address") </label>
             <input id="email" for="email" class="input-box" type="email" title="LowerCase Only" name="email" size="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
           </div>
 
           <br>
 
           <div class="password-box" id="password" style="left: 5400px; bottom: 660px">
-            <label id="password" for="password">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
+            <label id="password" for="password">What is your pigeon called? <hr> (or if you are human, this is also known as a password) </label>
             <input id="password" class="input-box" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character" type="password" name="password" size="50" required pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$" />
           </div>
 
           <br>
 
           <div class="bio-box" style="left: 7200px; bottom: 990px;" id="bio">
-            <label for="bio">Tell us something about yourself <br> (or not) </label>
+            <label for="bio">Tell us something about yourself <hr> (or not) </label>
             <input id="bio" class="input-box" type="text" name="bio" title="Enter a bio for everyone to see" size="50" placeholder="last placeholder text was smth else 😭">
 
             <div class="mb-4">

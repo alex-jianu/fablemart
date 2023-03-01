@@ -11,40 +11,54 @@
 
 <body>
   <header>
-    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <a href="/users/<%= user.username %>">Profile</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <a href="/items/new">+Item</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <a href="/messages">Messages</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <a href="/orders">Orders</a>
+
+    <nav>
+      <span class="container-fluid justify-content-center">
+        <form action="/sessions?_method=DELETE" method="POST">
+          <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <a href="/users/<%= user.username %>">Profile</a>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <a href="/items/new">New Item</a>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <a href="/messages">Messages</a>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <a href="/orders">Orders</a>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <input type="submit" value="Log Out">
+        </form>
+      </span>
+    </nav>
   </header>
   <div class="content">
     <div class="input-field">
       <div class="item-input">
         <form action="/items" method="post">
-          <div>
-            <label for="name">Item name: &nbsp;</label><input type="text" name="name">
-          </div><br>
 
           <div>
-            <label for="description">Description: &nbsp;</label><input type="text" name="description">
+            <label for="name">Item name:</label><input type="text" name="name">
           </div>
           
           <br>
 
           <div>
-            <label for="photo">Photo Link: &nbsp;</label>
+            <label for="description">Description:</label><input type="text" name="description">
+          </div>
+          
+          <br>
+
+          <div>
+            <label for="photo">Photo Link:</label>
             <input type="text" name="photo">
-          </div><br><br>
+          </div>
+          
+          <br><br>
 
           <div class="buttons">
-            <input type="submit">
-
+            <input type="submit" value="Submit">
             <input type="submit" value="Cancel">
           </div>
+
         </form>
       </div>
     </div>
