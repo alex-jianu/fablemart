@@ -165,11 +165,11 @@ div.edit-message {
 form.edit-message {
   display: flex;
   flex-direction: column;
+  font-size: 120%;
 }
 
 input[type="submit"].edit-message {
   padding: 8px;
-  font-size: 80%;
   margin: auto;
   border-radius: 20px;
   border: solid #eb8a6f 2px;
@@ -184,6 +184,7 @@ input.edit-message {
 input[type="submit"]:hover {
   cursor: pointer;
 }
+
 /* media queries */
 /* responsive */
 
