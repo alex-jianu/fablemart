@@ -1,47 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
         <title>FableMart</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/sign-up.css' />
     </head>
+
     <body>
-        <header>
-                <a href="/">Home</a>
-                <a href="/sessions/new">Log In</a>
-        </header>
-        <form id="new-user-form" class="col-6 col-s-7 col-xs-8" action="/users" method="post">
-            <div class="user-inputs">
-                <div class="username-field">
-                    <label for="username">Username: </label>
-                    <input id="username" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)"
-                        minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" required />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+        <div class="container mt-5 col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+
+            <div class="left-box col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5">
+
+                <div class="parent">
+                    <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo">
+                    <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
                 </div>
-                <div class="email-field">
-                    <label for="email">Email: </label>
-                    <input id="email" type="email" title="LowerCase Only" name="email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+
+                <!-- class="col-xs-10 col-s-10 col-10 col-l-4 col-xl-4 col-xxl-4" -->
+
+                <div class="story-container">
+                    <div class="text-container">
+                        <p>*sighs*</p>
+                        <p>Well, then, let's get you one now, shall we?</p>
+                        <p>We'll need some information from you first. Let's go!</p>
+                        <a href="/sessions/new"><p>Or did you remember it?</p></a>
+                    </div>
                 </div>
-                <div class="password-field">
-                    <label for="password">Password: </label>
-                    <input id="password" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character"
-                        type="password" name="password"
-                        pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$"
-                        required />
-                    <span><i class="fa fa-eye-slash" id="toggle-password"></i> &nbsp; Show password</span><br>
-                </div>
-                <div class="bio-field">
-                    <label for="bio">Bio: </label>
-                    <input id="bio" type="text" name="bio" title="Enter a bio for everyone to see">
-                </div>
-                <div>
-                    <p id="character-length">✗ Must contain between 8-32 characters</p>
-                    <p id="lower-case">✗ Must contain lower case</p>
-                    <p id="upper-case">✗ Must contain upper case</p>
-                    <p id="special-character">✗ Must contain special character</p>
-                    <p id="digit">✗ Must include a digit</p>
-                </div><br>
             </div>
 
-            <input id="submit" type="submit" value="Submit" />
-        </form>
-    </body>
+
+            <div class="right-box col-xs-10 col-s-10 col-10 col-l-6 col-xl-6 col-xxl-6">
+                <div class="progress bg-primary col-md-12 w-100" role="progressbar" id="progress-bar" aria-label="Example 1px high" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped col-md-12 bg-secondary" style="width: 0%">0%</div>
+                </div>
+
+                <div class="form">
+                
+                        <form id="new-user-form" action="/users" method="post">
+
+                            <div class="username-box" id="username" style="left: 1800px;">
+                                <label id="username" for="username">What would you like your FablePASS traveller name to be? <br> (traveller names must be unique and can't be changed afterwards) </label>
+                                <input id="username" for="username" class="input-box" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)" size="50"
+                                minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" placeholder="lowercase only, yes? (or else)" required />
+                            </div>        
+
+                        <br>
+                
+                        <div id="email" class="email-box" style="left: 3600px; bottom: 330px"> 
+                            <label id="email" for="email">What are your pigeon-box coordinates? <br> (boringly referred to as "email address") </label>
+                            <input id="email" for="email" class="input-box" type="email" title="LowerCase Only" name="email" placeholder="you know the thing with '@'? yh that" size="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+                        </div>
+                
+                        <br>
+
+                        <div class="password-box" id="password" style="left: 5400px; bottom: 660px"> 
+                            <label id="password" for="password">What is your pigeon called? <br> (or if you are human, this is also known as a password) </label>
+                            <input id="password" for="password" class="input-box" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character" 
+                                type="password" name="password" size="50" placeholder="uhh, just look up password verification" required
+                                pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$"/>
+                            <!-- <span><i class="fa fa-eye-slash" id="toggle-password"></i> &nbsp; Show password</span><br> -->
+                        </div>
+
+                            <br>
+
+                        <div class="bio-box" style="left: 7200px; bottom: 990px;" id="bio">
+                            <label for="bio" >Tell us something about yourself <br> (or not) </label>
+                            <input id="bio" class="input-box"  type="text" name="bio" title="Enter a bio for everyone to see" size="50" placeholder="last placeholder text was smth else 😭">
+
+                            <div class="mb-4">
+                                <input id="submit" type="submit" value="Submit"/>
+                            </div>
+                        </div>
+                            <!-- 
+                            <div>
+                                <p id="character-length">✗ Must contain between 8-32 characters</p>
+                                <p id="lower-case">✗ Must contain lower case</p>
+                                <p id="upper-case">✗ Must contain upper case</p>
+                                <p id="special-character">✗ Must contain special character</p>
+                                <p id="digit">✗ Must include a digit</p>
+                            </div><br> -->
+
+                        
+                        </form>
+                </div>
+                
+                <div class="page-container">
+                    <div class="button-container">
+                    <button onclick="movingRight()" id="move-right">Previous Step</button>
+                    <button onclick="movingLeft()" id="move-left">Next Step</button>
+                    </div>
+                </div>
+
+
+                <!-- <div class="d-flex justify-content-center align-items-center fs-6 col-xs-10 col-s-10 col-10 col-l-8 col-xl-8 col-xxl-8">
+                    <div style="padding-top: 10px;" class="story text-center"></div>
+                </div> -->
+            </div>
+        </div>
+
+    </body>       
+    <div class="view align-bottom">
+        <footer> <p>FableMart™ - Bringing imagination to life</p> </footer>
+    </div>
+    
+    <script>
+        var counter = 0;
+        var moveLeft = document.getElementById("move-left");
+        var moveRight = document.getElementById("move-right");
+        var progress = document.getElementById("progress-bar");
+        var pigeon = document.getElementById("pigeon");
+
+        var usernameBox = document.getElementById("username");
+        var emailBox = document.getElementById("email");
+        var passwordBox = document.getElementById("password");
+        var bioBox = document.getElementById("bio");
+
+        usernameBox.style.transition = 'all 1s ease-out'; // add transition property
+        emailBox.style.transition = 'all 1s ease-out'; // add transition property
+        passwordBox.style.transition = 'all 1s ease-out'; // add transition property
+        bioBox.style.transition = 'all 1s ease-out'; // add transition property
+
+        pigeon.addEventListener("click", function() {
+            // Display an alert message when the image is clicked
+            if (counter === 0) {
+                alert("It is a pigeon, nothing special -_-");
+            } else if (counter === 1) {
+                alert("How many times are you gonna click this?");
+            } else if (counter === 2) {
+                alert("*sigh*");
+            } else {
+                alert("n o");
+            }
+        });
+
+        function changeBar() {
+            var stepAriaValue = 25 * counter; // Set new value for aria-valuenow
+            var stepWidth = `${stepAriaValue}%`; // Set new value for style
+            var stepText = `${stepAriaValue}%`; // Set new value for progress bar text
+            progress.setAttribute("aria-valuenow", stepAriaValue);
+            progress.querySelector(".progress-bar").style.width = stepWidth;
+            progress.querySelector(".progress-bar").textContent = stepText;
+        }
+
+        function changeButtonText(moveRightText, moveLeftText) {
+            moveRight.textContent = moveRightText;
+            moveLeft.textContent = moveLeftText;
+        }
+
+        function changeButtonStatus(moveLeftStatus, moveRightStatus) {
+            moveLeft.disabled = moveLeftStatus;
+            moveRight.disabled = moveRightStatus;
+        }
+
+        function moving(value) {
+            usernameBox.style.left = parseInt(usernameBox.style.left) - value + 'px';
+            emailBox.style.left = parseInt(emailBox.style.left) - value + 'px';
+            passwordBox.style.left = parseInt(passwordBox.style.left) - value + 'px';
+            bioBox.style.left = parseInt(bioBox.style.left) - value + 'px';
+        }
+
+        function checkCounter() {
+            if (counter === 0) {
+                changeBar()
+                changeButtonText("Give me your details 👀", "Think of a username ->");
+                changeButtonStatus(false, true);
+            } else if (counter === 1) {
+                changeBar();
+                changeButtonText("<- Umm.. Why?", "Get your email ready ->");
+                changeButtonStatus(false, false);
+            } else if (counter === 2) {
+                changeBar()
+                changeButtonText("<- I mean yh sure change the username", "Think of a GOOD password ->");    
+                changeButtonStatus(false, false);           
+            } else if (counter === 3) {
+                changeBar()
+                changeButtonText("<- Wrong email? probs", "Get ready to be creative 😭 ->");    
+                changeButtonStatus(false, false);
+            } else if (counter === 4) {
+                changeBar()
+                changeButtonText("<- Password might be weak lol", "Haven't forgotten anything, have you?");
+                changeButtonStatus(true, false);
+            } else {
+                changeButtonStatus(false, false);
+            }
+        }
+    
+        function movingLeft() {
+            moving(1800);
+            counter++;
+            checkCounter();
+        }
+    
+        function movingRight() {
+            moving(-1800);
+            counter--;            
+            checkCounter();
+        }
+    
+        changeBar();
+        checkCounter(); // check the counter initially
+    </script>
+    
+    
 </html>
+
+<!-- // function moveElement(elementId) {
+    //     var container = document.getElementById(elementId);
+    //     container.style.transition = 'all 1.5s ease-out'; // add transition property
+    //     container.style.left = parseInt(container.style.left) - 1800 + 'px';
+    // } -->
