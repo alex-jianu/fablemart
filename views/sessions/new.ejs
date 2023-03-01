@@ -6,19 +6,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FableMart Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/sessions-new.css' />
 </head>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
 <body>
-  <div class="logo-story d-flex justify-content-center align-items-center col-l-9 col-10 col-s-11 col-xs-11">
-    <header> <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"> </header>
-    <div class="story col-l-9 col-10 col-s-11 col-xs-11">
+  <div class="logo-story col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+    <header class="col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5"> <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px">
+      <div class="forgot-details col-xs-0 col-s-0 col-0 col-l-11">
+        <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
+        <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
+        <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
+      </div>
+    </header>
+    <div class="story col-xs-10 col-s-10 col-10 col-l-7 col-xl-7 col-xxl-7">
       <h2>Welcome back, traveller!<br>Let's have a look at your FablePass</h2>
-      <hr class="col-l-9 col-10 col-s-11 col-xs-11">
+      <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
       <form class="story col-l-9 col-10 col-s-11 col-xs-11" action="/sessions" method="POST">
         <label for="email">What is your pigeon-mail coordinates?<br>(sometimes known as email address)</label>
         <input style="border-radius: 40px 10px; border-radius: 40px 10px" id="email" type="email" name="email" value="">
@@ -28,19 +30,11 @@
       </form>
     </div>
   </div>
-
-
-
-  </header>
-
-  <div class="body-container">
-    <div class="container-fluid justify-content-center">
-      <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
-      <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
-    </div>
+  <div class="forgot-details col-xs-10 col-s-10 col-10 col-l-0 col-xl-0 col-xxl-0">
+    <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
+    <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
+    <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
   </div>
-
-
   <footer>
     <p>FableMart™ - Bringing imagination to life</p>
   </footer>
