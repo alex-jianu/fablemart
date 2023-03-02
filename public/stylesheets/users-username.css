@@ -29,20 +29,20 @@ title {
 }
 
 div.container {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   border-radius: 20px;
-  border: solid 4px #271e37;
+  border: solid 4px #bf5a4a;
   margin: 20px 0 60px 0;
   align-self: center;
-  height: 80%;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
 }
 
 div.edit-message {
-  background-color: #bf5a4a;
-  border-top: solid 4px #271e37;
-  border-bottom-right-radius: 10px;
+  background-color: #271e37;
+  border-top: solid 4px #bf5a4a;
+  border-bottom-right-radius: 15px;
   padding-top: 5px;
   position: absolute;
   bottom: 0;
@@ -57,24 +57,28 @@ div.item {
   background-color: #d07862;
   color: #271e37;
   border-radius: 10px;
+  border: solid 4px #bf5a4a;
   overflow-x: hidden;
-  border: solid 4px #271e37;
   width: 100%;
-  margin-bottom: 10px;
+  height: fit-content;
+  padding: 3px;
+  font-size: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 10px;
   align-items: center;
-  padding-right: 3px;
-  font-size: 90%;
+  word-wrap: break-word;
+}
+
+a {
   word-wrap: break-word;
 }
 
 div.items {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   border-radius: 20px;
   margin-top: 5px;
   padding-top: 10px;
-  height: 95%;
   width: 100%;
   overflow: scroll;
   scrollbar-width: none;
@@ -82,26 +86,26 @@ div.items {
 }
 
 div.items-list {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   padding: 5px;
   border-radius: 20px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  color: #271e37;
-  border-right: solid 4px #271e37;
-  height: 100%;
+  color: #eb8a6f;
+  border-right: solid 4px #bf5a4a;
 }
 
 div.profile {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   padding-top: 10px;
   border-radius: 20px;
   height: 100%;
   position: relative;
+  color: #eb8a6f;
 }
 
 div.profile-details {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   border-top-right-radius: 15px;
   height: 80%;
   padding: 10px;
@@ -130,7 +134,7 @@ input[type="submit"].edit-message {
   padding: 8px;
   margin: auto;
   border-radius: 20px;
-  border: solid #eb8a6f 2px;
+  border: solid #bf5a4a 4px;
   background-color: #271e37;
   color: #eb8a6f;
   align-items: center;
@@ -138,6 +142,8 @@ input[type="submit"].edit-message {
 
 input[type="submit"]:hover {
   cursor: pointer;
+  background-color: #eb8a6f;
+  color: #271e37;
 }
 
 input[type="submit"]:hover {
@@ -168,20 +174,40 @@ form.edit-message {
   font-size: 120%;
 }
 
-span.container-fluid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 hr {
-  background-color: #271e37;
+  background-color: #bf5a4a;
   border: none;
   height: 2px;
-  width: 100%;
-  margin-top: 5px;
+  width: 80%;
+  align-self: center;
+  margin: auto;
+  margin: 5px 0 30px 0;
 }
 
 html {
   height: 100%;
+}
+
+input[type="text"].new-message {
+  padding: 7px 20px 7px 20px;
+  font-size: 100%;
+  border-radius: 20px;
+  border: solid var(--jasper) 4px;
+  align-items: center;
+  background-color: var(--salmon);
+  color: var(--dark-purple);
+}
+
+input[type="text"].new-message:hover {
+  background-color: var(--jasper);
+  color: var(--dark-purple);
+  border-color: var(--salmon);
+}
+
+:root {
+  --dark-purple: #271e37;
+  --cordovan: #964a4d;
+  --jasper: #bf5a4a;
+  --burnt-sienna: #d07862;
+  --salmon: #eb8a6f;
 }

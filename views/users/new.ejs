@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FableMart</title>
+  <title>FableMart™ - Sign Up</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel='stylesheet' href='/stylesheets/sign-up.css' />
   <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/sign-up.css' />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <div class="left-box col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5">
 
       <div class="parent">
-        <img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo">
+        <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo"></a>
         <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
       </div>
       <div class="text-container">
@@ -41,28 +41,36 @@
         <form id="new-user-form" action="/users" method="post">
 
           <div class="username-box" id="username" style="left: 1800px;">
-            <label id="username" for="username">What should be your FablePASS traveller name? <hr> (Traveller names must be unique and permanent) </label>
+            <label id="username" for="username">What should be your FablePASS traveller name?
+              <hr> (Traveller names must be unique and permanent)
+            </label>
             <input id="username" for="username" class="input-box" type="text" name="username" title="LowerCase and special chars(.$@£_%!?&)" size="50" minlength="4" maxlength="15" pattern="^[a-z]+[a-z0-9.$@£_%!?&]+$" placeholder="lowercase only, yes? (or else)" required />
           </div>
 
           <br>
 
           <div id="email" class="email-box" style="left: 3600px; bottom: 330px">
-            <label id="email" for="email">What are your pigeon-box coordinates? <hr> (boringly referred to as "email address") </label>
+            <label id="email" for="email">What are your pigeon-box coordinates?
+              <hr> (boringly referred to as "email address")
+            </label>
             <input id="email" for="email" class="input-box" type="email" title="LowerCase Only" name="email" size="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
           </div>
 
           <br>
 
           <div class="password-box" id="password" style="left: 5400px; bottom: 660px">
-            <label id="password" for="password">What is your pigeon called? <hr> (or if you are human, this is also known as a password) </label>
+            <label id="password" for="password">What is your pigeon called?
+              <hr> (or if you are human, this is also known as a password)
+            </label>
             <input id="password" class="input-box" title="8-32 Characters, 1 UpperCase, 1 LowerCase, 1 Digit, 1 Special Character" type="password" name="password" size="50" required pattern="^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$" />
           </div>
 
           <br>
 
           <div class="bio-box" style="left: 7200px; bottom: 990px;" id="bio">
-            <label for="bio">Tell us something about yourself <hr> (or not) </label>
+            <label for="bio">Tell us something about yourself
+              <hr> (or not)
+            </label>
             <input id="bio" class="input-box" type="text" name="bio" title="Enter a bio for everyone to see" size="50" placeholder="last placeholder text was smth else 😭">
 
             <div class="mb-4">

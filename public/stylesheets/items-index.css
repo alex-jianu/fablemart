@@ -93,7 +93,7 @@ input[type="text"]:focus {
 input[value="Log Out"] {
   background-color: var(--dark-purple);
   color: var(--salmon);
-  border: none;
+  margin-top: 5px;
 }
 
 body {

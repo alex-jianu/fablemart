@@ -130,7 +130,9 @@ input {
   display: block;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   border-radius: 10px;
   border: solid 1px var(--salmon);
   background-color: var(--salmon);
@@ -139,7 +141,9 @@ input[type="text"], input[type="email"], input[type="password"] {
   transition: 0.15s ease-in-out;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
   border-radius: 10px;
   border: solid 1px var(--salmon);
   background-color: var(--cordovan);
@@ -148,7 +152,9 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   transition: 0.15s ease-in-out;
 }
 
-input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
   border-radius: 10px;
   border: solid 1px var(--salmon);
   background-color: var(--cordovan);
@@ -213,7 +219,8 @@ footer {
   justify-content: space-between;
 }
 
-.right-box, .left-box {
+.right-box,
+.left-box {
   border-radius: 12px;
   border: solid black 0px;
   color: #eb8a6f;
@@ -251,9 +258,12 @@ footer {
   margin-top: 10px;
 }
 
-.username-box, .password-box, .email-box, .bio-box {
+.username-box,
+.password-box,
+.email-box,
+.bio-box {
   border-radius: 10px !important;
-  border: var(--salmon) 2px solid;
+  /* border: var(--salmon) 2px solid; */
   color: rgb(235, 138, 111);
   height: 300px;
   font-size: 150%;
