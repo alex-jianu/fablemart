@@ -167,6 +167,7 @@ div.selected-contact {
 
 input.new-message {
   margin-bottom: 5px;
+  height: 100%;
 }
 
 input[type="submit"] {
@@ -180,21 +181,24 @@ input[type="submit"].new-message {
   padding: 7px;
   font-size: 80%;
   margin: auto;
-  border-radius: 20px;
-  border: solid #eb8a6f 2px;
-  background-color: #271e37;
-  color: #eb8a6f;
+  border-radius: 10px;
+  border: solid #eb8a6f 4px;
+  background-color: #bf5a4a;
+  color: #271e37;
   align-items: center;
 }
 
-input[type="submit"]:hover {
+input[type="submit"].new-message:hover {
   cursor: pointer;
+  background-color: #eb8a6f;
+  border: solid #bf5a4a 4px;
 }
 
-input[type="text"] {
+input[type="text"].new-message {
   background-color: #eb8a6f;
   align-self: center;
-  width: 50%;
+  width: 60%;
+  padding: 6px;
   border-radius: 10px;
   border: solid #271e37 2px;
 }

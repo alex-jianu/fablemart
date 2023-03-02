@@ -32,10 +32,9 @@ div.buttons {
 }
 
 div.forgot-details {
+  margin: auto;
   margin-top: 10px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   font-size: 120%;
   background-color: var(--dark-purple);
   border-radius: 10px;
@@ -75,11 +74,16 @@ input {
   padding: 7px 20px 7px 20px;
   font-size: 100%;
   border-radius: 20px;
-  border: solid var(--salmon) 4px;
+  border: solid var(--salmon) 4px !important;
   align-items: center;
   width: 100%;
-  background-color: var(--jasper);
-  color: var(--dark-purple);
+  background-color: var(--jasper) !important;
+  color: var(--dark-purple) !important;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--salmon) !important;
+  border: solid var(--jasper) 4px !important;
 }
 
 input[type="submit"] {
@@ -162,4 +166,3 @@ hr {
   top: 0;
   left: 0;
 }
-

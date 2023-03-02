@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+h1 {
+  display: flex;
+  flex-direction: row;
+  font-size: 150%;
+}
+
+h1:after {
+  margin-left: 10px;
+}
+
+h1:before,
+h1:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 a {
   color: #eb8a6f;
   text-decoration: none;
@@ -197,7 +217,7 @@ hr {
   background-color: #bf5a4a;
   border: none;
   height: 2px;
-  width: 80%;
+  width: 40%;
   align-self: center;
   margin: auto;
   margin: 5px 0 30px 0;

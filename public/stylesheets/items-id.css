@@ -146,6 +146,7 @@ input.like:hover {
 }
 
 input[type="submit"]:disabled {
+  opacity: 60%;
   border: solid 4px #eb8a6f;
   background-color: #bf5a4a;
   color: #271e37;

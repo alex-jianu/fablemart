@@ -6,7 +6,7 @@
 
 .content {
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .buttons {
@@ -16,14 +16,21 @@
   width: 100%;
 }
 
+input[type="submit"] {
+  transition: none !important;
+  color: #271e37 !important;
+  background-color: var(--jasper) !important;
+  border: solid var(--salmon) 4px !important;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--salmon) !important;
+  border: solid var(--jasper) 4px !important;
+}
+
 .buttons > input[type="submit"] {
-  align-items: center;
-  background-color: var(--salmon);
   border-radius: 10px;
-  border: var(--salmon) solid 1px;
-  color: var(--dark-purple);
   font-size: 100%;
-  transition: 0.15s ease-in-out;
   width: 40%;
 }
 
@@ -88,9 +95,9 @@ input[type="text"]:hover {
 }
 
 input[value="Log Out"] {
-  background-color: var(--dark-purple);
+  background-color: var(--dark-purple) !important;
   border: none;
-  color: #eb8a6f;
+  color: #eb8a6f !important;
 }
 
 body {
