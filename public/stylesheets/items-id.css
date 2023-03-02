@@ -1,46 +1,31 @@
 * {
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h6 {
-  font-family: bradley hand, cursive;
   font-size: x-large;
 }
 
 header {
   padding-left: 20px;
   padding-right: 20px;
-  color: #eb8a6f;
+  color: var(--salmon);
   background-color: #271e37;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 120%;
 }
 
 body {
-  position: relative;
-  background-color: #eb8a6f;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-nav {
-  background-color: var(--dark-purple);
-  color: var(--buff);
   text-align: center;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 50px;
 }
-
-/* input[value="Log Out"] {
-  background-color: var(--dark-purple);
-  color: var(--salmon);
-  border: none;
-} */
 
 .content {
   display: flex;
@@ -69,6 +54,7 @@ img {
   background-color: var(--dark-purple);
   color: var(--salmon);
   display: flex;
+  flex-direction: column;
   align-self: center;
   justify-content: center;
   text-align: center;
@@ -112,20 +98,20 @@ button {
   background-color: var(--dark-purple);
   border: var(--dark-purple) solid 1px;
 }
-
 footer {
-  background-color: var(--dark-purple);
-  color: var(--salmon);
-  text-align: center;
-  padding-bottom: 5px;
+  position: fixed;
   padding-top: 5px;
-  
+  padding-bottom: 5px;
+  color: #eb8a6f;
+  width: 100%;
+  bottom: 0;
+  background-color: #271e37;
 }
 
 :root {
---dark-purple: #271E37;
---cordovan: #964A4D;
---jasper: #BF5A4A;
---burnt-sienna: #D07862;
---salmon: #EB8A6F;
+  --dark-purple: #271e37;
+  --cordovan: #964a4d;
+  --jasper: #bf5a4a;
+  --burnt-sienna: #d07862;
+  --salmon: #eb8a6f;
 }

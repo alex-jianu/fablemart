@@ -4,21 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FableMart Profile</title>
-  <link rel='stylesheet' href='/stylesheets/users-username.css' />
+  <title>FableMart™ - Profile</title>
   <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/users-username.css' />
 </head>
 
 <body>
   <header>
     <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/users/<%= profileUser.username %>">Profile</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/items/new">+Item</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/messages">Messages</a>
-    <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/orders">Orders</a>
   </header>
   <div class="container col-xs-11 col-10 col-xl-9">
@@ -27,7 +27,6 @@
       <div class="items">
         <% items.forEach(function (item) { %>
         <div class="item">
-          <img class="item" src="<%= item.photo %>" height="50" width="50">
           <a class="dark-link" href="/items/<%= item.id%>" <p><%= item.name %>
             </p>
           </a>
@@ -38,9 +37,17 @@
     <div class="profile col-xs-9 col-9 col-xl-9">
       <div class="profile-details">
         <h1><%=profileUser.username %> Profile </h1>
+        <hr>
         <p> Username: <%=profileUser.username %></p>
         <p> Email: <%=profileUser.email %></p>
         <p> Bio: <%=profileUser.bio %></p>
+        <br>
+        <br>
+        <h1>Stats</h1>
+        <hr>
+        <p> Items ownder --- <%= itemsOwned %></p>
+        <p> Likes --- <%= likes %></p>
+        <p> Views --- <%= views %></p>
         <%if (currentUser.username === profileUser.username) {%>
       </div>
       <div class="edit-message">
