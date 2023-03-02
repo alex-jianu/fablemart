@@ -5,7 +5,23 @@
 }
 
 h6 {
-  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  font-size: 120%;
+}
+
+h6:after {
+  margin-left: 10px;
+}
+
+h6:before,
+h6:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 header {
@@ -24,7 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20%;
 }
 
 .content {
@@ -33,6 +49,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   margin: auto;
+  margin-top: 10%;
   flex-wrap: wrap;
 }
 
@@ -44,7 +61,7 @@ body {
   padding: 20px;
 }
 
-img {
+img.item {
   border-radius: 5%;
   margin: auto;
   border: var(--dark-purple) solid 4px;
@@ -60,9 +77,8 @@ img {
   text-align: center;
   margin: auto;
   border-radius: 15px;
-  padding-bottom: 30px;
   padding: 20px;
-  width: 60%;
+  padding-bottom: 30px;
 }
 
 .likes-views {
@@ -106,6 +122,38 @@ footer {
   width: 100%;
   bottom: 0;
   background-color: #271e37;
+}
+hr {
+  width: 40%;
+  opacity: 80%;
+  height: 2px;
+  background-color: #bf5a4a;
+  border: none;
+  align-self: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+input.like {
+  border: solid 4px #eb8a6f;
+  background-color: #bf5a4a;
+  color: #271e37;
+}
+input.like:hover {
+  border: solid 4px #bf5a4a;
+  background-color: #eb8a6f;
+  color: #271e37;
+}
+
+input[type="submit"]:disabled {
+  opacity: 60%;
+  border: solid 4px #eb8a6f;
+  background-color: #bf5a4a;
+  color: #271e37;
+}
+input[type="submit"]:disabled:hover {
+  cursor: default;
+  color: #271e37;
 }
 
 :root {
