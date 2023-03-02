@@ -2,68 +2,96 @@
 <html lang="en">
 
 <head>
-  <title>Acebook - Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>FableMart™ - <%= item.name%></title>
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/items-id.css' />
 </head>
 
 <body>
   <header>
-    <span>
-      <form action="/sessions?_method=DELETE" method="POST"></form>
-      <a href="/items">FableMart</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/users/<%=item.owner%>">User Profile</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items/new">New Item</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/messages">Messages</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/orders">Orders</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <input type="submit" value="Log Out">
-      </form>
-    </span>
-    <br>
+    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/users/<%= user.username %>">Profile</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/items/new">+Item</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/messages">Messages</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/orders">Orders</a>
+    </form>
   </header>
-  <img src="<%= item.photo %>" height="400" width="400">
-  <p><%= item.name%></p>
-  <p><%= item.description%></p>
-  <a href="/users/<%=item.owner%>">
-    <p>Owner: <%= item.owner%></p>
-  </a>
+  <div class="content col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+    <div class="photo col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5">
+      <img class="item" src="<%= item.photo %>" height="400" width="400">
+    </div>
 
-  <% if (item.viewedBy.length === 0) { %>
-  <p>No Views</p>
-  <% } else if (item.viewedBy.length === 1) { %>
-  <p><%= item.viewedBy.length %> View</p>
-  <% } else { %>
-  <p><%= item.viewedBy.length %> Views</p>
-  <% } %>
+    <div class="lower-text col-xs-9 col-s-9 col-9 col-l-6 col-xl-6 col-xxl-6">
+      <h6>Name</h6>
+      <hr>
+      <p><%= item.name%></p>
+      <br>
+      <h6>Description</h6>
+      <hr>
+      <p><%= item.description%></p>
+      <br>
+      <h6>Owner:</h6>
+      <hr>
+      <a href="/users/<%=item.owner%>">
+        <p>Owner: <%= item.owner%></p>
+      </a>
 
-  <% if (item.likedBy.length === 0) { %>
-  <p>No Likes</p>
-  <% } else if (item.likedBy.length === 1) { %>
-  <p><%= item.likedBy.length %> Like</p>
-  <% } else { %>
-  <p><%= item.likedBy.length %> Likes</p>
-  <% } %>
+      <div class="likes-views">
+        <% if (item.likedBy.length === 0) { %>
+        <p>No Likes</p>
+        <% } else if (item.likedBy.length === 1) { %>
+        <p><%= item.likedBy.length %> Like</p>
+        <% } else { %>
+        <p><%= item.likedBy.length %> Likes</p>
+        <% } %>
 
-  <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
-    <% if (item.isLiked) { %>
-    <button><input class="logout" type="submit" value=""><i class="fas fa-heart" style="font-size: 30px; color: red"></i></button>
-    <% } else { %>
-    <button><input class="logout" type="submit" value=""><i class="far fa-heart" style="font-size: 30px; color: grey"></i></button>
-    <% } %>
-  </form>
+        <% if (item.viewedBy.length === 0) { %>
+        <p>No Views</p>
+        <% } else if (item.viewedBy.length === 1) { %>
+        <p><%= item.viewedBy.length %> View</p>
+        <% } else { %>
+        <p><%= item.viewedBy.length %> Views</p>
+        <% } %>
+      </div>
 
+      <br>
 
-  <form action="/orders/<%=item.id%>" method="POST">
-    <button>
-      <input class="logout" type="submit" value="Order">
-      <i class="far fa-heart" style="font-size: 30px; color: grey"></i>
-    </button>
-  </form>
+      <div class="like-order">
+
+        <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
+          <% if (item.isLiked) { %>
+          <button><input class="like" type="submit" value="Like ♥️"></button>
+          <% } else { %>
+          <button><input class="like" type="submit" value="Like ♥️"></button>
+          <% } %>
+        </form>
+
+        <form action="/orders/<%=item.id%>" method="POST">
+          <button>
+            <% if (item.owner === user.username) { %>
+            <input class="logout" type="submit" value="Owned 📦" disabled>
+            <% } else { %>
+            <input class="like" type="submit" value="Order 📦">
+            <% } %>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input id="logout-button" type="submit" value="Log Out">
+    </form>
+  </footer>
 
 </body>
-<footer>FableMart™ in partnership with Eta™</footer>
 
 </html>

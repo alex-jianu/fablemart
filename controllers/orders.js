@@ -67,6 +67,7 @@ const OrdersController = {
     if (!req.session.user) {
       res.redirect("/");
     } else {
+      const user = await User.findOne({ _id: req.session.user._id });
       const sentOrders = await Order.find({
         buyerUsername: req.session.user.username,
         status: "pending",
@@ -76,6 +77,7 @@ const OrdersController = {
         status: "pending",
       });
       res.render("orders/index", {
+        user: user,
         sentOrders,
         receivedOrders,
       });

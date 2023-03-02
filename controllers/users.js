@@ -61,8 +61,19 @@ const UsersController = {
     } else {
       const profileUser = await User.findOne({ username: req.params.username });
       const profileUserItems = await Item.find({ owner: req.params.username });
+      const itemsOwned = await Item.find({ owner: profileUser.username });
+      let likes = 0;
+      let views = 0;
+      
+      itemsOwned.forEach((item) => {
+        likes += item.likedBy.length;
+        views += item.viewedBy.length;
+      });
 
       res.render("users/username", {
+        likes,
+        views,
+        itemsOwned: itemsOwned.length,
         profileUser: profileUser,
         currentUser: req.session.user,
         items: profileUserItems,
@@ -74,10 +85,23 @@ const UsersController = {
       res.redirect("/");
     } else {
       const profileUser = await User.findOne({ username: req.params.username });
+      const profileUserItems = await Item.find({ owner: req.params.username });
+      const itemsOwned = await Item.find({ owner: profileUser.username });
+      let likes = 0;
+      let views = 0;
+
+      itemsOwned.forEach((item) => {
+        likes += item.likedBy.length;
+        views += item.viewedBy.length;
+      });
 
       res.render("users/edit", {
+        likes,
+        views,
+        itemsOwned: itemsOwned.length,
         profileUser: profileUser,
         currentUser: req.session.user,
+        items: profileUserItems,
       });
     }
   },

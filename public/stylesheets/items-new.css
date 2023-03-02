@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin: auto;
+  margin-top: 5%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+input[type="submit"] {
+  transition: none !important;
+  color: #271e37 !important;
+  background-color: var(--jasper) !important;
+  border: solid var(--salmon) 4px !important;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--salmon) !important;
+  border: solid var(--jasper) 4px !important;
+}
+
+.buttons > input[type="submit"] {
+  border-radius: 10px;
+  font-size: 100%;
+  width: 40%;
+}
+
+.buttons > input[type="submit"]:hover {
+  background-color: var(--cordovan);
+  border: var(--salmon) solid 1px;
+  transition: 0.15s ease-in-out;
+}
+
+header {
+  align-items: center;
+  background-color: #271e37;
+  color: #eb8a6f;
+  display: flex;
+  font-size: 120%;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.input-field {
+  align-items: center;
+  display: flex;
+  padding-top: 7%;
+  width: 100%;
+}
+
+.item-input {
+  align-items: center;
+  background-color: var(--dark-purple);
+  border-radius: 20px;
+  border: var(--dark-purple) solid 1px;
+  color: var(--salmon);
+  display: flex;
+  flex-direction: column;
+  font-size: 120%;
+  margin: auto;
+  padding: 2%;
+  width: 100%;
+}
+
+.lists {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  padding-bottom: 0.5%;
+  text-align: center;
+}
+
+input[type="text"] {
+  background-color: var(--salmon);
+  border-radius: 5px;
+  border: var(--salmon) solid 1px;
+  height: 30px;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover {
+  background-color: var(--cordovan);
+  border: var(--salmon) solid 1px;
+  transition: 0.15s ease-in-out;
+}
+
+input[value="Log Out"] {
+  background-color: var(--dark-purple) !important;
+  border: none;
+  color: #eb8a6f !important;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+footer {
+  background-color: #271e37;
+  bottom: 0;
+  color: #eb8a6f;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  position: fixed;
+  width: 100%;
+}
+
+:root {
+  --burnt-sienna: #d07862;
+  --cordovan: #964a4d;
+  --dark-purple: #271e37;
+  --jasper: #bf5a4a;
+  --salmon: #eb8a6f;
+}

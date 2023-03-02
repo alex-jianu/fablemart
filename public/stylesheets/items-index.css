@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #eb8a6f;
+}
+
+h1 {
+  font-size: 150%;
+  padding: 10px;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 20%;
+  background-color: #eb8a6f;
+  border: solid #271e37 5px;
+  color: #271e37;
+}
+
+nav {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contents {
+  background-color: #271e37;
+  border: #271e37 solid 2px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: var(--buff);
+  text-align: center;
+  padding-bottom: 1%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+header {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: var(--salmon);
+  background-color: #271e37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120%;
+}
+
+.likes-views {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 20px;
+  padding: 0% 2%;
+}
+
+.lists {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  text-align: center;
+  padding-bottom: 0.5%;
+  width: 100%;
+}
+
+.main-content {
+  padding-bottom: 5%;
+  width: 100%;
+}
+
+img {
+  border-radius: 5%;
+  margin: auto;
+}
+
+input[type="text"] {
+  border: #efd0c1 solid 1px;
+  border-radius: 5px;
+  background-color: #964a4d;
+}
+
+input[type="text"]:focus {
+  background-color: #3d0019;
+}
+
+input[value="Log Out"] {
+  background-color: var(--dark-purple);
+  color: var(--salmon);
+  margin-top: 5px;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.picture {
+  padding-bottom: 4%;
+}
+
+.responsive {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: fill;
+}
+
+:root {
+  --dark-purple: #271e37;
+  --cordovan: #964a4d;
+  --jasper: #bf5a4a;
+  --burnt-sienna: #d07862;
+  --salmon: #eb8a6f;
+}
+
+.sale-items {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 0% 1%;
+  margin-top: 10px;
+}

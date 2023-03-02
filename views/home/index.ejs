@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Welcome to FableMart</title>
-    </head>
-    <body>
-        <header>
-            <a href="/sessions/new">Log In</a>
-            <a href="/users/new">Sign Up</a>
-        </header>
-            <h1>
-                <%=title%>
-            </h1>
-            <p>Whatever you’ve got in mind, we’ve got inside.</p>
-    </body>
-    <footer>FableMart™ Bringing imagination to life</footer>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart™ - Home</title>
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/home-index.css' />
+</head>
+
+<body>
+  <div>
+    <header><a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"></a> </header>
+    <div class="story col-xs-10 col-s-10 col-6 col-l-6 col-xl-6 col-xxl-6">
+      <p>Since the dawn of the universe life has never ceased to wander into the unknown and retrieve the unimaginable</p>
+      <hr class="col-xs-8 col-s-8 col-6 col-6 col-l-4 col-4 col-4">
+      <p>Are you ready to spend money you don't have on things that don't exist and talk about fictitious items with other internet travellers?</p>
+      <hr class="col-xs-8 col-s-8 col-6 col-6 col-l-4 col-4 col-4">
+      <p>Then you'd better get your FablePass ready
+        and remember:
+      <p>Nothing is real... But most of it is really funny</p>
+    </div>
+  </div>
+
+  <div class="buttons col-xs-10 col-s-10 col-6 col-l-6 col-xl-6 col-xxl-6">
+    <form class="col-xs-10 col-s-10 col-6 col-l-6 col-xl-6 col-xxl-6" action="/sessions/new" method="GET">
+      <input class="col-xs-10 col-s-10 col-10 col-l-10 col-xl-10 col-xxl-10" type="submit" value="Here's my &#10; FablePASS"> </input>
+    </form>
+
+    <form class="col-xs-10 col-s-10 col-6 col-l-6 col-xl-6 col-xxl-6" action="/users/new" method="GET">
+      <input class="col-xs-10 col-s-10 col-10 col-l-10 col-xl-10 col-xxl-10" type="submit" value="I need a &#10; FablePASS"> </input>
+    </form>
+  </div>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
+</body>
+
 </html>

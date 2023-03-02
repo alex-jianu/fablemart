@@ -2,67 +2,64 @@
 <html lang="en">
 
 <head>
-  <title>Acebook - Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart™ - New Item</title>
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/items-new.css' />
 </head>
 
 <body>
   <header>
-    <span>
-      <a href="/items">FableMart</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/user/:username">User Profile</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items/new">New Item</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/messages">Message</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/orders">Orders</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/sessions/new">Log out</a>
-    </span>
-    <br>
+    <a href="/"><img src="/images/fablemart-logo-without-decoration.png" alt="fablemart" height="50px" width="100px"></a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/users/<%= user.username %>">Profile</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/items/new">+Item</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/messages">Messages</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/orders">Orders</a>
   </header>
-  <hr>
+  <div class="content col-xs-10 col-s-8 col-8 col-l-6 col-xl-4 col-xxl-4">
+    <div class="input-field">
+      <div class="item-input">
+        <form action="/items" method="post">
 
-  <header>
-    <span>
-      <a href="/items">Most Popular</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Most Recent</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Recently Viewed</a>
-      <span class="larger">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <a href="/items">Etc.</a>
-    </span>
-    <br>
-  </header>
-  <hr>
+          <div>
+            <label for="name">Item name:</label><input type="text" name="name">
+          </div>
 
-  <form action="/items" method="post">
-    <div>
-      <label for="name">Name: &nbsp;</label><input type="text" name="name">
-    </div><br>
+          <br>
 
-    <div>
-      <label for="description">Description &nbsp;</label><input type="text" name="description">
-    </div><br>
+          <div>
+            <label for="description">Description:</label><input type="text" name="description">
+          </div>
 
-    <div>
-      <label for="photo">Photo Link &nbsp;</label>
-      <input type="text" name="photo">
-    </div><br><br>
+          <br>
 
-    <div>
-      <input type="submit">
+          <div>
+            <label for="photo">Photo Link:</label>
+            <input type="text" name="photo">
+          </div>
+
+          <br><br>
+
+          <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="submit" value="Cancel">
+          </div>
+
+        </form>
+      </div>
     </div>
-
-    <div>
-      <input type="submit" value="Cancel">
-    </div><br><br>
-
-  </form>
-
+  </div>
 </body>
-<footer>FableMart™ in partnership with Eta™</footer>
+<footer>
+  <p>FableMart™ - Bringing imagination to life</p>
+  <form action="/sessions?_method=DELETE" method="POST">
+    <input id="logout-button" type="submit" value="Log Out">
+  </form>
+</footer>
 
 </html>

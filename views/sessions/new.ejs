@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-  <title>Acebook - Log In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FableMart™ - Log In</title>
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/sessions-new.css' />
 </head>
 
 <body>
-  <header>
-    <a href="/">Home</a>
-    <a href="/users/new">Sign Up</a>
-  </header>
-  <h1>FableMart</h1>
-  <p>Spend money you don't have<br>on things you don't need</p>
-  <form id="new-session-form" action="/sessions" method="post">
-    <h2>Log into FableMart</h2>
-
-    <label for="email">Email: </label>
-    <input id="email" type="email" name="email" value="">
-
-    <label for="password">Password: </label>
-    <input id="password" type="password" name="password" value="">
-
-    <input id="submit" type="submit" value="Submit">
-  </form>
-  <a href="/forgot-password" style="color: red">Oh, no!!! What was my enchanted passphrase?!?</a>
+  <div class="logo-story col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+    <header class="col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5"> <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"></a>
+      <div class="forgot-details col-xs-0 col-s-0 col-0 col-l-11 col-xl-11 col-xxl-11">
+        <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
+        <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
+        <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
+      </div>
+    </header>
+    <div class="story col-xs-10 col-s-10 col-10 col-l-7 col-xl-7 col-xxl-7">
+      <h2>Welcome back, traveller!<br>Let's have a look at your FablePass</h2>
+      <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
+      <form class="story col-l-9 col-10 col-s-11 col-xs-11" action="/sessions" method="POST">
+        <label for="email">What is your pigeon-mail coordinates?<br>(sometimes known as email address)</label>
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px; width: 100%" id="email" type="email" name="email" value="">
+        <label for="password">And your enchanted passphrase? </label>
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px; width: 100%" id="password" type="password" name="password" value="">
+        <input type="submit" value="That's my FablePASS">
+      </form>
+    </div>
+  </div>
+  <div class="forgot-details col-xs-10 col-s-10 col-10 col-l-0 col-xl-0 col-xxl-0">
+    <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
+    <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
+    <a href="/users/new">I...might not have a FablePASS yet after all... oops...</a>
+  </div>
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
 </body>
-<footer>FableMart™ in partnership with Eta™</footer>
 
 </html>

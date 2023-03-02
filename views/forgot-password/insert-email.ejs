@@ -1,6 +1,41 @@
-<h1>Insert your email address</h1>
-<form action="/forgot-password" method="POST">
-  <label for="email">Email address</label>
-  <input type="text" name="email">
-  <input type="submit" value="get my password">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fablemart™ - Oops... I forgot</title>
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/insert-email.css' />
+</head>
+
+<body>
+
+  <div class="logo">
+    <header>
+      <div class="parent">
+        <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo"></a>
+        <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
+      </div>
+    </header>
+  </div>
+
+  <div class="content-center">
+    <div class="reset-box col-xs-10 col-s-10 col-8 col-6 col-l-6 col-6 col-6">
+      <h1>Reset your password</h1>
+      <form action="/forgot-password" method="POST">
+        <label for="email">Email address: </label>
+        <input type="text" name="email">
+        <input class="like" type="submit" value="submit" style="width:fit-content">
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>FableMart™ - Bringing imagination to life</p>
+  </footer>
+
+</body>
+
+</html>
