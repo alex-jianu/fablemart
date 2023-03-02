@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+.content {
+  margin: auto;
+  margin-top: 10%;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -57,7 +62,7 @@ header {
   font-size: 120%;
   margin: auto;
   padding: 2%;
-  width: 40%;
+  width: 100%;
 }
 
 .lists {
@@ -76,7 +81,8 @@ input[type="text"] {
   width: 100%;
 }
 
-input[type="text"]:focus, input[type="text"]:hover {
+input[type="text"]:focus,
+input[type="text"]:hover {
   background-color: var(--cordovan);
   border: var(--salmon) solid 1px;
   transition: 0.15s ease-in-out;

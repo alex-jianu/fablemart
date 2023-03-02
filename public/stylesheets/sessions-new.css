@@ -71,16 +71,15 @@ input {
   padding: 7px 20px 7px 20px;
   font-size: 100%;
   border-radius: 20px;
-  border: solid var(--jasper) 4px;
+  border: solid var(--salmon) 4px;
   align-items: center;
-  background-color: var(--salmon);
+  width: 100%;
+  background-color: var(--jasper);
   color: var(--dark-purple);
 }
 
-input:hover {
-  background-color: var(--jasper);
-  color: var(--dark-purple);
-  border-color: var(--salmon);
+input[type="submit"] {
+  background-color: var(--dark-purple);
 }
 
 input[type="email"],

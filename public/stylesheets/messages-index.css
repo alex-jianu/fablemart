@@ -29,28 +29,41 @@ title {
 }
 
 div.contact {
-  background-color: #d07862;
+  background-color: #bf5a4a;
   color: #271e37;
   border-radius: 10px;
-  padding: 3px;
-  border: solid 4px #271e37;
+  border: solid 4px #eb8a6f;
+  overflow-x: hidden;
   width: 100%;
+  height: fit-content;
+  padding: 3px;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 10px;
+  align-items: center;
+  word-wrap: break-word;
+}
+div.contact:hover {
+  background-color: #eb8a6f;
+  color: #271e37;
+  border-radius: 10px;
+  border: solid 4px #bf5a4a;
 }
 
 div.contact-list {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   padding: 5px;
   border-radius: 20px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  color: #271e37;
-  border-right: solid 4px #271e37;
+  color: #eb8a6f;
+  border-right: solid 4px #bf5a4a;
   height: 100%;
 }
 
 div.contacts {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   border-radius: 20px;
   margin-top: 10px;
   padding-top: 10px;
@@ -62,9 +75,9 @@ div.contacts {
 }
 
 div.container {
-  background-color: #eb8a6f;
+  background-color: #272727;
   border-radius: 20px;
-  border: solid 4px #271e37;
+  border: solid 4px #bf5a4a;
   margin: 20px 0 60px 0;
   align-self: center;
   height: 80%;
@@ -73,7 +86,7 @@ div.container {
 }
 
 div.messages {
-  background-color: #eb8a6f;
+  background-color: #271e37;
   border-radius: 20px;
   height: 100%;
 }

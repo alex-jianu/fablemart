@@ -16,28 +16,32 @@
     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/users/<%= user.username %>">Profile</a>
     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <a href="/items/new">New Item</a>
+    <a href="/items/new">+Item</a>
     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/messages">Messages</a>
     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/orders">Orders</a>
     </form>
   </header>
-  <div class="content col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-    <div class="photo">
-      <img src="<%= item.photo %>" height="400" width="400">
+  <div class="content col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
+    <div class="photo col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5">
+      <img class="item" src="<%= item.photo %>" height="400" width="400">
     </div>
 
-    <div class="lower-text">
-
-      <h6><%= item.name%></h6>
+    <div class="lower-text col-xs-9 col-s-9 col-9 col-l-6 col-xl-6 col-xxl-6">
+      <h6>Name</h6>
+      <hr>
+      <p><%= item.name%></p>
       <br>
+      <h6>Description</h6>
+      <hr>
       <p><%= item.description%></p>
       <br>
+      <h6>Owner:</h6>
+      <hr>
       <a href="/users/<%=item.owner%>">
         <p>Owner: <%= item.owner%></p>
       </a>
-      <br>
 
       <div class="likes-views">
         <% if (item.likedBy.length === 0) { %>
@@ -63,15 +67,19 @@
 
         <form action="/items/<%= item.id%>/like?_method=PATCH" method="POST">
           <% if (item.isLiked) { %>
-          <button><input class="logout" type="submit" value="Like ♥️"></button>
+          <button><input class="like" type="submit" value="Like ♥️"></button>
           <% } else { %>
-          <button><input class="logout" type="submit" value="Like ♥️"></button>
+          <button><input class="like" type="submit" value="Like ♥️"></button>
           <% } %>
         </form>
 
         <form action="/orders/<%=item.id%>" method="POST">
           <button>
+            <% if (item.owner === user.username) { %>
+            <input class="logout" type="submit" value="Owned 📦" disabled>
+            <% } else { %>
             <input class="logout" type="submit" value="Order 📦">
+            <% } %>
           </button>
         </form>
       </div>
@@ -80,7 +88,7 @@
   <footer>
     <p>FableMart™ - Bringing imagination to life</p>
     <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log Out">
+      <input id="logout-button" type="submit" value="Log Out">
     </form>
   </footer>
 

@@ -13,6 +13,10 @@ a.dark-link {
   color: #271e37;
 }
 
+p {
+  font-size: 130%;
+}
+
 header {
   padding-left: 20px;
   padding-right: 20px;
@@ -34,7 +38,7 @@ div.container {
   border: solid 4px #bf5a4a;
   margin: 20px 0 60px 0;
   align-self: center;
-  height: 100vh;
+  height: 80%;
   display: flex;
   justify-content: space-between;
 }
@@ -54,10 +58,10 @@ div.edit-message {
 }
 
 div.item {
-  background-color: #d07862;
+  background-color: #bf5a4a;
   color: #271e37;
   border-radius: 10px;
-  border: solid 4px #bf5a4a;
+  border: solid 4px #eb8a6f;
   overflow-x: hidden;
   width: 100%;
   height: fit-content;
@@ -68,6 +72,13 @@ div.item {
   margin-bottom: 10px;
   align-items: center;
   word-wrap: break-word;
+}
+
+div.item:hover {
+  background-color: #eb8a6f;
+  color: #271e37;
+  border-radius: 10px;
+  border: solid 4px #bf5a4a;
 }
 
 a {
@@ -134,9 +145,16 @@ input[type="submit"].edit-message {
   padding: 8px;
   margin: auto;
   border-radius: 20px;
+  border: solid #eb8a6f 4px;
+  background-color: #bf5a4a;
+  color: #271e37;
+  align-items: center;
+}
+
+input[type="submit"].edit-message:hover {
   border: solid #bf5a4a 4px;
-  background-color: #271e37;
-  color: #eb8a6f;
+  background-color: #eb8a6f;
+  color: #271e37;
   align-items: center;
 }
 
@@ -160,6 +178,7 @@ body {
 
 footer {
   position: fixed;
+  display: block;
   padding-top: 5px;
   padding-bottom: 5px;
   color: #eb8a6f;
@@ -192,16 +211,16 @@ input[type="text"].new-message {
   padding: 7px 20px 7px 20px;
   font-size: 100%;
   border-radius: 20px;
-  border: solid var(--jasper) 4px;
+  border: solid var(--salmon) 4px;
   align-items: center;
-  background-color: var(--salmon);
+  background-color: var(--jasper);
   color: var(--dark-purple);
 }
 
-input[type="text"].new-message:hover {
-  background-color: var(--jasper);
-  color: var(--dark-purple);
-  border-color: var(--salmon);
+input[type="text"].new-message:focus {
+  background-color: var(--salmon);
+  color: var(--jasper);
+  border-color: var(--dark-purple);
 }
 
 :root {

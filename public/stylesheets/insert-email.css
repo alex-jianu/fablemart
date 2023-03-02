@@ -27,25 +27,14 @@ img {
   border-radius: 150px;
 }
 
-input[type=text] {
-  border: #eb8a6f solid 2px;
-  border-radius: 10px;
-  background-color: #964a4d;
+input[type="text"] {
   width: 40%;
 }
 
-input[type=text]:focus {
-  background-color: #eb8a6f;
-  color: #271e37;
-}
-
-input[value=submit] {
+input[value="submit"] {
   width: 10%;
   height: 100%;
-  background-color: #271e37;
-  border: #eb8a6f solid 2px;
-  border-radius: 10px;
-  color: #eb8a6f;
+  align-self: center;
 }
 
 body {
@@ -79,6 +68,13 @@ footer {
   width: 100%;
   height: 40%;
   margin: auto;
+  border-radius: 20px;
+}
+
+.box {
+  background-color: #271e37;
+  color: #eb8a6f;
+  padding: 10px;
   border-radius: 20px;
 }
 

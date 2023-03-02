@@ -35,7 +35,7 @@
 
   <div class="main-content">
     <% if (items.length === 0) { %>
-    <h1>You haven't liked any item yet</h1>
+    <h1 class="col-xs-11 col-s-11 col-11">You haven't liked any item yet</h1>
     <% } else { %>
     <div class="sale-items col-xs-11 col-s-11 col-11">
       <% items.forEach(function (item) { %>
@@ -69,9 +69,9 @@
     <% } %>
   </div>
   <footer>
-    <p>FableMart™ - Bringing imagination to life</p>
+    FableMart™ - Bringing imagination to life
     <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log Out">
+      <input id="logout-button" type="submit" value="Log Out">
     </form>
   </footer>
 </body>
