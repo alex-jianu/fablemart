@@ -6,7 +6,7 @@
 
 h1 {
   font-size: 200%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 label {
@@ -79,15 +79,17 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 40%;
+  height: 50%;
   margin: auto;
   border-radius: 20px;
+  padding-bottom: 10px;
 }
 
 .box {
   background-color: #271e37;
   color: #eb8a6f;
-  padding: 10px;
+  padding: 30px;
+  margin-top: 50px;
   border-radius: 20px;
 }
 
