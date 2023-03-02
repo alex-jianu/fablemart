@@ -62,6 +62,10 @@ div.story {
   word-wrap: break-word;
 }
 
+input[type="submit"] {
+  margin: auto;
+}
+
 img {
   border-radius: 150px;
   align-self: center;
@@ -128,3 +132,35 @@ hr {
 .small-screen-only {
   display: none;
 }
+
+.logo {
+  position: relative;
+  display: inline-block; /* Added to enable positioning of pigeon image */
+  border-radius: 150px;
+  align-items: center;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.pigeon {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 100px;
+  border: solid 3px var(--cordovan);
+  padding: 5px;
+  background-color: var(--salmon);
+}
+
+.logo {
+  position: relative;
+  border-radius: 150px;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+

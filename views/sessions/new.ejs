@@ -12,7 +12,12 @@
 
 <body>
   <div class="logo-story col-xs-11 col-s-11 col-11 col-l-11 col-xl-11 col-xxl-11">
-    <header class="col-xs-10 col-s-10 col-10 col-l-5 col-xl-5 col-xxl-5"> <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px"></a>
+    <header> 
+      <div class="parent">
+        <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo"></a>
+        <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
+      </div>
+      
       <div class="forgot-details col-xs-0 col-s-0 col-0 col-l-11">
         <a href="/forgot-password">Oh, no!!! What was my enchanted passphrase?!?</a>
         <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
@@ -24,9 +29,9 @@
       <hr class="col-xs-8 col-s-8 col-8 col-l-8 col-xl-8 col-xxl-8">
       <form class="story col-l-9 col-10 col-s-11 col-xs-11" action="/sessions" method="POST">
         <label for="email">What is your pigeon-mail coordinates?<br>(sometimes known as email address)</label>
-        <input style="border-radius: 40px 10px; border-radius: 40px 10px" id="email" type="email" name="email" value="">
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px; width: 100%" id="email" type="email" name="email" value="">
         <label for="password">And your enchanted passphrase? </label>
-        <input style="border-radius: 40px 10px; border-radius: 40px 10px" id="password" type="password" name="password" value="">
+        <input style="border-radius: 40px 10px; border-radius: 40px 10px; width: 100%" id="password" type="password" name="password" value="">
         <input type="submit" value="That's my FablePASS">
       </form>
     </div>

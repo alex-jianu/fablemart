@@ -72,7 +72,6 @@ input[type="text"] {
   border-radius: 5px;
   border: var(--salmon) solid 1px;
   height: 30px;
-  transition: 0.15s ease-in-out;
   width: 100%;
 }
 

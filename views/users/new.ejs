@@ -21,13 +21,14 @@
         <a href="/"><img src="/images/fablemart-logo.png" alt="fablemart" height="200px" width="300px" class="logo"></a>
         <img src="https://static.thenounproject.com/png/4866-200.png" alt="fablemart" id="pigeon" class="pigeon" height="75px" width="75px">
       </div>
+
       <div class="text-container">
         <p>*sighs*</p>
         <p>Well, then, let's get you one now, shall we?</p>
         <p>We'll need some information from you first. Let's go!</p>
-        <a href="/sessions/new">Or did you remember it?
-        </a>
+        <a href="/sessions/new">Or did you remember it?</a>
       </div>
+
     </div>
 
 
@@ -125,16 +126,17 @@
   bioBox.style.transition = 'all 1s ease-out'; // add transition property
 
   pigeon.addEventListener("click", function() {
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     // Display an alert message when the image is clicked
-    if (counter === 0) {
-      alert("It is a pigeon, nothing special -_-");
-    } else if (counter === 1) {
-      alert("How many times are you gonna click this?");
-    } else if (counter === 2) {
-      alert("*sigh*");
-    } else {
-      alert("n o");
-    }
+    // if (counter === 0) {
+    //   alert("It is a pigeon, nothing special -_-");
+    // } else if (counter === 1) {
+    //   alert("How many times are you gonna click this?");
+    // } else if (counter === 2) {
+    //   alert("*sigh*");
+    // } else {
+    //   alert("n o");
+    // }
   });
 
   function changeBar() {
