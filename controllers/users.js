@@ -64,7 +64,7 @@ const UsersController = {
       const itemsOwned = await Item.find({ owner: profileUser.username });
       let likes = 0;
       let views = 0;
-
+      
       itemsOwned.forEach((item) => {
         likes += item.likedBy.length;
         views += item.viewedBy.length;
