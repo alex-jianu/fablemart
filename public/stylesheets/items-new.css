@@ -87,6 +87,25 @@ input[type="text"] {
   width: 100%;
 }
 
+a.cancel {
+  width: 50%;
+}
+
+input[type="button"].cancel {
+  height: 100%;
+  width: 80%;
+  background-color: #bf5a4a;
+  color: #271e37;
+  font-size: 100%;
+  border: solid #eb8a6f 4px;
+  border-radius: 10px;
+}
+
+input[type="button"].cancel:hover {
+  background-color: #eb8a6f;
+  border: solid #bf5a4a 4px;
+}
+
 input[type="text"]:focus,
 input[type="text"]:hover {
   background-color: var(--cordovan);
