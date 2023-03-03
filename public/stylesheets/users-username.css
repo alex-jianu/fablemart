@@ -111,7 +111,7 @@ div.items {
   margin-top: 5px;
   padding-top: 10px;
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
   scrollbar-width: none;
   scrollbar-color: #eb8a6f;
 }

@@ -138,6 +138,7 @@ input[type="password"] {
   background-color: var(--salmon);
   color: var(--dark-purple);
   width: 300px;
+  height: 20%;
   transition: 0.15s ease-in-out;
 }
 
